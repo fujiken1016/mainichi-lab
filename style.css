@@ -1,0 +1,42 @@
+:root{
+  --bg:#faf9f6;--card:#ffffff;--ink:#1c1c1e;--sub:#6e6e73;--line:#e8e6e1;
+  --accent:#2f6f4f;--accent-soft:#e8f2ec;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#141416;--card:#1e1e21;--ink:#f2f2f4;--sub:#9a9aa2;--line:#2c2c30;
+  --accent:#6fbf94;--accent-soft:#1f2e26}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+header.site{padding:48px 0 8px;text-align:center}
+.logo{font-size:1.6rem;font-weight:800;letter-spacing:.02em}
+.logo a{color:var(--ink);text-decoration:none}
+.tagline{color:var(--sub);font-size:.92rem;margin-top:6px}
+main{padding:24px 0 48px}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:20px}
+@media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 18px 16px;text-decoration:none;color:var(--ink);
+  transition:transform .15s ease,box-shadow .15s ease}
+.card:active{transform:scale(.98)}
+@media(hover:hover){.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.06)}}
+.card .emoji{font-size:1.7rem}
+.card h2{font-size:1.05rem;margin:8px 0 4px}
+.card p{font-size:.86rem;color:var(--sub)}
+.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);
+  font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 10px;margin-top:10px}
+.section-note{color:var(--sub);font-size:.88rem;margin-top:28px;text-align:center}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;text-align:center}
+footer.site nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-bottom:14px}
+footer.site a{color:var(--sub);font-size:.84rem;text-decoration:none}
+footer.site a:hover{color:var(--ink)}
+.copy{color:var(--sub);font-size:.78rem}
+/* legal pages */
+.legal h1{font-size:1.4rem;margin:36px 0 18px}
+.legal h2{font-size:1.05rem;margin:26px 0 8px}
+.legal p,.legal li{font-size:.92rem;color:var(--ink)}
+.legal ul{padding-left:1.3em}
+.legal .updated{color:var(--sub);font-size:.8rem;margin-top:30px}
+.back{display:inline-block;margin-top:30px;color:var(--accent);text-decoration:none;font-size:.9rem}
