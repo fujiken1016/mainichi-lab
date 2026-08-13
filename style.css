@@ -120,3 +120,7 @@ footer.site a{color:var(--sub);font-size:.83rem;text-decoration:none;
   min-height:40px;display:inline-flex;align-items:center}
 footer.site a:hover{color:var(--ink)}
 .copy{color:var(--sub);font-size:.76rem}
+
+/* 記事末尾の関連記事 */
+.related-posts{margin-top:40px;padding-top:8px;border-top:1px solid var(--line)}
+.related-posts h2{font-size:1rem;margin:20px 0 0}
