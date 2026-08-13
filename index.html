@@ -3,75 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>毎日ラボ — AIで作った実用ツール集</title>
-<meta name="description" content="毎日をちょっと便利に、ちょっと楽しく。AIと一緒に作った実用ツール・学習サービスを公開しています。">
-<meta property="og:title" content="毎日ラボ — AIで作った実用ツール集">
-<meta property="og:description" content="宅建学習・方言診断・食事記録・麻雀入門など、AIと一緒に作ったツールを無料公開中。">
+<title>毎日ラボ — 個人で作っている、毎日つづく学習ツール・実用ツール</title>
+<meta name="description" content="宅建の一問一答、麻雀トレーナー、方言診断、写真で食事記録、ポーカーのチップ管理。個人開発者フジケンが「自分が欲しかったもの」として作り、全部無料で公開しているWebツール集です。">
+<link rel="canonical" href="https://mainichi-lab.com/">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="毎日ラボ — 個人で作っている、毎日つづく学習ツール・実用ツール">
+<meta property="og:description" content="宅建・麻雀・方言・食事記録・ポーカーチップ管理。個人で作った5つのWebツールと、作る過程で分かったことを書いた読みもの。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mainichi-lab.com/">
-<link rel="stylesheet" href="style.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XRJ40EFR6C');
-  </script>
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"毎日ラボ","url":"https://mainichi-lab.com/","inLanguage":"ja",
+"publisher":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about.html"}}
+</script>
 </head>
 <body>
 <header class="site">
   <div class="wrap">
     <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
-    <p class="tagline">毎日をちょっと便利にする、AI製の実用ツール集</p>
+    <p class="tagline">毎日をちょっと便利にする、個人開発の実用ツール集</p>
+    <nav class="gnav">
+      <a href="/" aria-current="page">ホーム</a>
+      <a href="/story.html">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about.html">運営者情報</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
   </div>
 </header>
 
 <main>
   <div class="wrap">
-    <div class="grid">
-      <a class="card" href="https://takken.mainichi-lab.com" >
-        <span class="emoji">🏠</span>
-        <h2>宅建GYM</h2>
-        <p>宅建試験の一問一答トレーニング。スキマ時間で合格力を鍛える。</p>
-        <span class="badge">資格学習</span>
-      </a>
-      <a class="card" href="https://hogen.mainichi-lab.com">
-        <span class="emoji">🗾</span>
-        <h2>方言ラボ</h2>
-        <p>あなたの方言をAIが診断。翻訳・クイズで全国のことばを楽しむ。</p>
-        <span class="badge">診断・エンタメ</span>
-      </a>
-      <a class="card" href="https://meshi.mainichi-lab.com">
-        <span class="emoji">🍗</span>
-        <h2>トレ飯相棒</h2>
-        <p>写真を撮るだけでPFC記録。相棒キャラと続ける食事管理。</p>
-        <span class="badge">健康・食事</span>
-      </a>
-      <a class="card" href="https://mahjong.mainichi-lab.com">
-        <span class="emoji">🀄</span>
-        <h2>麻雀のいろは</h2>
-        <p>ルールゼロから雀荘デビューまで。10課レッスンと一人麻雀で学ぶ。</p>
-        <span class="badge">ゲーム入門</span>
-      </a>
-      <a class="card" href="https://chip.mainichi-lab.com">
-        <span class="emoji">🃏</span>
-        <h2>ポケチップ</h2>
-        <p>現金を使わない仲間内ポーカーのチップ管理。スマホがチップ代わりに。</p>
-        <span class="badge">ツール</span>
-      </a>
-    </div>
-    <p class="section-note">すべて無料で使えます。新しいツールも随時追加予定。</p>
+
+    <section class="hero">
+      <h1>「続かない」を、道具の側でなんとかしたかった。</h1>
+      <p>毎日ラボは、本業のかたわら個人でWebツールを作っているフジケンが運営しているサイトです。宅建の勉強、麻雀のルール、食事の記録、友達とのポーカー。どれも「やりたいのに続かない」ものばかりで、続かない理由はだいたい自分の意志ではなく、道具の側の面倒くささにありました。</p>
+      <p>だったら道具を作ってしまおう、という単純な動機で作ったものを、ここに全部置いています。<strong>アカウント登録なし・インストール不要・すべて無料</strong>。スマホのブラウザで開けばその場で使えます。</p>
+      <p class="muted">運営の考え方は<a href="/story.html">毎日ラボとは</a>、作る過程で分かったことは<a href="/read/">読みもの</a>にまとめています。</p>
+    </section>
+
+    <section class="sec">
+      <h2>公開中のツール（5つ）</h2>
+      <p class="lead">それぞれ何ができて、誰向けで、どう使うものかを書いています。</p>
+
+      <article class="svc">
+        <div class="svc-head">
+          <span class="emoji">🏠</span>
+          <div>
+            <span class="kicker">資格学習</span>
+            <h3>宅建GYM</h3>
+          </div>
+        </div>
+        <p>宅建士試験（宅地建物取引士）のための一問一答トレーニングアプリです。本試験と同じ4択問題に加えて、○×形式のスピード問題を用意していて、電車で立っている数分でも片手で回せるようにしてあります。名前を「GYM」にしたのは、参考書を読む勉強ではなく、筋トレのように<strong>毎日少しずつ回数をこなす</strong>ための道具にしたかったからです。</p>
+        <p>解いた問題は端末内に記録され、間違えた問題ほど早く出題される間隔反復で並び替わります。分野別の到達度、連続学習日数、実績バッジ、直近4週間のトレーニング記録が見えるので、「今日どこをやればいいか」を自分で決めなくて済みます。本試験と同じ50問構成（権利14・業法20・法令上の制限8・税その他8）の模試もあり、タイマーと合格ライン判定つきで通しの練習ができます。</p>
+        <p>学習アプリ本体のほかに、独学の進め方・必要な勉強時間・直前期の2か月の使い方・統計問題・試験当日ガイド・年度ごとの法改正まとめといった解説記事も同じサイト内に置いています。出題内容は最新の施行法令に追従して更新していて、拘禁刑への変更、相続登記の義務化、書面の電子交付、改正区分所有法などを反映済みです。</p>
+        <ul class="facts">
+          <li>4択問題と○×問題の両方を収録（収録数はサイト内に明記）</li>
+          <li>間隔反復・弱点特訓・復習ノート・本試験と同じ50問模試</li>
+          <li>ホーム画面に追加すればオフラインでも学習可能</li>
+        </ul>
+        <p class="who"><strong>こんな人向け：</strong>独学で宅建を受ける人、通勤時間を勉強に使いたい人、問題集を開くのが面倒で続かなかった人。</p>
+        <a class="btn" href="https://takken.mainichi-lab.com">宅建GYMを開く</a>
+      </article>
+
+      <article class="svc">
+        <div class="svc-head">
+          <span class="emoji">🗾</span>
+          <div>
+            <span class="kicker">診断・エンタメ</span>
+            <h3>方言ラボ</h3>
+          </div>
+        </div>
+        <p>日本各地の方言で遊びながら学べるサイトです。入口は14問・約2分の「方言キャラタイプ診断」で、ふだん使う言い回しを選んでいくと、あなたの言葉づかいに近い方言タイプとご当地キャラが出ます。友達との相性診断、標準語⇄方言の翻訳、全国の方言を出題するクイズ検定も用意しました。</p>
+        <p>作っていて一番おもしろかったのは辞典の部分です。「なまらうまい」「こじゃんとえいちや」「わっぜよかど」のような表現を地域ごとに集めていくと、同じ意味の言葉が県境をまたいで少しずつ変形していくのが見えてきます。収録した方言・キャラクター・クイズ・語彙の件数はサイトのトップに実数で出しているので、そちらを見てください（盛らずに実データの件数を表示しています）。</p>
+        <p>診断や辞典のほかに、方言そのものをテーマにした読みもの記事も置いています。方言が消えつつある地域の話、テレビとネットで方言の使われ方がどう変わったか、といった内容です。すべてログイン不要で使えます。</p>
+        <ul class="facts">
+          <li>方言タイプ診断（14問・約2分・登録不要）と友達との相性診断</li>
+          <li>方言翻訳・クイズ検定・地域別の方言辞典</li>
+          <li>方言をテーマにした読みもの記事を継続追加中</li>
+        </ul>
+        <p class="who"><strong>こんな人向け：</strong>地元の言葉が好きな人、上京して方言が抜けた／抜けない人、家族や友達と盛り上がるネタを探している人。</p>
+        <a class="btn" href="https://hogen.mainichi-lab.com">方言ラボを開く</a>
+      </article>
+
+      <article class="svc">
+        <div class="svc-head">
+          <span class="emoji">🍗</span>
+          <div>
+            <span class="kicker">健康・食事</span>
+            <h3>トレ飯相棒</h3>
+          </div>
+        </div>
+        <p>食事の写真を撮るだけで、たんぱく質・脂質・炭水化物（PFC）とカロリーの推定値を記録していける食事管理ツールです。既存の記録アプリを使うたびに、食品名を検索して、グラム数を入れて、という手順の多さで挫折していたので、<strong>「撮るだけ」以上の手間をかけない</strong>ことを最優先で作りました。</p>
+        <p>最初に体重・身長・年齢・目標（増量／減量／維持）・トレーニング頻度を入れると、1日の目標PFCとカロリーを自動で計算します。あとは食べたものを撮っていくだけで、その日の残りが分かります。体重の推移グラフと、たんぱく質目標を達成した連続日数も記録されます。</p>
+        <p>もうひとつの特徴が「相棒」キャラクターです。数字だけを突きつけられても続かないので、記録に対して短くコメントを返す相手を置きました。褒めるでも叱るでもなく、たんぱく質が足りているかだけを毎日見ている、くらいの距離感にしてあります。なお表示される栄養素はあくまで写真からの推定値で、医学的な助言ではありません（<a href="/disclaimer.html">免責事項</a>）。サイト内には筋トレ用品を紹介するアフィリエイト枠がありますが、PR表記を明示しています。</p>
+        <ul class="facts">
+          <li>写真からPFC・カロリーを推定して記録</li>
+          <li>体格と目標から1日の目標PFCを自動計算</li>
+          <li>体重推移グラフ・たんぱく質達成の連続日数</li>
+        </ul>
+        <p class="who"><strong>こんな人向け：</strong>増量・減量中の人、レコーディングダイエットが続かなかった人、細かい入力が面倒な人。</p>
+        <a class="btn" href="https://meshi.mainichi-lab.com">トレ飯相棒を開く</a>
+      </article>
+
+      <article class="svc">
+        <div class="svc-head">
+          <span class="emoji">🀄</span>
+          <div>
+            <span class="kicker">ゲーム入門</span>
+            <h3>雀トレ（麻雀トレーナー）</h3>
+          </div>
+        </div>
+        <p>麻雀をまったく知らない人が、対人でデビューできるところまで持っていくための練習ツールです。ルール・役・点数計算をレッスン形式で学ぶ「基礎から学ぶ」パート、覚えたことを反復するドリル、そしてAI3人と実際に打つ実戦モードの3段構えになっています。</p>
+        <p>実戦モードでは、一打ごとに<strong>受け入れ枚数・打点期待・放銃リスク</strong>を統計ベースで計算してフィードバックします。麻雀が難しいのは、その一打が良かったのか悪かったのかが局の結果からは分からない点だと思っていて、そこを毎回言語化するのがこのツールの中心です。1巡戻せる「待った」もつけたので、間違えたところで止まって考え直せます。</p>
+        <p>ルール設定はかなり細かく選べます。一局戦／東風戦／東南戦、鳴き・カンの有無、喰い断、赤ドラ、一発・裏ドラ、ウマ・オカ、切り上げ満貫、ダブロンか頭ハネか、ノーテン罰符、九種九牌の途中流局など。友達と打つ前に「そのルールで」練習しておけるようにしたかったためです。カンは暗槓・明槓・加槓と、嶺上開花・槍槓・カンドラ・カン裏まで対応しています。</p>
+        <ul class="facts">
+          <li>ルールゼロからのレッスン → ドリル → AI対局の3ステップ</li>
+          <li>一打ごとに受け入れ・打点期待・放銃リスクをEVで解説</li>
+          <li>ウマ・オカ・赤ドラなど20項目以上のルール設定に対応</li>
+        </ul>
+        <p class="who"><strong>こんな人向け：</strong>麻雀のルールを一度も習ったことがない人、点数計算だけ苦手な人、雀荘や友人卓でデビューする前に練習したい人。</p>
+        <a class="btn" href="https://mahjong.mainichi-lab.com">雀トレを開く</a>
+      </article>
+
+      <article class="svc">
+        <div class="svc-head">
+          <span class="emoji">🃏</span>
+          <div>
+            <span class="kicker">ツール</span>
+            <h3>ポケチップ</h3>
+          </div>
+        </div>
+        <p>友人同士でテキサスホールデムを遊ぶときの、チップとポットの管理をスマホに肩代わりさせるツールです。チップセットを持っている人は限られていて、持っていても数え間違いと「今いくら入ってる？」の確認で毎回止まります。それを全部アプリ側に持たせました。<strong>現金は一切扱いません。</strong>点数の管理ツールです。</p>
+        <p>ひとりがルームを作ると招待リンクが出るので、参加者はそれを開いてニックネームを入れるだけで卓に入れます。モードは2つ。「フルモード」はカードの配布と役の判定までアプリがやるので、トランプが手元になくても遊べます。「チップモード」はリアルのトランプを使いながら、チップとポットの計算だけをアプリに任せる使い方です。</p>
+        <p>ブラインドの自動アップ、アンティ、アクション時間、オールイン時のラン回数、降りた後に残りのボードを見られるラビット、ハンド履歴、全員に公開される収支表なども入れました。観戦者としての参加もでき、その場合は全ハンドとエクイティが見えるので、初心者が横で見て学ぶのにも使えます。</p>
+        <ul class="facts">
+          <li>招待リンクを開くだけで参加、アプリのインストール不要</li>
+          <li>フルモード（カード配布・役判定つき）とチップモード（実物のカード併用）</li>
+          <li>現金・換金は扱わない、点数管理のみのツール</li>
+        </ul>
+        <p class="who"><strong>こんな人向け：</strong>家や飲み会でポーカーをやる人、チップセットを持っていない人、点数管理でゲームが止まるのが嫌な人。</p>
+        <a class="btn" href="https://chip.mainichi-lab.com">ポケチップを開く</a>
+      </article>
+
+      <p class="section-note">すべて無料・登録不要です。新しいツールも随時追加していきます。</p>
+    </section>
+
+    <section class="sec">
+      <h2>読みもの</h2>
+      <p class="lead">ツールを作る過程で分かったこと、失敗したことを書いています。</p>
+      <ul class="post-list">
+        <li>
+          <a href="/read/keep-going-system.html">
+            <span class="t">独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</span>
+            <span class="d">「毎日やる」と決めても続かなかった自分が、学習ツールを5つ作る過程でたどり着いた、継続を仕組みの側で支える4つの設計。</span>
+            <span class="m">2026年8月13日</span>
+          </a>
+        </li>
+        <li>
+          <a href="/read/lessons-building-apps.html">
+            <span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span>
+            <span class="d">正しい手が「不正解」になるバグ、0.8秒で消える大事な表示、指で押せないボタン。実際に出したUIの失敗と、そこから決めたルール。</span>
+            <span class="m">2026年8月13日</span>
+          </a>
+        </li>
+        <li>
+          <a href="/read/no-login-design.html">
+            <span class="t">ログイン不要・端末内保存にした理由と、その代償</span>
+            <span class="d">アカウント登録をなくすと使ってもらいやすい。でもデータは機種変更で消える。その判断をどう決めたかという話。</span>
+            <span class="m">2026年8月13日</span>
+          </a>
+        </li>
+      </ul>
+      <p class="section-note"><a href="/read/">読みもの一覧を見る →</a></p>
+    </section>
+
   </div>
 </main>
 
 <footer class="site">
   <div class="wrap">
     <nav>
-      <a href="about.html">運営者情報</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-      <a href="disclaimer.html">免責事項</a>
-      <a href="contact.html">お問い合わせ</a>
+      <a href="/">ホーム</a>
+      <a href="/story.html">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about.html">運営者情報</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/disclaimer.html">免責事項</a>
+      <a href="/contact.html">お問い合わせ</a>
     </nav>
     <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
   </div>
