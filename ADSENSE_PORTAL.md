@@ -85,6 +85,9 @@ AdSenseはプライバシーポリシーの存在を確認するため、これ�
 - `/sitemap.xml` 新規作成（10URL）
 - `/robots.txt` 新規作成（`Allow: /` ＋ Sitemap宣言）。これまでCloudflareのマネージドrobots.txt（content signalsのみ・Sitemap宣言なし）が返っていた
 - `/favicon.svg` 新規作成（これまで404）
+- **URLを拡張子なしに統一**。Cloudflare Pages は `/privacy.html` → `/privacy` を 308 で恒久リダイレクトしており、
+  canonical・OGP・sitemap・内部リンクが全部リダイレクト経由になっていた。内部リンク／canonical／og:url／sitemap を
+  すべて拡張子なし（`/privacy` 形式）に統一。**旧 `.html` URLは308で生き続けるため、公開中のURLは壊れていない**
 - 全ページに canonical / description / OGP（og:site_name, title, description, type, url）/ twitter:card を設定
 - パンくず（`.crumb`）を全下層ページに追加
 - CSSを拡張（`.hero` `.svc` `.post-list` `.prose` `.gnav` `.crumb` `.btn`）
