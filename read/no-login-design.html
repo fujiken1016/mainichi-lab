@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ログイン不要・端末内保存にした理由と、その代償 | 毎日ラボ</title>
 <meta name="description" content="アカウント登録をなくすと使ってもらいやすい。でも学習データは機種変更で消える。個人開発のWebツール5つで「登録なし・端末内保存」を選んだ理由と、そのデメリットにどう向き合っているかを正直に書きました。">
-<link rel="canonical" href="https://mainichi-lab.com/read/no-login-design.html">
+<link rel="canonical" href="https://mainichi-lab.com/read/no-login-design">
 <meta property="og:site_name" content="毎日ラボ">
 <meta property="og:title" content="ログイン不要・端末内保存にした理由と、その代償">
 <meta property="og:description" content="登録なしは使ってもらいやすい。でもデータは消える。その判断をどう決めたかという話。">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://mainichi-lab.com/read/no-login-design.html">
+<meta property="og:url" content="https://mainichi-lab.com/read/no-login-design">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
@@ -29,10 +29,10 @@
     <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
     <nav class="gnav">
       <a href="/">ホーム</a>
-      <a href="/story.html">毎日ラボとは</a>
+      <a href="/story">毎日ラボとは</a>
       <a href="/read/" aria-current="page">読みもの</a>
-      <a href="/about.html">運営者情報</a>
-      <a href="/contact.html">お問い合わせ</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
     </nav>
   </div>
 </header>
@@ -50,13 +50,13 @@
     <h2>登録画面は、思っているより高い壁</h2>
     <p>自分がユーザーとして、何回アプリの登録画面で引き返したかを考えると答えは明らかでした。「ちょっと試してみたい」だけの段階で、メールアドレスを渡して、パスワードを考えて、確認メールを開いて、というのは重すぎます。しかも試した結果が「思ってたのと違った」だった場合、渡したアドレスだけが相手に残る。</p>
     <p>特に毎日ラボのツールは、ほとんどが「気になったからちょっと触ってみる」から始まるものです。方言診断を2分やってみる、麻雀のルールを1課だけ読んでみる、飲み会でポーカーを1回やってみる。この入口に登録を置いたら、たぶん9割の人は入ってこない。</p>
-    <p>もうひとつ、<a href="/read/keep-going-system.html">別記事</a>で書いた「再開コスト」の問題もあります。ログインが必要なアプリは、セッションが切れたときに再開コストが跳ね上がります。パスワードを思い出せなくて、リセットメールを開いて、というところまで行くと、その日の勉強はもう終わりです。</p>
+    <p>もうひとつ、<a href="/read/keep-going-system">別記事</a>で書いた「再開コスト」の問題もあります。ログインが必要なアプリは、セッションが切れたときに再開コストが跳ね上がります。パスワードを思い出せなくて、リセットメールを開いて、というところまで行くと、その日の勉強はもう終わりです。</p>
 
     <h2>データを持たない、という選択</h2>
     <p>技術的な理由よりも、責任の重さの話が大きかったです。</p>
     <p>個人ひとりで運営しているサイトが、ユーザーのメールアドレスとパスワードと学習履歴を預かるというのは、それなりに重い約束です。漏らさないように守り続けなければいけないし、退会したいと言われたら確実に消さなければいけないし、自分が飽きてサイトを畳むときにも適切に処理しなければいけない。</p>
     <p>この約束を、本業のかたわらひとりでやっている状態で、何年も守り続けられるか。正直に考えて、預からないほうが安全だと判断しました。<strong>持っていないデータは漏れません。</strong> 食事の記録や学習の進捗はそれなりに個人的な情報ですが、それが端末の中にしかないなら、こちらが何をしくじってもユーザーのデータは無事です。</p>
-    <p>結果として、プライバシーポリシーに書ける内容もシンプルになりました（<a href="/privacy.html">プライバシーポリシー</a>）。アクセス解析のCookieと、お問い合わせでいただく連絡先。それ以外にこちらが持っているものはありません。</p>
+    <p>結果として、プライバシーポリシーに書ける内容もシンプルになりました（<a href="/privacy">プライバシーポリシー</a>）。アクセス解析のCookieと、お問い合わせでいただく連絡先。それ以外にこちらが持っているものはありません。</p>
 
     <h2>で、代償の話</h2>
     <p>ここからが正直に書くべきところです。この設計には、はっきりしたデメリットが3つあります。</p>
@@ -86,7 +86,7 @@
 
     <h2>この判断は変わるかもしれない</h2>
     <p>最後に。これは「今の規模での最適解」であって、永久に正しいとは思っていません。宅建GYMのように何か月も積み上げるタイプのツールでは、データが消える問題は年々重くなります。将来的には、任意のバックアップ機能――記録をファイルとして書き出して、新しい端末で読み込める仕組み――くらいは入れたいと思っています。アカウントを作らずにデータだけ持ち運べる形です。</p>
-    <p>「ここが不便だ」という声はかなり参考にしています。<a href="/contact.html">お問い合わせ</a>から送っていただければ読みます。運営の全体的な考え方は<a href="/story.html">毎日ラボとは</a>にまとめました。</p>
+    <p>「ここが不便だ」という声はかなり参考にしています。<a href="/contact">お問い合わせ</a>から送っていただければ読みます。運営の全体的な考え方は<a href="/story">毎日ラボとは</a>にまとめました。</p>
 
     <p class="updated">2026年8月13日公開</p>
     <a class="back" href="/read/">← 読みもの一覧へ</a>
@@ -97,12 +97,12 @@
   <div class="wrap">
     <nav>
       <a href="/">ホーム</a>
-      <a href="/story.html">毎日ラボとは</a>
+      <a href="/story">毎日ラボとは</a>
       <a href="/read/">読みもの</a>
-      <a href="/about.html">運営者情報</a>
-      <a href="/privacy.html">プライバシーポリシー</a>
-      <a href="/disclaimer.html">免責事項</a>
-      <a href="/contact.html">お問い合わせ</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
     </nav>
     <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
   </div>
