@@ -137,9 +137,21 @@
   </div>
 </footer>
 <script>
+/* 受注窓口の計測（2026-09-06 拡張）
+   ・対象を [data-work-cta] だけから「ページ内の全 mailto リンク」に広げた。
+     ボタンを使わず本文の連絡先アドレスを直接踏む人が計測から漏れていたため。
+   ・送るパラメータは GA4(G-XRJ40EFR6C) に登録済みのカスタムディメンションだけに限定する
+     （link_url / from_page / slot）。未登録のパラメータは探索レポートで分解できない。
+   ・「どこから来たか」は GA4 の組み込みディメンション（セッションの参照元/メディア/キャンペーン）で読む。
+     流入側のリンクに utm を付けてあるので、このイベントを参照元別に分解できる。 */
 document.addEventListener('click',function(e){
-  var a=e.target.closest&&e.target.closest('[data-work-cta]');
-  if(a&&typeof gtag==='function'){gtag('event','work_inquiry_click',{link_url:a.href,page_path:location.pathname});}
+  var a=e.target.closest&&e.target.closest('a[href^="mailto:"]');
+  if(!a||typeof gtag!=='function')return;
+  gtag('event','work_inquiry_click',{
+    link_url:a.href,
+    from_page:location.pathname,
+    slot:a.hasAttribute('data-work-cta')?'work_cta':'contact_mail'
+  });
 },{passive:true});
 </script>
 </body>
