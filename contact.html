@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お問い合わせ | 毎日ラボ</title>
-<meta name="description" content="毎日ラボへのご意見・不具合報告・広告掲載のご相談窓口。あわせて、Webサービス・学習ツールの制作、メディア運用の伴走、AI導入支援、サイト監査のご依頼も受け付けています（料金の目安を掲載）。">
+<meta name="description" content="毎日ラボへのご意見・不具合報告・広告掲載のご相談窓口。あわせて、Webサービス・学習ツールの制作、メディア運用の伴走、AI業務自動化の90分相談、note／Kindleで書く人の伴走、サイト監査のご依頼も受け付けています（料金の目安を掲載）。">
 <link rel="canonical" href="https://mainichi-lab.com/contact">
 <meta property="og:site_name" content="毎日ラボ">
 <meta property="og:title" content="お問い合わせ | 毎日ラボ">
@@ -46,6 +46,12 @@
 .work a.work-cta:hover{background:#265a40}
 .work a.work-cta:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
 .work .small{font-size:0.9375rem;color:var(--w-muted)}
+/* メニューごとの相談ボタン（副ボタン＝design_guidelines §5-2）。slot で GA4 上どのメニューが押されたか分かる */
+.work .work-menu a.work-cta-sub{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 20px;margin-top:8px;border-radius:8px;background:#fff;color:#292939;
+  border:1px solid #8b8b9f;text-decoration:none;font-size:1rem;font-weight:600;line-height:1.3}
+.work .work-menu a.work-cta-sub:hover{background:#f1f1f6}
+.work .work-menu a.work-cta-sub:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -72,22 +78,34 @@
 
 <section class="work">
 <h2>制作・自動化のご依頼（受託・伴走）</h2>
-<p class="work-lead">毎日ラボで公開している9つのWebサービスは、企画から実装・計測・記事まで、すべて自分ひとりで作って運用しています。同じやり方で、他の方の仕事もお引き受けしています。</p>
+<p class="work-lead">毎日ラボで公開している9つのWebサービスは、企画から実装・計測・記事まで、すべて自分ひとりで作って運用しています。同じやり方で、他の方の仕事もお引き受けしています。何を作ってきたかは<a href="/story#works">作ったもの全部の一覧（サービス9・商品6）</a>にまとめています。</p>
 
 <h3>お引き受けしていること</h3>
 <ul class="work-menu">
 <li><b>Webサービス・学習ツールの制作</b>
   <span class="price">¥55,000〜（スポット／規模により見積り）</span>
-  <span class="note">クイズ・診断・計算機・検定など。このサイトの<a href="/">公開中の5ツール</a>と同じ作り方です。</span></li>
+  <span class="note">クイズ・診断・計算機・検定など。このサイトの<a href="/">公開中の5ツール</a>と同じ作り方です。</span>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E3%83%84%E3%83%BC%E3%83%AB%E5%88%B6%E4%BD%9C%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_tool">この内容で相談する</a></li>
 <li><b>メディアの立ち上げと運用の伴走</b>
   <span class="price">月額 ¥110,000〜（継続）</span>
-  <span class="note">記事設計・実装・計測（GA4／Search Console）・改善までを毎月まわします。継続中の実績があります。</span></li>
-<li><b>AI（Claude Code等）を業務に入れる支援</b>
-  <span class="price">相談 ¥22,000／90分・研修 ¥88,000／半日</span>
-  <span class="note">「入れてみたが回らない」状態の立て直しが中心です。</span></li>
+  <span class="note">記事設計・実装・計測（GA4／Search Console）・改善までを毎月まわします。継続中の実績があります。</span>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E9%81%8B%E7%94%A8%E3%81%AE%E4%BC%B4%E8%B5%B0%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_media">この内容で相談する</a></li>
+<li><b>AI業務自動化の90分スポット相談</b>
+  <span class="price">¥22,000／90分（1回きり・オンライン）</span>
+  <span class="note">「Claude Code を入れてみたが回らない」「何を自動化すればいいか分からない」状態を、90分で手順に落とします。自分の事業を Claude Code で回している実装をそのまま見せながら進めます。</span>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=AI%E6%A5%AD%E5%8B%99%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%AE90%E5%88%86%E7%9B%B8%E8%AB%87" data-slot="menu_ai_spot">この内容で相談する</a></li>
+<li><b>AI導入の研修</b>
+  <span class="price">¥88,000／半日</span>
+  <span class="note">チームで Claude Code 等を使い始めるための半日研修。上の90分相談を受けたあとの2歩目として。</span>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=AI%E5%B0%8E%E5%85%A5%E7%A0%94%E4%BF%AE%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_ai_training">この内容で相談する</a></li>
+<li><b>note／Kindleで「書く人」の伴走</b>
+  <span class="price">月額 ¥27,500（継続）</span>
+  <span class="note">発信したいのに続かない方向け。構成→執筆→公開前の機械検査（誤字・可読性・リンク切れ）までを毎月いっしょに回します。自分でnote有料記事3本とKindle2冊を出した手順をそのまま使います。</span>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=note%E3%83%BBKindle%E5%9F%B7%E7%AD%86%E4%BC%B4%E8%B5%B0%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_writer">この内容で相談する</a></li>
 <li><b>サイトの単発監査</b>
   <span class="price">¥55,000／1サイト</span>
-  <span class="note">表示速度ではなく、可読性・タップ標的・重複・計測もれを実測して直す順に並べます。</span></li>
+  <span class="note">表示速度ではなく、可読性・タップ標的・重複・計測もれを実測して直す順に並べます。</span>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E7%9B%A3%E6%9F%BB%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit">この内容で相談する</a></li>
 </ul>
 
 <p>ご相談の段階では費用はかかりません。やりたいことと、いまの状態（サイトのURL、使っているツール、困っていること）をお書き添えのうえ、下記までメールをお送りください。</p>
@@ -140,6 +158,8 @@
 /* 受注窓口の計測（2026-09-06 拡張）
    ・対象を [data-work-cta] だけから「ページ内の全 mailto リンク」に広げた。
      ボタンを使わず本文の連絡先アドレスを直接踏む人が計測から漏れていたため。
+   ・2026-09-06 追記：メニューごとの相談ボタンは data-slot（menu_tool / menu_media / menu_ai_spot /
+     menu_ai_training / menu_writer / menu_audit）で slot を分け、どのメニューが押されたかを GA4 で読む。
    ・送るパラメータは GA4(G-XRJ40EFR6C) に登録済みのカスタムディメンションだけに限定する
      （link_url / from_page / slot）。未登録のパラメータは探索レポートで分解できない。
    ・「どこから来たか」は GA4 の組み込みディメンション（セッションの参照元/メディア/キャンペーン）で読む。
@@ -150,7 +170,7 @@ document.addEventListener('click',function(e){
   gtag('event','work_inquiry_click',{
     link_url:a.href,
     from_page:location.pathname,
-    slot:a.hasAttribute('data-work-cta')?'work_cta':'contact_mail'
+    slot:a.dataset.slot||(a.hasAttribute('data-work-cta')?'work_cta':'contact_mail')
   });
 },{passive:true});
 </script>
