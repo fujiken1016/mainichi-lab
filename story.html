@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>毎日ラボとは — なぜ個人でツールを作って無料で置いているのか</title>
-<meta name="description" content="毎日ラボの運営方針。誰が、なぜ、どういう基準でツールを作っているのか。無料で公開している理由、収益化の考え方、コンテンツの作り方と更新の方針をまとめています。">
+<meta name="description" content="毎日ラボの運営方針と、これまでに作ったもの全部の一覧（Webサービス9・商品6）。誰が、なぜ、どういう基準でツールを作っているのか。無料で公開している理由、収益化の考え方、更新の方針をまとめています。">
 <link rel="canonical" href="https://mainichi-lab.com/story">
 <meta property="og:site_name" content="毎日ラボ">
 <meta property="og:title" content="毎日ラボとは — なぜ個人でツールを作って無料で置いているのか">
@@ -14,6 +14,25 @@
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
+<style>
+/* 「作ったもの全部」一覧（2026-09-06 追加）— design_guidelines.md のトークン実体値に準拠 */
+.made{list-style:none;padding:0;margin:12px 0 0}
+.made li{border-top:1px solid #e5e5ed;padding:14px 0;margin:0}
+.made li:first-child{border-top:0}
+.prose .made b{display:block;font-size:1.0625rem;font-weight:600;color:#171722}
+.prose .made .what{display:block;font-size:1rem;line-height:1.85;color:#292939;margin-top:4px}
+.prose .made .tag{display:block;font-size:0.9375rem;color:#53536b;margin-top:4px}
+.prose .made a.open{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 20px;margin-top:8px;border-radius:8px;background:#fff;color:#292939;
+  border:1px solid #8b8b9f;text-decoration:none;font-size:1rem;font-weight:600;line-height:1.3}
+.prose .made a.open:hover{background:#f1f1f6}
+.prose .made a.open:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
+.prose a.story-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 20px;border-radius:8px;background:#2f6f4f;color:#fff;text-decoration:none;
+  font-size:1.0625rem;font-weight:600;line-height:1.3}
+.prose a.story-cta:hover{background:#265a40}
+.prose a.story-cta:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
 <script>
@@ -26,7 +45,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"毎日ラボとは","item":"https://mainichi-lab.com/story"}]}
 </script>
 <script src="/oc.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"毎日ラボとは — なぜ個人でツールを作って無料で置いているのか","url":"https://mainichi-lab.com/story","inLanguage":"ja","datePublished":"2026-08-13","dateModified":"2026-08-13"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"毎日ラボとは — なぜ個人でツールを作って無料で置いているのか","url":"https://mainichi-lab.com/story","inLanguage":"ja","datePublished":"2026-08-13","dateModified":"2026-09-06"}</script>
 </head>
 <body>
 <header class="site">
@@ -47,7 +66,7 @@
     <p class="crumb"><a href="/">ホーム</a><span>›</span>毎日ラボとは</p>
 
     <h1>毎日ラボとは</h1>
-    <p class="meta">運営方針・2026年8月13日更新</p>
+    <p class="meta">運営方針・2026年9月6日更新（「作ったもの全部」の一覧を追加）</p>
 
     <p>毎日ラボ（mainichi-lab.com）は、フジケンという個人が、本業のかたわらひとりで作っているWebツールの置き場です。会社でも、チームでもありません。企画から実装、文章、公開後の修正まで全部ひとりでやっています。</p>
 
@@ -74,19 +93,93 @@
     <h2>更新について</h2>
     <p>ツールは公開して終わりではなく、使っていて気になったところを随時直しています。宅建GYMは法改正に合わせて出題内容を更新し、方言ラボは辞典の語彙を足し、雀トレはルール設定を増やす、というように、それぞれ別のペースで手を入れています。不具合の報告や「こうだったら使う」という要望は<a href="/contact">お問い合わせ</a>から受け付けています。実際、届いた指摘で直したところがいくつもあります。</p>
 
+    <h2 id="works">作ったもの（全部）</h2>
+    <p>ここまでに公開したものを、隠さず全部並べます。Webサービスが9つ、有料の商品が6つ。どれも企画・実装・文章・公開後の修正まで自分ひとりで行っています。利用者数や売上の数字は載せていません。載せるなら実測値だけと決めていて、いまはまだ人に見せる規模ではないからです。</p>
+
+    <h3>Webサービス（9）</h3>
+    <ul class="made">
+      <li><b>宅建GYM</b>
+        <span class="what">宅建士試験の一問一答トレーニング。4択と○×、間隔反復、分野別の到達度、直前期の使い方や法改正まとめの記事。</span>
+        <a class="open" href="https://takken.mainichi-lab.com">宅建GYMを開く</a>
+      </li>
+      <li><b>方言ラボ</b>
+        <span class="what">方言キャラタイプ診断（14問）、地域別の方言辞典、方言検定、方言をテーマにした読みもの。</span>
+        <a class="open" href="https://hogen.mainichi-lab.com">方言ラボを開く</a>
+      </li>
+      <li><b>トレ飯相棒</b>
+        <span class="what">食事の写真からPFCとカロリーの推定値を記録する食事管理。目標計算と、記録に短くコメントを返す「相棒」つき。</span>
+        <a class="open" href="https://meshi.mainichi-lab.com">トレ飯相棒を開く</a>
+      </li>
+      <li><b>雀トレ（麻雀トレーナー）</b>
+        <span class="what">麻雀を知らない人が対人デビューできるまでのレッスン、一人麻雀、クイズ。実戦モードでは一打ごとに統計ベースで講評。</span>
+        <a class="open" href="https://mahjong.mainichi-lab.com">雀トレ（麻雀トレーナー）を開く</a>
+      </li>
+      <li><b>点数のいろは</b>
+        <span class="what">麻雀の点数早見・符計算・計算機。スマホの片手操作向け。</span>
+        <a class="open" href="https://mahjong.mainichi-lab.com/score/">点数のいろはを開く</a>
+      </li>
+      <li><b>ポケチップ</b>
+        <span class="what">友人同士のテキサスホールデムで、チップとポットの管理をスマホに肩代わりさせるツール。ルームを作って招待リンクで参加。</span>
+        <a class="open" href="https://chip.mainichi-lab.com">ポケチップを開く</a>
+      </li>
+      <li><b>GTO Coach（ポーカー・トレーナー）</b>
+        <span class="what">全ストリート対応のホールデム練習ツール。</span>
+        <span class="tag">別サイト「勝負ラボ」で公開（ここからはリンクしていません）</span>
+      </li>
+      <li><b>ブラックジャック トレーナー</b>
+        <span class="what">基本戦略とカードカウンティングの練習。間違いの振り返りつき。</span>
+        <span class="tag">別サイト「勝負ラボ」で公開（ここからはリンクしていません）</span>
+      </li>
+      <li><b>ポーカー・トレーナー（ルール学習）</b>
+        <span class="what">ゼロから対人デビューまでのルール・デモ・クイズ。</span>
+        <span class="tag">別サイト「勝負ラボ」で公開（ここからはリンクしていません）</span>
+      </li>
+    </ul>
+
+    <h3>商品（6）</h3>
+    <ul class="made">
+      <li><b>宅建 直前 総点検ノート【令和8年度】（note有料記事）</b>
+        <span class="what">改正区分所有法を条文照合ずみ。確認問題約90項目。</span>
+        <a class="open" href="https://note.com/fujiken818/n/ne2376058ec7b" rel="noopener">販売ページを見る</a>
+      </li>
+      <li><b>宅建・問25「地価公示法／不動産鑑定評価基準」を原文で1点にする（note有料記事）</b>
+        <span class="what">毎年カンで塗っている人向けに、原文ベースで整理。</span>
+        <a class="open" href="https://note.com/fujiken818/n/ne087a09b24d4" rel="noopener">販売ページを見る</a>
+      </li>
+      <li><b>Claude Codeに「会社」を任せたら、人間の僕がボトルネックだった（note有料記事）</b>
+        <span class="what">3日放置しても事業が止まらない仕組みの全実装。このサイト群を回している裏側そのものです。</span>
+        <a class="open" href="https://note.com/fujiken818/n/n7f126d2e8522" rel="noopener">販売ページを見る</a>
+      </li>
+      <li><b>賃貸不動産経営管理士 条文で確かめる要点ノート（Kindle）</b>
+        <span class="what">条文と並べて要点を確かめる形式。第1弾。</span>
+        <a class="open" href="https://www.amazon.co.jp/dp/B0HFW15W4R" rel="noopener">販売ページを見る</a>
+      </li>
+      <li><b>宅建 法改正ノート【令和8年度】（Kindle）</b>
+        <span class="what">改正前の条文と並べて、古い知識を上書きする。</span>
+        <a class="open" href="https://www.amazon.co.jp/dp/B0HHMT59G2" rel="noopener">販売ページを見る</a>
+      </li>
+      <li><b>The Freelance Designer's AI Prompt Vault（Gumroad・英語PDF）</b>
+        <span class="what">フリーランスデザイナー向けの、クライアント対応と請求まわりのプロンプト30本。</span>
+        <a class="open" href="https://fujitak4.gumroad.com/l/ykvxqp" rel="noopener">販売ページを見る</a>
+      </li>
+    </ul>
+    <p>このほかに、作る過程で分かったことを<a href="/read/">読みもの</a>として5本置いています。</p>
+    <p>同じやり方で、他の方の制作や自動化もお引き受けしています（ツール制作、メディア運用の伴走、AI業務自動化の90分相談、note／Kindleで書く人の伴走、サイト監査）。料金の目安と相談先は下のページにあります。</p>
+    <p><a class="story-cta" href="/contact">制作・自動化のご依頼（料金の目安）</a></p>
+
     <h2>ここに置いているもの</h2>
     <ul>
-      <li><strong>ツール5つ</strong> — <a href="/">トップページ</a>にそれぞれの説明があります</li>
+      <li><strong>ツールと商品</strong> — 上の<a href="#works">作ったもの（全部）</a>に一覧があります。ツール5つの詳しい説明は<a href="/">トップページ</a>に</li>
       <li><strong>読みもの</strong> — <a href="/read/">作る過程で分かったこと</a>を記事にしています</li>
       <li><strong>運営情報</strong> — <a href="/about">運営者情報</a>／<a href="/privacy">プライバシーポリシー</a>／<a href="/disclaimer">免責事項</a>／<a href="/contact">お問い合わせ</a></li>
     </ul>
 
-    <p class="updated">最終更新：2026年8月13日</p>
+    <p class="updated">最終更新：2026年9月6日</p>
     <a class="back" href="/">← トップへ戻る</a>
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-09-06">2026年9月6日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
