@@ -1,8 +1,13 @@
 /* 外部（収益先）への離脱クリックをGA4で実測する。共通版。2026-09-02 新設。
  *
  * 正本＝ ~/Desktop/claude/tools/oc_shared.js
- * 配布先＝ 雀トレ / トレ飯 / ポータル / ポケチップ / rule.shoubu-lab.com の各リポジトリ直下 `oc.js`
- * （宅建GYM・勝負ラボは先行して独自版があるので、そちらは差分だけ手で合わせる）
+ * 配布先＝ 宅建GYM / 方言ラボ(public/) / 勝負ラボ / rule / BJ / トレ飯 / 雀トレ(site/) / ポータル /
+ *         ポケチップ(public/→配信元 poke-chip 直下) / jp-tcg-en の10本。🔴 **全部この1ファイルと同一md5で配る。**
+ *         サイトごとに変えたい値は、ファイルを分岐させずに下の SITE_UTM_SOURCE 等の「設定値」に足す。
+ * 2026-09-14 統合（6版→1版）：宅建GYM独自版の author_click・BOOK_MAP・utm_source=takkengym をここへ取り込み、
+ *   宅建GYMの「一問一答の達成度（端末内保存）」は /ichimon-progress.js に分離した（計測ではないため）。
+ *   勝負ラボのシミュレータ実行 sim_run は /betting/app.js・/koei/app.js 側で送っている（ここには無い）。
+ *   経緯＝ memory/analytics_snapshot.md「2026-09-14 oc.js の版ズレ解消」
  *
  * 背景：2026-09-02 に「計測を実装した」と「全ページに入っている」を取り違えた事故が3件出た。
  * 楽天アフィリのレポートは計測ID未登録のためサイト別・記事別を返さないので、
@@ -24,6 +29,19 @@
  * 検査：`python3 ~/Desktop/claude/tools/tracking_audit.py` で全URLに入っているかを機械的に見る。
  */
 (function () {
+  /* Kindle の ASIN → GA4 に送る book の名前。載っていない ASIN は ASIN のまま送る。
+     🔴 名前を途中で変えると判定日に系列が割れる（chinkan_jobun は 9/2 から送っている）。 */
+  var BOOK_MAP = {
+    B0HFW15W4R: "chinkan_jobun", // 第1弾 賃管士 条文で確かめる要点ノート
+    B0HHMT59G2: "takken_houkaisei" // 第3弾 宅建 法改正ノート【令和8年度】
+  };
+
+  /* utm_source をホスト名の先頭ラベルから変えたいサイトだけ書く（設定値）。
+     宅建GYM は 2026-09-02 から "takkengym" で付けてきた系列を維持する。 */
+  var SITE_UTM_SOURCE = {
+    takken: "takkengym"
+  };
+
   var NOTE_MAP = {
     ne2376058ec7b: "note_takken_980",
     n7f126d2e8522: "note_ai_980",
@@ -61,10 +79,17 @@
       var slot = slotOf(a);
 
       if (href.indexOf("amazon.co.jp") > -1 || href.indexOf("amzn.to") > -1) {
+        /* 著者ページ（/stores/author/<ID> と旧形式 /<name>/e/<ID>）は商品ページではないので別イベント。
+           2026-09-04 宅建GYM独自版で追加 → 2026-09-14 正本へ取り込み。
+           ここで先に返さないと /dp/ 抽出が外れて kindle_click{book:"unknown"} に落ち、系列が汚れる。 */
+        if (href.indexOf("/stores/author/") > -1 || /\/e\/B0[A-Z0-9]{8}/.test(href)) {
+          send("author_click", { author: "fujikken", from_page: from, slot: slot });
+          return;
+        }
         var asin = href.match(/\/dp\/([A-Z0-9]{10})/);
         asin = asin ? asin[1] : "unknown";
         send("kindle_click", {
-          book: asin === "B0HFW15W4R" ? "chinkan_jobun" : asin,
+          book: BOOK_MAP[asin] || asin,
           from_page: from,
           slot: slot
         });
@@ -160,7 +185,7 @@
    * 🔴 HTML の href に utm を書かない。ここで一元的に付ける。
    * -------------------------------------------------------------------- */
   var host = location.hostname.split(".")[0] || "site";
-  var UTM_SOURCE = host === "www" ? "portal" : host;
+  var UTM_SOURCE = SITE_UTM_SOURCE[host] || (host === "www" ? "portal" : host);
 
   function pageSlug() {
     var p = location.pathname.replace(/index\.html$/, "").replace(/\.html$/, "");
