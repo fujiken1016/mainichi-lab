@@ -234,6 +234,54 @@ document.addEventListener('click',function(e){
     slot:a.dataset.slot||(a.hasAttribute('data-work-cta')?'work_cta':'contact_mail')
   });
 },{passive:true});
+
+/* 到達の計測（2026-09-17 追加・recommendation_ledger 2026-09-14 行）
+   目的＝問い合わせ0件のとき「読まれていない」のか「読んだが押さない」のかを分ける。
+   クリックの work_inquiry_click と **同じ slot 語彙**を使うので、GA4 の探索で
+   section_reach(slot=menu_audit) と work_inquiry_click(slot=menu_audit) を
+   並べるだけで「メニュー別の 到達→相談 率」が読める。
+
+   🔴 送るパラメータは登録済みカスタムディメンション（slot / from_page）だけ。
+      新しいパラメータを足すと GA4 側の登録（本人作業）が要るので足さない。
+
+   🔴 IntersectionObserver の threshold:0.5 だけでは**背の高い要素が永遠に発火しない**
+      （section.work や .subsidy は画面より高いので intersectionRatio が 0.5 に届かない）。
+      そのため「要素の50%が見えた」OR「見えている部分が画面の50%を占めた」で判定する。 */
+(function(){
+  if(!('IntersectionObserver' in window))return;          // 非対応ブラウザは静かに何もしない
+  var targets=[];
+  // 受注メニュー6本＝各 li を、その中の相談ボタンの data-slot で識別する（クリックと同じ語彙）
+  Array.prototype.forEach.call(document.querySelectorAll('ul.work-menu > li'),function(li){
+    var cta=li.querySelector('a[data-slot]');
+    if(cta&&cta.dataset.slot)targets.push([li,cta.dataset.slot]);
+  });
+  // ページの節目（どこで離脱したかを面単位で見る）
+  [['.work-lead','work_lead'],['.work-faq','work_faq'],['.subsidy','subsidy'],
+   ['a[data-work-cta]','work_cta_seen'],['h2 + p a[href^="mailto:"]','contact_mail_seen']
+  ].forEach(function(pair){
+    var el=document.querySelector(pair[0]);
+    if(el)targets.push([el,pair[1]]);
+  });
+  if(!targets.length)return;
+
+  var sent={};
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      var tall=en.intersectionRect.height>=(window.innerHeight||0)*0.5;
+      if(en.intersectionRatio<0.5&&!tall)return;
+      var slot=en.target.__slot;
+      if(!slot||sent[slot])return;
+      sent[slot]=1;
+      io.unobserve(en.target);                            // 1回だけ
+      if(typeof gtag==='function'){
+        gtag('event','section_reach',{slot:slot,from_page:location.pathname});
+      }
+    });
+  },{threshold:[0.5]});
+
+  targets.forEach(function(t){ t[0].__slot=t[1]; io.observe(t[0]); });
+})();
 </script>
 </body>
 </html>
