@@ -28,7 +28,7 @@ header.site{padding:34px 0 6px;text-align:center}
 
 /* ---------- breadcrumb ---------- */
 .crumb{font-size:.875rem;color:var(--sub);margin:18px 0 0}
-.crumb a{color:var(--sub)}
+.crumb a{color:var(--sub);display:inline-block;padding:15px 4px;margin-left:-4px}
 .crumb span{margin:0 6px}
 
 main{padding:20px 0 44px}
@@ -124,3 +124,6 @@ footer.site a:hover{color:var(--ink)}
 /* 記事末尾の関連記事 */
 .related-posts{margin-top:40px;padding-top:8px;border-top:1px solid var(--line)}
 .related-posts h2{font-size:1rem;margin:20px 0 0}
+/* 2026-09-21：目次・関連記事のリンクは行内リンクではなくナビ＝タップ標的48px以上（§5-2）。
+   design_probe の inline 例外に隠れていて、19px のまま公開されていた。 */
+.related-posts li a{display:block;padding:15px 0;line-height:1.7}
