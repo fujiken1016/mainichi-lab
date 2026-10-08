@@ -25,7 +25,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"お問い合わせ","item":"https://mainichi-lab.com/contact"}]}
 </script>
 <script src="/oc.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"お問い合わせ | 毎日ラボ","url":"https://mainichi-lab.com/contact","inLanguage":"ja","datePublished":"2026-08-02","dateModified":"2026-09-07"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"お問い合わせ | 毎日ラボ","url":"https://mainichi-lab.com/contact","inLanguage":"ja","datePublished":"2026-08-02","dateModified":"2026-10-08"}</script>
 <style>
 /* お仕事のご依頼セクション（2026-09-06 追加）— design_guidelines.md のトークンに準拠 */
 .work{--w-accent:#2f6f4f;--w-line:#e5e5ed;--w-muted:#53536b;
@@ -68,6 +68,16 @@
   border-bottom:1px solid var(--w-line)}
 .work .work-faq ol,.work .work-faq ul{margin:8px 0 0;padding-left:1.3em}
 .work .work-faq li{font-size:1rem;line-height:1.85;color:#292939;margin:0 0 4px}
+/* JS非依存の連絡先アドレス（2026-10-08 SHIP-14）
+   Cloudflare のメール難読化は「テキストノード内の完全なアドレス」を探して
+   [email protected] に差し替えるため、要素で分割して一致しない形にしてある。
+   触るときの注意＝タグの間に改行・空白を入れるとコピー時に混入する。 */
+.work .work-mailbox{border:1px solid var(--w-line);border-left:4px solid var(--w-accent);
+  border-radius:8px;background:#f5f5f9;padding:14px 16px;margin:20px 0}
+.work .work-mailbox .addr,.addr-plain{display:inline-block;-webkit-user-select:all;user-select:all;
+  font-size:1.0625rem;font-weight:600;color:#171722;white-space:nowrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.work .work-mailbox .small{display:block;margin-top:6px}
 </style>
 </head>
 <body>
@@ -124,7 +134,9 @@
   <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E7%9B%A3%E6%9F%BB%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit">公開URLだけで相談する</a></li>
 </ul>
 
-<p>ご相談の段階では費用はかかりません。やりたいことと、いまの状態（サイトのURL、使っているツール、困っていること）をお書き添えのうえ、下記までメールをお送りください。</p>
+<p>ご相談の段階では費用はかかりません。やりたいことと、いまの状態（サイトのURL、使っているツール、困っていること）をお書き添えのうえ、下記のアドレスまでメールをお送りください。</p>
+<p class="work-mailbox">メールの宛先：<span class="addr" translate="no"><span>contact</span><span>&#64;</span><span>mainichi-lab.com</span></span>
+<span class="small">上の各ボタンは、お使いの端末のメールソフトを件名入りで開きます。ボタンでメールソフトが開かない場合は、このアドレスをコピーしてお送りください。</span></p>
 
 <h3>よくあるご質問</h3>
 <dl class="work-faq">
@@ -177,7 +189,8 @@
 </section>
 
 <h2>連絡先</h2>
-<p>📮 <a href="mailto:contact@mainichi-lab.com">contact@mainichi-lab.com</a></p>
+<p>📮 <span class="addr-plain" translate="no"><span>contact</span><span>&#64;</span><span>mainichi-lab.com</span></span></p>
+<p class="small"><a href="mailto:contact@mainichi-lab.com">メールソフトで開く</a>（開かない場合は、上のアドレスをコピーしてお使いください）</p>
 <p>ご連絡の際は、どのサービス（宅建GYM／方言ラボ／トレ飯相棒／雀トレ／ポケチップ）についてのお問い合わせかと、お使いの端末・ブラウザを添えていただけると、不具合の調査がスムーズです。</p>
 <p>内容を確認のうえ、必要に応じて返信いたします（すべてのお問い合わせへの返信をお約束するものではありません）。</p>
 
@@ -200,7 +213,7 @@
 </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-02">2026年8月2日</time>　最終更新：<time datetime="2026-09-07">2026年9月7日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-02">2026年8月2日</time>　最終更新：<time datetime="2026-10-08">2026年10月8日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
