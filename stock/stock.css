@@ -1,0 +1,17 @@
+.stk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:16px}
+.stk h2{font-size:1.0625rem;margin:0 0 4px;padding:0;line-height:1.6}
+.stk .cat{color:var(--sub);font-size:.875rem}
+.stk .ok{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:.875rem;border-radius:999px;padding:3px 12px;margin-top:8px}
+.stk .none{color:var(--sub);font-size:.9375rem;margin-top:8px}
+.stk ul{list-style:none;padding:0;margin:8px 0 0}
+.stk li{border-top:1px solid var(--line);margin:0;padding:0}
+.stk li a{display:block;padding:12px 0;min-height:48px;color:var(--ink);text-decoration:none;line-height:1.7}
+.stk .nm{display:block;font-size:.9375rem}
+.stk .pr{display:block;font-weight:700;color:var(--accent);margin-top:2px}
+.stk .sub{display:block;font-size:.875rem;color:var(--sub)}
+.note.small,.prose .note.small{font-size:.875rem}
+.prose h1{font-size:2rem;line-height:1.4}
+.prose h2,.stk h2{font-size:1.5rem;line-height:1.4}
+.stk h2{margin:0 0 4px}
+.nb{display:inline-block}
+@media(max-width:359px){.prose h1{font-size:1.75rem}}
