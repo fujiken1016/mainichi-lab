@@ -11,9 +11,37 @@
 <meta property="og:description" content="継続を根性ではなく設計で支えるための4つの考え方を、学習ツールを作った実例つきで。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mainichi-lab.com/read/keep-going-system">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/keep-going-system/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/keep-going-system/hero_aigen.webp">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:break-word;word-break:auto-phrase}
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
 <script>
@@ -22,9 +50,7 @@
   gtag('js', new Date());
   gtag('config', 'G-XRJ40EFR6C');
 </script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"独学が続かないのは意志のせいじゃない — 続く仕組みの作り方","description":"「毎日やる」と決めても続かなかった自分が、学習ツールを5つ作る過程でたどり着いた結論。継続を根性ではなく設計で支えるための、再開コスト・単位の大きさ・記録・出題順という4つの考え方を実例つきで書きました。","inLanguage":"ja","datePublished":"2026-08-13T15:45:35+09:00","dateModified":"2026-08-13T16:05:54+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/keep-going-system"},"url":"https://mainichi-lab.com/read/keep-going-system"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/keep-going-system/hero_aigen.webp","headline":"独学が続かないのは意志のせいじゃない — 続く仕組みの作り方","description":"「毎日やる」と決めても続かなかった自分が、学習ツールを5つ作る過程でたどり着いた結論。継続を根性ではなく設計で支えるための、再開コスト・単位の大きさ・記録・出題順という4つの考え方を実例つきで書きました。","inLanguage":"ja","datePublished":"2026-08-13T15:45:35+09:00","dateModified":"2026-10-17","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/keep-going-system"},"url":"https://mainichi-lab.com/read/keep-going-system"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"独学が続かないのは意志のせいじゃない","item":"https://mainichi-lab.com/read/keep-going-system"}]}
 </script>
@@ -51,6 +77,11 @@
     <h1>独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</h1>
     <p class="meta">2026年8月13日 ／ フジケン</p>
 
+    <figure class="pic top">
+      <img src="/read/img/keep-going-system/hero_aigen.webp" width="1280" height="720" alt="階段の最下段にスマートフォンが置かれ、最上段に旗が立っているイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
     <p>宅建の勉強を独学ではじめて、3日でやめました。次に買い直した問題集も、たぶん2週間くらいで机の上の飾りになりました。そのときは「自分は意志が弱い」で片づけていたのですが、同じことを食事の記録でも、語学のアプリでも繰り返しているのに気づいて、さすがに原因の見立てが間違っているんじゃないかと思いました。</p>
     <p>そこから学習ツールを自分で作りはじめて、今は宅建・麻雀・方言の3つの学習系ツールを公開しています。作りながら試して、やめて、直してを繰り返した結果、続かない原因はだいたい4つのどれかに寄っている、というところまでは言えるようになりました。この記事はその4つの話です。</p>
 
@@ -74,6 +105,10 @@
 
     <h2>4. やった記録が残らない</h2>
     <p>紙の問題集の弱点はここにもあります。3週間やって、自分がどれだけ進んだのかが分からない。ページ数は進んでいても、それが合格ラインにどれくらい近いのかは見えません。手応えのない努力は続きません。</p>
+    <figure class="pic">
+      <img src="/read/img/keep-going-system/body_aigen.webp" width="1200" height="800" alt="丸いスタンプが並んだ習慣記録の表と、鉛筆のイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
     <p>なので、記録は多めに出しています。総合正答率、分野別の到達度、解いた問題数、最長連続日数、マスター済みの問題数、直近4週間でトレーニングした日のカレンダー。それから実績バッジ。</p>
     <p>ただ、ここは作りすぎると逆効果になるとも思っています。数字を増やすこと自体が目的になると、簡単な問題ばかり解いて正答率を上げにいく、みたいな行動が出る。だから宅建GYMでは、本試験と同じ50問構成（権利14・業法20・法令上の制限8・税その他8）の模試を別に用意して、そこでの合格ライン判定を「本当の現在地」として見られるようにしました。日々の数字はモチベーションの燃料、模試の判定は実力の物差し、と役割を分けています。</p>
 
@@ -91,10 +126,10 @@
     <nav class="related-posts" aria-label="関連記事">
       <h2>ほかの読みもの</h2>
     <ul class="post-list">
-      <li><a href="/read/lessons-building-apps"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
-      <li><a href="/read/no-login-design"><span class="t">ログイン不要・端末内保存にした理由と、その代償</span></a></li>
-      <li><a href="/read/making-questions"><span class="t">学習アプリの問題を自分で作って分かった、いい問題と悪い問題の差</span></a></li>
-      <li><a href="/read/one-hand-mobile"><span class="t">「片手・立ったまま・1分」を前提に作るということ</span></a></li>
+      <li><a class="rl" href="/read/lessons-building-apps"><img class="rt" src="/read/img/lessons-building-apps/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
+      <li><a class="rl" href="/read/no-login-design"><img class="rt" src="/read/img/no-login-design/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ログイン不要・端末内保存にした理由と、その代償</span></a></li>
+      <li><a class="rl" href="/read/making-questions"><img class="rt" src="/read/img/making-questions/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">学習アプリの問題を自分で作って分かった、いい問題と悪い問題の差</span></a></li>
+      <li><a class="rl" href="/read/one-hand-mobile"><img class="rt" src="/read/img/one-hand-mobile/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">「片手・立ったまま・1分」を前提に作るということ</span></a></li>
     </ul>
     </nav>
 
@@ -103,7 +138,7 @@
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-10-17">2026年10月17日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>

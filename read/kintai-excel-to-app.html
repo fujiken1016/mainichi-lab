@@ -11,9 +11,37 @@
 <meta property="og:description" content="知人の小さな店のシフト表を、Excelから勤怠アプリに移す相談に乗った記録。法律上の保存義務、自己申告の弱さ、統計の実数、実際の手順まで。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mainichi-lab.com/read/kintai-excel-to-app">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/kintai-excel-to-app/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/kintai-excel-to-app/hero_aigen.webp">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:break-word;word-break:auto-phrase}
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
 <script>
@@ -23,7 +51,7 @@
   gtag('config', 'G-XRJ40EFR6C');
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録","description":"知人が営む10席の居酒屋のシフト表を、Excelから勤怠アプリに移す相談に乗りました。法定三帳簿の保存義務、自己申告だけでは危ない理由、総務省統計の実数、実際の移行手順まで、調べて分かったことをまとめています。","inLanguage":"ja","datePublished":"2026-10-17T10:00:00+09:00","dateModified":"2026-10-17T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/kintai-excel-to-app"},"url":"https://mainichi-lab.com/read/kintai-excel-to-app"}
+{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/kintai-excel-to-app/hero_aigen.webp","headline":"居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録","description":"知人が営む10席の居酒屋のシフト表を、Excelから勤怠アプリに移す相談に乗りました。法定三帳簿の保存義務、自己申告だけでは危ない理由、総務省統計の実数、実際の移行手順まで、調べて分かったことをまとめています。","inLanguage":"ja","datePublished":"2026-10-17T10:00:00+09:00","dateModified":"2026-10-17T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/kintai-excel-to-app"},"url":"https://mainichi-lab.com/read/kintai-excel-to-app"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録","item":"https://mainichi-lab.com/read/kintai-excel-to-app"}]}
@@ -50,6 +78,11 @@
 
     <h1>居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録</h1>
     <p class="meta">2026年10月17日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/kintai-excel-to-app/hero_aigen.webp" width="1280" height="720" alt="カウンター席と提灯のある小さな居酒屋の店内と、カウンターの上に置かれたタブレットのイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
 
     <p>知人がカウンター8席とテーブル2席、合わせて10席の居酒屋をひとりで切り盛りしています。アルバイトも数人雇っていて、シフトはずっとExcelでした。月末になると「今月何時間働いたっけ」を手で数えて給与計算ソフトに打ち込んでいました。相談されたのは「このままでいいのか分からない」という話で、ツールを作る側の人間として一緒に調べることにしました。</p>
     <p>結論から言うと、Excelが悪いわけではありません。ただ、調べていくと<strong>「残さなければいけないもの」と「それだけでは足りないかもしれないもの」</strong>が法律の側にはっきり書いてあり、知らずに運用していると割を食うのは店の側だと分かりました。この記事はその過程の記録です。</p>
@@ -153,6 +186,10 @@
 
     <h2 id="steps">5. 実際に移した4つの手順</h2>
     <p>法律の確認が終わったところで、実際の移行作業に入りました。やったことは大きく4つです。</p>
+    <figure class="pic">
+      <img src="/read/img/kintai-excel-to-app/body_aigen.webp" width="1200" height="800" alt="紙のシフト表から、タブレットの色分けされたシフト表へ移すイメージのイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
     <table style="width:100%;border-collapse:collapse;font-size:.95rem;margin:18px 0;text-align:left">
       <caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：Excelから勤怠アプリへの移行手順（2026年10月の実施記録）</caption>
       <thead>
@@ -199,10 +236,10 @@
     <nav class="related-posts" aria-label="関連記事">
       <h2>ほかの読みもの</h2>
     <ul class="post-list">
-      <li><a href="/read/ai-subsidy-reality"><span class="t">「AI導入に補助金は使える」と書いてあるものを、公募要領まで全部読んでみた</span></a></li>
-      <li><a href="/read/lessons-building-apps"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
-      <li><a href="/read/keep-going-system"><span class="t">独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</span></a></li>
-      <li><a href="/read/no-login-design"><span class="t">ログイン不要・端末内保存にした理由と、その代償</span></a></li>
+      <li><a class="rl" href="/read/ai-subsidy-reality"><img class="rt" src="/read/img/ai-subsidy-reality/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">「AI導入に補助金は使える」と書いてあるものを、公募要領まで全部読んでみた</span></a></li>
+      <li><a class="rl" href="/read/lessons-building-apps"><img class="rt" src="/read/img/lessons-building-apps/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
+      <li><a class="rl" href="/read/keep-going-system"><img class="rt" src="/read/img/keep-going-system/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</span></a></li>
+      <li><a class="rl" href="/read/no-login-design"><img class="rt" src="/read/img/no-login-design/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ログイン不要・端末内保存にした理由と、その代償</span></a></li>
     </ul>
     </nav>
 
