@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録 | 毎日ラボ</title>
+<meta name="description" content="知人が営む10席の居酒屋のシフト表を、Excelから勤怠アプリに移す相談に乗りました。法定三帳簿の保存義務、自己申告だけでは危ない理由、総務省統計の実数、実際の移行手順まで、調べて分かったことをまとめています。">
+<link rel="canonical" href="https://mainichi-lab.com/read/kintai-excel-to-app">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録">
+<meta property="og:description" content="知人の小さな店のシフト表を、Excelから勤怠アプリに移す相談に乗った記録。法律上の保存義務、自己申告の弱さ、統計の実数、実際の手順まで。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/kintai-excel-to-app">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録","description":"知人が営む10席の居酒屋のシフト表を、Excelから勤怠アプリに移す相談に乗りました。法定三帳簿の保存義務、自己申告だけでは危ない理由、総務省統計の実数、実際の移行手順まで、調べて分かったことをまとめています。","inLanguage":"ja","datePublished":"2026-10-17T10:00:00+09:00","dateModified":"2026-10-17T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/kintai-excel-to-app"},"url":"https://mainichi-lab.com/read/kintai-excel-to-app"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録","item":"https://mainichi-lab.com/read/kintai-excel-to-app"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>シフト表の移行</p>
+
+    <h1>居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録</h1>
+    <p class="meta">2026年10月17日 ／ フジケン</p>
+
+    <p>知人がカウンター8席とテーブル2席、合わせて10席の居酒屋をひとりで切り盛りしています。アルバイトも数人雇っていて、シフトはずっとExcelでした。月末になると「今月何時間働いたっけ」を手で数えて給与計算ソフトに打ち込んでいました。相談されたのは「このままでいいのか分からない」という話で、ツールを作る側の人間として一緒に調べることにしました。</p>
+    <p>結論から言うと、Excelが悪いわけではありません。ただ、調べていくと<strong>「残さなければいけないもの」と「それだけでは足りないかもしれないもの」</strong>が法律の側にはっきり書いてあり、知らずに運用していると割を食うのは店の側だと分かりました。この記事はその過程の記録です。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#pain">1. 何に困っていたか</a></li>
+        <li><a href="#law">2. 法律で決まっている「残す期間」</a></li>
+        <li><a href="#kyakkan">3. 自己申告だけでは本当はまずいという話</a></li>
+        <li><a href="#toukei">4. 国の統計で見る、クラウド化している側の数字</a></li>
+        <li><a href="#steps">5. 実際に移した4つの手順</a></li>
+        <li><a href="#kept">6. 移行してもExcelに残したもの</a></li>
+        <li><a href="#matome">まとめ：移す前に決めること</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="pain">1. 何に困っていたか</h2>
+    <p>Excelのシフト表そのものは、よくできていました。日付×氏名のマス目に開始・終了時刻を入れるだけの単純な作りで、見た目にも迷いません。問題は作ったあとの扱い方でした。具体的には、次の3つが毎月の負担になっていました。</p>
+    <ul>
+      <li>シフトが決まるとスクリーンショットをLINEで共有するだけで、元のExcelファイルは更新されないまま残る</li>
+      <li>急な変更が口頭かLINEの文字だけで伝わり、どのバージョンが最新か本人も分からなくなる</li>
+      <li>深夜帯（22時〜翌5時）の割増や延長した日の残業時間を、月末に記憶を頼りに手計算する</li>
+    </ul>
+    <p>小さな店で働く人数が少ないうちは間違いも小さく見えますが、積み重なると毎月の給与計算が数千円単位でずれます。これが「このままでいいのか」の正体でした。</p>
+
+    <h2 id="law">2. 法律で決まっている「残す期間」</h2>
+    <p>調べて最初に分かったのは、シフト表や出勤の記録は「あったほうがいい資料」ではなく、法律で保存が義務づけられた帳簿の一部だということです。労働基準法は、労働者名簿・賃金台帳・出勤簿（これらを合わせて法定三帳簿と呼びます）を事業者に作成・保存させています。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.95rem;margin:18px 0;text-align:left">
+      <caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：法定三帳簿と保存の起算日（労働基準法107〜109条・2026年10月時点）</caption>
+      <thead>
+        <tr>
+          <th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">帳簿</th>
+          <th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">根拠条文</th>
+          <th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">保存の起算日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">労働者名簿</th>
+          <td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">労働基準法第107条</td>
+          <td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">退職・解雇・死亡の日から</td>
+        </tr>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">賃金台帳</th>
+          <td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">労働基準法第108条</td>
+          <td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">最後に記入した日から</td>
+        </tr>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">出勤簿（シフト表の記録）</th>
+          <td style="padding:8px 8px 8px 0;vertical-align:top">同法第109条「その他重要な書類」</td>
+          <td style="padding:8px 0 8px 8px;vertical-align:top">労働者が最後に出勤した日から</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>保存期間は2020年の法改正で原則5年に延びましたが、附則の経過措置により「当分の間」は3年とされています。実務上は3年を下回らないようにしておけば足ります。10席の店でも対象は同じで、規模による免除はありません。</p>
+    <figure style="margin:18px 0">
+      <svg viewBox="0 0 335 200" width="100%" role="img" aria-label="法定三帳簿の保存イメージ。労働者名簿は退職日から、賃金台帳は最後に記入した日から、出勤簿は最後に出勤した日から、それぞれ数える。">
+        <g font-size="14">
+          <rect x="1" y="1" width="333" height="58" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <text x="14" y="24" fill="var(--sub)">労働者名簿</text>
+          <text x="14" y="46" fill="var(--ink)">退職・解雇・死亡の日から数える</text>
+          <rect x="1" y="69" width="333" height="58" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <text x="14" y="92" fill="var(--sub)">賃金台帳</text>
+          <text x="14" y="114" fill="var(--ink)">最後に記入した日から数える</text>
+          <rect x="1" y="137" width="333" height="58" rx="12" fill="var(--accent-soft)" stroke="var(--accent)"/>
+          <text x="14" y="160" fill="var(--sub)">出勤簿（シフトの記録）</text>
+          <text x="14" y="182" fill="var(--ink)">最後に出勤した日から数える</text>
+        </g>
+      </svg>
+      <figcaption style="font-size:.9rem;color:var(--sub);margin-top:8px">図1：帳簿ごとに保存期間の数え始めが違う（労働基準法第107〜109条・施行規則第56条／2026年10月時点）</figcaption>
+    </figure>
+
+    <h2 id="kyakkan">3. 自己申告だけでは本当はまずいという話</h2>
+    <p>ここが今回いちばん意外だった点です。シフト表（予定）と出勤の記録（実績）は別物で、実績のほうには「客観的な方法で把握する」という義務が別にかかっています。</p>
+    <p>根拠は労働安全衛生法第66条の8の3です。2019年4月に施行された条文で、事業者に労働者の労働時間の状況を客観的に把握させることを義務づけています。具体的な方法は同法の施行規則（第52条の7の3）に書かれていて、タイムカードによる記録や、パソコンの使用時間（ログインからログアウトまでの記録）などが挙げられています。</p>
+    <p>自己申告制は、この客観的な方法がどうしても取れない場合にだけ例外的に認められる、という位置づけです。厚生労働省が2017年1月20日に策定したガイドラインは、自己申告制で運用する場合に事業者がとるべき措置として、次の3つを挙げています。</p>
+    <ul>
+      <li>自己申告を行う労働者と、労働時間を管理する者の双方に、制度の運用について十分な説明をすること</li>
+      <li>自己申告した時間と、実際に事業場内にいた時間（パソコンの使用記録など）の間に著しい乖離がある場合は、実態調査をして労働時間を補正すること</li>
+      <li>労働者が申告できる時間数に上限を設けるなど、適正な申告を妨げる措置をとらないこと</li>
+    </ul>
+    <p>月末にExcelへ手入力していたシフト表は、まさにこの自己申告制にあたります。悪意があるかどうかに関係なく、<strong>申告と実態の乖離をチェックする仕組みを自分たちで持っていなかった</strong>、というのが実態でした。</p>
+    <figure style="margin:18px 0">
+      <svg viewBox="0 0 335 190" width="100%" role="img" aria-label="労働時間の把握方法の位置づけ。タイムカードやPCログなどの客観的な方法が原則で、自己申告はそれが難しい場合の例外。例外のときは乖離チェックなど3つの措置が必要。">
+        <g font-size="14" fill="var(--ink)">
+          <rect x="1" y="1" width="333" height="54" rx="12" fill="var(--accent-soft)" stroke="var(--accent)"/>
+          <text x="14" y="33">① 原則：客観的な方法（打刻・PCログ等）</text>
+          <rect x="1" y="65" width="333" height="54" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <text x="14" y="97">② 例外：自己申告（やむを得ない場合のみ）</text>
+          <rect x="1" y="129" width="333" height="54" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <text x="14" y="161">③ 例外を取るなら乖離チェック等3措置が必要</text>
+        </g>
+      </svg>
+      <figcaption style="font-size:.9rem;color:var(--sub);margin-top:8px">図2：労働時間把握の原則と例外（労働安全衛生法66条の8の3・厚労省ガイドライン2017年1月20日策定／2026年10月時点）</figcaption>
+    </figure>
+
+    <h2 id="toukei">4. 国の統計で見る、クラウド化している側の数字</h2>
+    <p>法律の話だけだと「自分の店だけが遅れている」ように感じたので、実際にどれくらいの企業がクラウドの勤怠・給与サービスへ移っているのかも確認しました。出典は総務省『令和6年通信利用動向調査報告書（企業編）』の図表3-3で、2026年10月時点でPDF原文を確認しています。クラウドサービスのうち「給与、財務会計、人事」用途で利用している企業の割合は、令和4年46.5%（n=1,858）、令和5年48.3%（n=2,138）、令和6年52.0%（n=1,941）と推移し、同報告書本文も「前年から3.6ポイント上昇」（2026年10月時点の表記）と明記しています。統計法に基づく一般統計調査です。</p>
+    <p>ただし、この調査には正直に書いておくべき注記があります（同報告書・2026年10月時点で確認）。調査対象は<strong>常用雇用者が100人以上の企業</strong>で、知人の店のような少人数の個人店はそもそも母集団に入っていません。「半数以上の企業が使っている」という数字を、そのまま10席の店に当てはめるのは拡大解釈です。分かるのは「従業員規模の大きい企業では、人事・給与のクラウド化がここ数年で着実に進んでいる」という方向だけで、小規模店の実態はこの調査からは分かりません。</p>
+
+    <h2 id="steps">5. 実際に移した4つの手順</h2>
+    <p>法律の確認が終わったところで、実際の移行作業に入りました。やったことは大きく4つです。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.95rem;margin:18px 0;text-align:left">
+      <caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：Excelから勤怠アプリへの移行手順（2026年10月の実施記録）</caption>
+      <thead>
+        <tr>
+          <th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">手順</th>
+          <th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">やったこと</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">① 列の棚卸し</th>
+          <td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">既存Excelの列（日付・氏名・開始・終了・休憩・交通費・備考）を全部書き出す</td>
+        </tr>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">② 必須項目に絞る</th>
+          <td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">賃金計算に使う項目だけを残し、アプリの取り込み形式に合わせて並べ直す</td>
+        </tr>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">③ 1週間だけ並行運用</th>
+          <td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">打刻と自己申告の両方を1週間つけ、乖離が出ないか突き合わせる</td>
+        </tr>
+        <tr>
+          <th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">④ 給与計算との接続確認</th>
+          <td style="padding:8px 0 8px 8px;vertical-align:top">締め日・エクスポート形式が今使っている給与計算ソフトと合うかを確認</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>いちばん時間がかかったのは③でした。打刻と自己申告の両方を1週間つけてみると、休憩の記録だけが毎回5〜10分ずれていることが分かりました。悪気があるずれではなく、「休憩に入った時刻」を正確に覚えていなかっただけです。これは自己申告の精度の問題というより、<strong>覚えていられる単位ではなかった</strong>ということだと思います。</p>
+
+    <h2 id="kept">6. 移行してもExcelに残したもの</h2>
+    <p>全部をアプリに寄せたわけではありません。来月のシフト希望を集める作業だけは、これまで通りLINEでのやり取りとExcelへの手入力を残しました。アプリ側にも希望収集の機能はあったのですが、少人数の店には設定項目が多すぎて、かえって時間がかかったためです。</p>
+    <p>法律が義務づけているのは<strong>「実際に働いた時間」の客観的な記録</strong>であって、「これから働きたい希望」の管理方法までは指定していません。ここは店の規模に合わせて、手間の軽いほうを選んでいいはずだと判断しました。</p>
+
+    <h2 id="matome">まとめ：移す前に決めること</h2>
+    <p>調べる前は「シフト管理アプリに乗り換えれば楽になる」という漠然とした期待でした。実際に動いてみて分かったのは、乗り換えの前に決めるべきことが3つに絞れる、ということです。</p>
+    <ul>
+      <li><strong>どこを客観的な記録にするか</strong>——打刻かPCログか、自己申告のままで本当にいい範囲はどこか</li>
+      <li><strong>法定三帳簿の保存をどう満たすか</strong>——誰が・何を・何年残すのかを決めておく</li>
+      <li><strong>給与計算ソフトとどう接続するか</strong>——締め日とエクスポート形式が合うかを先に確認する</li>
+    </ul>
+    <p>次の1アクションとして書いておくと、まず自分の店の出勤記録が「客観的な方法」と「自己申告」のどちらで成立しているかを確認してみてください。自己申告のままなら、厚生労働省のガイドラインにある3つの措置（説明・乖離チェック・上限を設けない）のうち、どれが抜けているかを洗い出すところから始められます。</p>
+    <p>ひとりで作って公開する過程で踏んだ失敗は<a href="/read/lessons-building-apps">こちらの記事</a>に、制度まわりを一次情報で読み込んだ記録は<a href="/read/ai-subsidy-reality">「AI導入に補助金は使える」を読んでみた話</a>に書きました。ログインを作らずにデータを持つ判断については<a href="/read/no-login-design">こちら</a>をどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a href="/read/ai-subsidy-reality"><span class="t">「AI導入に補助金は使える」と書いてあるものを、公募要領まで全部読んでみた</span></a></li>
+      <li><a href="/read/lessons-building-apps"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
+      <li><a href="/read/keep-going-system"><span class="t">独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</span></a></li>
+      <li><a href="/read/no-login-design"><span class="t">ログイン不要・端末内保存にした理由と、その代償</span></a></li>
+    </ul>
+    </nav>
+
+    <p class="updated">2026年10月17日公開</p>
+    <a class="back" href="/read/">← 読みもの一覧へ</a>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-10-17">2026年10月17日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
