@@ -14,6 +14,26 @@
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose>p{margin-top:1.25rem}
+.post-list li a{position:relative}
+.post-list .t,.post-list .d,.post-list .m{display:block}
+.post-list .pimg{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft);margin-bottom:12px}
+@media(min-width:560px){.post-list li a{padding-left:232px;min-height:156px}.post-list .pimg{position:absolute;left:0;top:16px;width:208px;margin:0}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+@media(prefers-color-scheme:dark){.post-list .pimg{filter:brightness(.88)}}
+.post-list .t,.post-list .d{word-break:auto-phrase}
+.post-list .t{text-wrap:balance}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:break-word;word-break:auto-phrase}
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
 <script>
@@ -57,6 +77,7 @@
     <ul class="post-list">
       <li>
         <a href="/read/kintai-excel-to-app">
+          <img class="pimg" src="/read/img/kintai-excel-to-app/hero_aigen.webp" width="1280" height="720" alt="" data-aidecor="1">
           <span class="t">居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録</span>
           <span class="d">保存義務と統計の実数つきの記録。</span>
           <span class="m">2026年10月17日</span>
@@ -64,6 +85,7 @@
       </li>
       <li>
         <a href="/read/ai-subsidy-reality">
+          <img class="pimg" src="/read/img/ai-subsidy-reality/hero_aigen.webp" width="1280" height="720" alt="" data-aidecor="1" loading="lazy">
           <span class="t">「AI導入に補助金は使える」と書いてあるものを、公募要領まで全部読んでみた</span>
           <span class="d">個人事業でAIツールを作る側から、補助金の公募要領を4本読んだ記録。対象になる費目とならない費目、交付決定の前に発注してはいけない理由、申請支援をめぐる条文まで。</span>
           <span class="m">2026年9月7日</span>
@@ -71,6 +93,7 @@
       </li>
       <li>
         <a href="/read/keep-going-system">
+          <img class="pimg" src="/read/img/keep-going-system/hero_aigen.webp" width="1280" height="720" alt="" data-aidecor="1" loading="lazy">
           <span class="t">独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</span>
           <span class="d">「毎日やる」と決めても続かなかった自分が、学習ツールを作る過程でたどり着いた4つの設計。再開コストを下げる、単位を小さくする、選ばせない、記録を見せる。</span>
           <span class="m">2026年8月13日</span>
@@ -78,6 +101,7 @@
       </li>
       <li>
         <a href="/read/lessons-building-apps">
+          <img class="pimg" src="/read/img/lessons-building-apps/hero_aigen.webp" width="1280" height="720" alt="" data-aidecor="1" loading="lazy">
           <span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span>
           <span class="d">正しい手が「不正解」になるバグ、読む前に消える大事な表示、指で押せないボタン、連打で壊れる処理。実際に出した失敗と、そこから決めたルール。</span>
           <span class="m">2026年8月13日</span>
@@ -85,6 +109,7 @@
       </li>
       <li>
         <a href="/read/no-login-design">
+          <img class="pimg" src="/read/img/no-login-design/hero_own.webp" width="1280" height="720" alt="" data-aidecor="1">
           <span class="t">ログイン不要・端末内保存にした理由と、その代償</span>
           <span class="d">登録をなくすと使ってもらいやすい。でもデータは機種変更で消える。個人でデータを預かる責任の重さと、その判断をどう決めたかという話。</span>
           <span class="m">2026年8月13日</span>
@@ -92,6 +117,7 @@
       </li>
       <li>
         <a href="/read/making-questions">
+          <img class="pimg" src="/read/img/making-questions/hero_aigen.webp" width="1280" height="720" alt="" data-aidecor="1" loading="lazy">
           <span class="t">学習アプリの問題を自分で作って分かった、いい問題と悪い問題の差</span>
           <span class="d">正解を用意するのは簡単で、間違いを用意するのが難しい。○×問題が答えを漏らす仕組み、解説の書き方、法改正で問題が腐る話。</span>
           <span class="m">2026年8月13日</span>
@@ -99,6 +125,7 @@
       </li>
       <li>
         <a href="/read/one-hand-mobile">
+          <img class="pimg" src="/read/img/one-hand-mobile/hero_own.webp" width="1280" height="720" alt="" data-aidecor="1" loading="lazy">
           <span class="t">「片手・立ったまま・1分」を前提に作るということ</span>
           <span class="d">スマホ対応を後からやるのではなく、幅375pxから作る。親指の届く範囲、キーボードを出さない工夫、途中で中断される前提の設計。</span>
           <span class="m">2026年8月13日</span>
