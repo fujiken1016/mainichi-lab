@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話 | 毎日ラボ</title>
+<meta name="description" content="他の人のQiita分析（4万〜7.7万件）で「伸びる」とされる型に合わせて19本書き、自分の数字で確かめました。PVは出たのにLGTMはほぼ0。観測日つきの実測値と、食い違った理由をまとめています。">
+<link rel="canonical" href="https://mainichi-lab.com/read/qiita-19-articles-measured">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話">
+<meta property="og:description" content="Qiitaを19本書いた実測記録。他の人の大規模分析にある「伸びる型」を試して、PV・LGTM・ストック・送客がどうなったか。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/qiita-19-articles-measured">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/qiita-19-articles-measured/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/qiita-19-articles-measured/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/qiita-19-articles-measured/hero_aigen.webp","headline":"Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話","description":"他の人のQiita分析（4万〜7.7万件）で「伸びる」とされる型に合わせて19本書き、自分の数字で確かめました。PVは出たのにLGTMはほぼ0。観測日つきの実測値と、食い違った理由をまとめています。","inLanguage":"ja","datePublished":"2026-10-21T10:00:00+09:00","dateModified":"2026-10-21T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/qiita-19-articles-measured"},"url":"https://mainichi-lab.com/read/qiita-19-articles-measured"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話","item":"https://mainichi-lab.com/read/qiita-19-articles-measured"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>Qiita記事を19本書いて</p>
+
+    <h1>Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話</h1>
+    <p class="meta">2026年10月21日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/qiita-19-articles-measured/hero_aigen.webp" width="1280" height="720" alt="窓辺の机に開いたノートとペン、コーヒーカップ、鉢植えが置かれたイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト・ローカルSDXL）</figcaption>
+    </figure>
+
+    <p>この数週間でQiitaに記事を19本書きました。書く前に、Qiitaの記事を何万件も集めて「どんな記事が伸びるか」を調べた分析を読み、そこに出ていた特徴（画像が多い、見出しが多い、リンクが多い、長い）に合わせて書いています。この記事は、その結果を自分の数字で確かめた記録です。</p>
+    <p>先に結論を書くと、PV（読まれた数）は出ました。一方、LGTM（いいね）とストック（保存）はほとんど付いていません。他の人の分析が間違っているのではなく、「誰が書いたか」を動かせない状態では型の効き目が見えない、というのが今のところの読みです。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#others">1. 大規模分析が言っていたこと</a></li>
+        <li><a href="#mine">2. 自分で取ったデータ</a></li>
+        <li><a href="#result">3. 19本書いた結果</a></li>
+        <li><a href="#gap">4. 食い違いをどう読むか</a></li>
+        <li><a href="#change">5. 測り方を変えたこと</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="others">1. 大規模分析が言っていたこと</h2>
+    <p>書く前に、Qiita（一部はZennも）の記事を集めて分析した3本を読みました。母数も指標もそれぞれ違うので、並べて整理します。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：3つの大規模分析が見ていたこと（2026年10月20日に各記事を開いて確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">記事</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">母数と指標</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">言っていたこと</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href="https://qiita.com/wrhgw/items/d9bdbd465d1c3180d6d5" rel="noopener">Qiita 45,415記事の分析</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">45,415件（主分析は投稿72時間以上の44,334件）。指標は10いいね以上になる確率（出典：同記事、2026年10月20日確認）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">同記事（2026年10月20日確認）によると、タグ5個・本文5,000字以上・見出し3個以上・リンク3個以上が伸びやすい。タイトルのコロンは取りこぼしやすい。著者自身が「相関であって因果ではない」と明記</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href="https://qiita.com/ktdatascience/items/1d49e14ea0a8851fcae7" rel="noopener">Qiita 7.7万件の分析</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">約7.7万件のうち成熟した39,222件。指標は10いいね以上の割合（全体8.2%）（出典：同記事、2026年10月20日確認）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">同記事（2026年10月20日確認）では、1,000字未満は1.6%、見出し5個以上とタグ5個で上がる。更新やコメントは「伸びた結果」の可能性が高いと書いている</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700"><a href="https://zenn.dev/tabayashi/articles/buzz-anatomy-what-drives-likes" rel="noopener">QiitaとZenn 約5,500本の分解</a></th><td style="padding:8px 8px 8px 0;vertical-align:top">Qiita API v2とZenn APIから収集。調査期間はQiita1週間・Zenn10日</td><td style="padding:8px 8px 8px 0;vertical-align:top">いいね数の説明力の大半は「誰が書いたか」と外部での拡散。記事の中身の分はQiitaで約1割</td></tr>
+</tbody></table>
+    <p>3本に共通していたのは、見出し・タグ・文字数・リンクといった「書き手が自分で決められる要素」で上がり下がりが見える、という点です。一方で3本目は、いいね数の説明力の大半は著者と外部での拡散にあるとも書いていました。この2つは矛盾しているようで、矛盾していません。同じフォロワー数の人だけを比べれば型の差が見え、全体を比べればフォロワー数の差が見える、ということだと理解しました。</p>
+
+    <h2 id="mine">2. 自分で取ったデータ</h2>
+    <p>他の人の分析をそのまま信じる前に、自分でも同じことをやってみました。2026年9月3日に、Qiita APIで4つのタグ（ClaudeCode、Claude、AIエージェント、生成AI）の記事を取得し、重複を除いて1,466本を集めています。全体ではLGTMの中央値が0、LGTM 0の記事が66.3%でした（同日の取得時点）。</p>
+    <p>ここからフォロワー20人以下の著者だけに絞った1,067本で、LGTM 3以上を「当たり」と数えました。基準のhit率は6.7%です（2026年9月3日取得分）。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：フォロワー20人以下の著者 1,067本での「当たり」（LGTM3以上）の出やすさ（2026年9月3日取得・基準のhit率6.7%）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">要素</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">本数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">hit率</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">基準との比</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">画像6枚以上</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">74</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">17.6%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2.63倍</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">外部リンク8本以上</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">267</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">13.1%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1.96倍</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">h3見出し10個以上</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">155</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">14.2%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2.12倍</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">本文6,000字以上</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">438</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10.0%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1.49倍</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">タイトルにコロン</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">130</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2.3%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.34倍</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">本文2,000字未満</th><td style="padding:8px 8px 8px 0;vertical-align:top">113</td><td style="padding:8px 8px 8px 0;vertical-align:top">0.9%</td><td style="padding:8px 8px 8px 0;vertical-align:top">0.13倍</td></tr>
+</tbody></table>
+    <p>文字数は「長いほどよい」ではなく、6,000字あたりに境目がありました。2,000字未満はほぼ当たらず、6,000字を超えるとhit率は10%前後で横ばいです。画像の枚数は、mermaid図で代用しても効果が見えず（8.6%）、画像として貼った記事のほうが高くなりました。</p>
+    <p>ただし、これは相関です。図を6枚入れる人は、ほかの部分も丁寧に書いている可能性があります。「図を足せば当たる」とは読めません。</p>
+
+    <figure class="pic">
+      <img src="/read/img/qiita-19-articles-measured/body_aigen.webp" width="1200" height="800" alt="緑のテーブルに虫眼鏡と白紙の紙の束、鉢植えが置かれたイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト・ローカルSDXL）</figcaption>
+    </figure>
+
+    <h2 id="result">3. 19本書いた結果</h2>
+    <p>表2の型に合わせて、図7枚、外部リンク14〜29本、h3見出し14〜38個、本文は約1.2万〜2.9万字の記事を書きました。台帳に残っている最初の9本の数字は次のとおりです。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：自分のQiita記事の実測（Qiita APIで2026年9月14日11時に計測した9本分）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">項目</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">値</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">公開した記事</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9本（8月31日〜9月14日）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">PV合計</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">5,485（うち1本で2,748）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">LGTM</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">合計3（その1本だけ）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ストック</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">フォロワー</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">自社サイトへの到達</th><td style="padding:8px 8px 8px 0;vertical-align:top">1セッション（エンゲージメント0秒）</td></tr>
+</tbody></table>
+    <p>PVは1本目から日に100〜170ほど付きました。ところがLGTMが付いたのは、20,489字・h3見出し38個の1本だけです。それ以外の記事は、図を7枚入れても、リンクを20本以上貼っても、LGTMとストックは0のままでした。</p>
+    <p>自社サイトへの送客も出ていません。2026年10月2日の確認では、記事に置いた受注窓口へのリンクに対応するキャンペーン名が、GA4（9月21日〜10月2日）に1件も記録されていませんでした。読まれてはいるのに、クリックされていないということです。</p>
+
+    <h2 id="gap">4. 食い違いをどう読むか</h2>
+    <p>表2では型に合う記事のhit率が上がり、自分の19本ではほとんど当たりませんでした。この差について、分かっていることと分かっていないことを分けて書きます。</p>
+    <ul>
+      <li><strong>分かっていること</strong>：フォロワー0の著者はLGTMの基準値が0に近い。2026年9月3日取得分で全体の66.3%がLGTM 0だったので、0は失敗の証拠にならない</li>
+      <li><strong>分かっていること</strong>：PVはタグの大きさ（そのタグをフォローしている人数）と連動して動いた。記事の質より、どこに置いたかの影響が大きく見えた</li>
+      <li><strong>分かっていないこと</strong>：型が効かなかったのか、サンプルが19本（うちLGTMが付いたのは1本）で少なすぎるのか。ここは切り分けられていない</li>
+      <li><strong>分かっていないこと</strong>：読まれたのにストックされないのは、内容が「読み物」で、手元に置く道具になっていないからかもしれない。これは仮説で、まだ検証できていない</li>
+    </ul>
+    <p>3つの分析が書いていたとおり、LGTMの多くは「誰が書いたか」と外への広がりで決まるのかもしれません。そうだとすると、フォロワーが少ないうちは、型を磨くよりも先に別の測り方が必要です。</p>
+
+    <h2 id="change">5. 測り方を変えたこと</h2>
+    <p>LGTMを撤退や継続の判断に使うのをやめました。代わりに、次の3つで見ています。</p>
+    <ol>
+      <li>PV（自分の記事はAPIで取れるが、他人の記事は取れない）</li>
+      <li>ストック（フォロワー数の影響を受けにくい指標として）</li>
+      <li>記事から自社サイトへ実際に来た人数（GA4のキャンペーン名で数える）</li>
+    </ol>
+    <p>観測した数字には日付をつけて残し、次に測る日も決めておきます。「たぶん伸びる」で書くのをやめ、「何を測れば伸びたと言えるか」を書く前に決める、という順番に変えました。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li><strong>大規模分析の型は、同じフォロワー数の人同士を比べるときに見える</strong>——フォロワー0でそのまま真似しても、LGTMには出にくい</li>
+      <li><strong>LGTM 0は失敗の証拠ではない</strong>——2026年9月3日取得分では全体の66.3%がLGTM 0。判断にはPV・ストック・送客のほうが向いている</li>
+      <li><strong>数字は観測日つきで残す</strong>——この記事の数字は、2026年9月3日・9月14日・10月2日時点のものです</li>
+    </ul>
+    <p>次の1アクションとして、自分の記事のAPI値を、記事ごとに公開日・PV・LGTM・ストックの4列で表にしてみてください。それだけで「何が動いて何が動いていないか」が見えます。</p>
+    <p>ほかにも、自分で作ったものの記録を書いています。<a href="/read/keep-going-system">続けるために作った仕組みの話</a>や、<a href="/read/lessons-building-apps">学習アプリで踏んだUIの失敗</a>も読んでみてください。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+                        <li><a class="rl" href="/read/no-login-design"><img class="rt" src="/read/img/no-login-design/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ログイン不要・端末内保存にした理由と、その代償</span></a></li>
+    </ul>
+    </nav>
+
+    <p class="updated">2026年10月21日公開</p>
+    <a class="back" href="/read/">← 読みもの一覧へ</a>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-10-21">2026年10月21日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
