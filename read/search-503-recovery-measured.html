@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>503を出したあとの実測：登録済みが41から111ページに増えた | 毎日ラボ</title>
+<meta name="description" content="自分のサイトでサーバーエラー(503)を出していた時期の前後を、Search Consoleの数字で記録しました。5xxの件数、クロール数、インデックス登録、表示回数の変化と、原因を切り分けられなかった理由まで、観測日つきで書きます。">
+<link rel="canonical" href="https://mainichi-lab.com/read/search-503-recovery-measured">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="503を出したあとの実測：登録済みが41から111ページに増えた">
+<meta property="og:description" content="自分のサイトでサーバーエラー(503)を出していた時期の前後を、Search Consoleの数字で記録しました。5xxの件数、クロール数、インデックス登録、表示回数の変化と、原因を切り分けられなかった理由まで、観測日つきで書きます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/search-503-recovery-measured">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/search-503-recovery-measured/hero_own.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/search-503-recovery-measured/hero_own.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/search-503-recovery-measured/hero_own.webp","headline":"503を出したあとの実測：登録済みが41から111ページに増えた","description":"自分のサイトでサーバーエラー(503)を出していた時期の前後を、Search Consoleの数字で記録しました。5xxの件数、クロール数、インデックス登録、表示回数の変化と、原因を切り分けられなかった理由まで、観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-10-26T10:00:00+09:00","dateModified":"2026-10-26T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/search-503-recovery-measured"},"url":"https://mainichi-lab.com/read/search-503-recovery-measured"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"503のあとのSearch Console実測：資格試験当日24時間の実測","item":"https://mainichi-lab.com/read/search-503-recovery-measured"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>503のあとのSearch Console実測</p>
+
+    <h1>503を出したあとの実測：登録済みが41から111ページに増えた</h1>
+    <p class="meta">2026年10月26日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/search-503-recovery-measured/hero_own.webp" width="1280" height="720" alt="2026年8月27日から9月5日までの表示回数の推移を示す折れ線グラフ。9月1日の42が9月5日の426まで増えている" fetchpriority="high">
+      <figcaption>図1：方言サイト単体の表示回数（日別・2026年8月27日〜9月5日）。9月1日の42から9月5日の426まで増えました</figcaption>
+    </figure>
+
+    <p>運営している方言のクイズサイトで、2026年8月から9月にかけてサーバーエラー(503)が出ていました。「検索順位に響いたのでは」と気になったので、Search Consoleの数字を並べて確かめました。確認日は2026年9月8日です。</p>
+    <p>先に結論です。Googlebotが記録した5xxは、期間中ずっと11件のまま増えませんでした（9月6日時点）。そして修正後、登録済みページは41から111に増え（9月8日時点）、表示回数は9月1日の42から9月5日の426になりました。ただし、同じ日に複数の対処を一度にやったため、何が効いたのかは切り分けられていません。ここまでを、表と一緒に書きます。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#google">1. Googleは503をどう扱うと言っているか</a></li>
+        <li><a href="#5xx">2. Googlebotが記録した5xxは増えていなかった</a></li>
+        <li><a href="#crawl">3. クロール数は9月3日に跳ねた</a></li>
+        <li><a href="#index">4. 登録済みページは41から111へ</a></li>
+        <li><a href="#imp">5. 表示回数は10倍になった</a></li>
+        <li><a href="#cause">6. 何が効いたのかは分かっていない</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="google">1. Googleは503をどう扱うと言っているか</h2>
+    <p>書く前に、検索で出てくる解説を開いて読みました（2026年10月25日）。Googleの公式ドキュメントでは、5xxを返すURLからのコンテンツは無視され、クロールは一時的に遅くなると説明されています。サーバーが正常な応答（2xx）に戻れば、クロール頻度は徐々に戻るとも書かれていました。日数の目安は載っていません。</p>
+    <p>別の解説記事では、Googleの担当者が「長期間503を返すとクロール頻度が下がるが、ときどき10〜15分程度なら問題ない」と話したと紹介されています。こちらも「長期」が何日かは決まっていません。手本にした記事には自サイトの数字がなく、「何日なら大丈夫か」は誰も言い切れていない、というのが読んだ感触です。そこで、自分のサイトで起きたことを、数字のまま残すことにしました。</p>
+
+    <h2 id="5xx">2. Googlebotが記録した5xxは増えていなかった</h2>
+    <p>まず、Googlebotが実際にエラーを踏んだ件数です。9月8日に、クロールの統計情報（期間は8月4日〜9月6日）を開いて確認しました。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：Googlebotが記録した5xxとクロール（Search Console・期間2026年8月4日〜9月6日・9月8日に確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">指標</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">9月1日までの値</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">9月6日までの値</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">クロールリクエスト総数</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1,910</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,210</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">平均応答時間</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">146ms</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">152ms</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">サーバーエラー(5xx)</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11件（増減なし）</td></tr>
+</tbody></table>
+    <p>5xxは11件のままで、新しいエラーは9月2日〜6日に1件も記録されていません。11件はすべて8月5日・12日・15日のもので、最後は8月15日でした。サイト側で503が出ていたとしても、Googlebotがそれを踏んだ記録は、Search Console上には残っていません。「ホスト別のステータス」も、7つのホストすべてで問題なしでした。</p>
+    <p>注意点があります。これは「Googlebotが記録したもの」だけです。人が開いたときに503が出ていたかどうかとは別の話で、ここでは測れていません。</p>
+
+    <h2 id="crawl">3. クロール数は9月3日に跳ねた</h2>
+    <p>次に、Googlebotの来訪回数です。8月16日から9月1日（確認日は9月8日）までは、16、14、7、6と少しずつ減っていました。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：クロールリクエストの日別（Search Console「クロールの統計情報」のチャートで確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">日</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">クロール数</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月1日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月2日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">40</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月3日（キャッシュ設定の修正・サイトマップ再送信・修正の検証を同日に実施）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">183</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月4日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">55</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月5日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月6日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">26</td></tr>
+</tbody></table>
+    <p>9月3日だけ183と、桁が変わっています。ただ、この日は「キャッシュ設定の修正」「サイトマップの再送信」「修正の検証」「インデックス登録のリクエスト」を全部同じ日（9月3日）に打っています。9月5日にはまた4に戻っているので、ならしてみると水準が上がったとまでは言えません。</p>
+
+    <h2 id="index">4. 登録済みページは41から111へ</h2>
+    <p>インデックス作成レポートでは、いちばん大きな変化がありました。</p>
+    <figure class="pic">
+      <img src="/read/img/search-503-recovery-measured/body_own.webp" width="1200" height="800" alt="9月3日と9月8日の、登録済みページ数と未登録ページ数を比べた棒グラフ。登録済みが41から111、未登録が78から8" loading="lazy">
+      <figcaption>図2：方言サイト単体のプロパティ。緑の棒が登録済み（41→111）、赤の棒が未登録（78→8）。左が9月3日、右が9月8日</figcaption>
+    </figure>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：インデックス作成レポート（ドメイン全体と、方言サイト単体のプロパティ）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">指標</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">9月3日時点</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">9月8日時点</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ドメイン全体：登録済み</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">91</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">189</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ドメイン全体：未登録</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">101</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">28</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">「検出：インデックス未登録」</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">80件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0件（検証は「合格」）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言サイト単体：登録済み／未登録</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">41／78</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">111／8</td></tr>
+</tbody></table>
+    <p>「検出：インデックス未登録」の80件は、9月3日に「修正を検証」を始めた結果、9月8日には0件で「合格」になっていました。ドメイン全体でも、登録済みは91から189に増えています。5xxを理由に除外されたページは、どちらの時点でもゼロでした。いつ「合格」になったのかは、画面に日付が出ておらず取れていません。</p>
+
+    <h2 id="imp">5. 表示回数は10倍になった</h2>
+    <p>最後に、検索結果での表示回数です。方言サイト単体のプロパティで、日別に見ました。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表4：方言サイト単体の表示回数とクリック（2026年8月27日〜9月5日・9月8日に確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">日</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">表示回数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">クリック</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">8/27</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">101</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">8/28</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">73</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">8/29</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">79</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">8/30</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">51</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">8/31</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">75</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9/1</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">42</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9/2</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">48</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9/3</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">137</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9/4</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">348</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">20</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9/5</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">426</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">13</td></tr>
+</tbody></table>
+    <p>9月1日の42に対して、9月5日は426で、約10倍です。8月19日にあった336というそれまでの最高も超えました。2026年8月2日〜9月5日の合計は、クリック160、表示3,860、CTR4.1%、平均掲載順位10.4でした。</p>
+
+    <h2 id="cause">6. 何が効いたのかは分かっていない</h2>
+    <p>ここは正直に書きます。<strong>回復の原因を、503の解消だと言い切ることはできません</strong>。理由は3つあります。</p>
+    <ul>
+      <li>9月3日に、キャッシュの修正、サイトマップの再送信、修正の検証、インデックス登録のリクエストを同時にやったため、どれが効いたか分けられません。</li>
+      <li>登録済みページが増え、その後に表示回数が増えた順番は筋が通っていますが、新しいサイトがもともと育っていく途中だった可能性とも区別できません。</li>
+      <li>503の発生そのものを、Googlebot側の記録では確認できていません。</li>
+    </ul>
+    <p>もう1つ、副産物がありました。「DNSエラー」が10件あり、すべて同じドメインの「www」付きのアドレスでした。503とは別の問題で、wwwが引けていなかったのが原因と考えられます。エラー一覧を見ていなければ気づけなかったので、5xxだけでなく、同じ画面のほかの項目も一緒に見るのはおすすめです。</p>
+    <p>あとから振り返れるように、次からは修正の日にやったことを1つずつ日付つきで残します。</p>
+    <ul>
+      <li>対処は1日に1つだけにする（9月3日は4つ重ねました）</li>
+      <li>対処した日付と、その前後3日の数字を控える</li>
+      <li>5xx以外のエラー項目（DNSなど）も同じ日に見る</li>
+    </ul>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li><strong>Googlebotが記録した5xxは11件のまま</strong>、増えませんでした（2026年9月6日まで）</li>
+      <li>修正後、登録済みは41から111、表示回数は9月1日の42から9月5日の426になりました</li>
+      <li><strong>原因は切り分けられていません</strong>——同じ日に複数の対処を重ねたためです</li>
+    </ul>
+    <p>次の1アクションとして、自分のサイトの「クロールの統計情報」を開き、5xxの件数と最後に出た日付を控えてください。数字が残っていれば、次に何かあったときに比べられます。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/gsc-anonymous-queries-exam-day">Search Consoleのクエリ表が見えなかった日</a>や、<a href="/read/qiita-19-articles-measured">Qiita記事を19本書いた実測</a>もどうぞ。</p>
+  </div>
+</main>
+
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-10-26">2026年10月26日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
