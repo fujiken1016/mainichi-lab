@@ -1,10 +1,11 @@
 :root{
   --bg:#faf9f6;--card:#ffffff;--ink:#1c1c1e;--sub:#6e6e73;--line:#e8e6e1;
   --accent:#2f6f4f;--accent-soft:#e8f2ec;
+  --accent-dk:#26593f;--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10);
 }
 @media(prefers-color-scheme:dark){
   :root{--bg:#141416;--card:#1e1e21;--ink:#f2f2f4;--sub:#9a9aa2;--line:#2c2c30;
-  --accent:#6fbf94;--accent-soft:#1f2e26}
+  --accent:#6fbf94;--accent-soft:#1f2e26;--accent-dk:#599976}
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -49,8 +50,8 @@ main{padding:20px 0 44px}
 /* ---------- cards ---------- */
 .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
 @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
-.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;
-  padding:18px 18px 16px;text-decoration:none;color:var(--ink);
+.card{display:block;background:var(--card);border:0;border-radius:24px;box-shadow:var(--shadow-sm);
+  padding:20px;text-decoration:none;color:var(--ink);
   transition:transform .15s ease,box-shadow .15s ease}
 .card:active{transform:scale(.98)}
 @media(hover:hover){.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.06)}}
@@ -79,21 +80,26 @@ main{padding:20px 0 44px}
 .svc .who{font-size:.875rem;color:var(--sub);margin-top:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
   margin-top:16px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;
-  font-size:.92rem;border-radius:999px;padding:11px 24px}
-.btn:active{opacity:.85}
-.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  font-size:.92rem;border-radius:16px;padding:11px 24px;min-height:52px;
+  box-shadow:0 4px 0 var(--accent-dk);transition:transform .08s ease,box-shadow .08s ease}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--accent-dk)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+.btn.ghost:active{transform:none}
+@media(prefers-color-scheme:dark){.btn:not(.ghost){color:#10281c}}
+@media(prefers-reduced-motion:reduce){.btn,.btn:active{transition:none;transform:none}}
 
 /* ---------- article list ---------- */
 .post-list{list-style:none;padding:0;margin:16px 0 0}
 .post-list li{border-bottom:1px solid var(--line)}
 .post-list li:first-child{border-top:1px solid var(--line)}
 .post-list a{display:block;padding:16px 0;text-decoration:none;color:var(--ink)}
+.post-list .t,.post-list .d,.post-list .m{display:block}
 .post-list .t{font-size:.98rem;font-weight:700;line-height:1.6}
 .post-list .d{font-size:.875rem;color:var(--sub);margin-top:5px}
 .post-list .m{font-size:.875rem;color:var(--sub);margin-top:7px}
 
 /* ---------- prose (articles + legal) ---------- */
-.legal h1,.prose h1{font-size:1.34rem;line-height:1.6;margin:22px 0 14px}
+.legal h1,.prose h1{font-size:2rem;font-weight:700;line-height:1.4;margin:22px 0 12px}
 .legal h2,.prose h2{font-size:1.08rem;margin:34px 0 8px;padding-top:4px}
 .prose h3{font-size:.98rem;margin:24px 0 6px}
 .legal p,.legal li{font-size:.93rem;color:var(--ink)}
@@ -127,3 +133,30 @@ footer.site a:hover{color:var(--ink)}
 /* 2026-09-21：目次・関連記事のリンクは行内リンクではなくナビ＝タップ標的48px以上（§5-2）。
    design_probe の inline 例外に隠れていて、19px のまま公開されていた。 */
 .related-posts li a{display:block;padding:15px 0;line-height:1.7}
+
+/* ---------- 2026-10-27 消化：K26(読みもの記事ページ内 read-visual) + K30 を共通化 ---------- */
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose>p{margin-top:1.25rem}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+.post-list li a{position:relative}
+.post-list .pimg{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft);margin-bottom:12px}
+@media(min-width:560px){.post-list li a:has(.pimg){padding-left:232px;min-height:156px}.post-list .pimg{position:absolute;left:0;top:16px;width:208px;margin:0}}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt,.post-list .pimg{filter:brightness(.88)}}
+/* 日本語の文節折り返し（表のセルは auto-phrase だと 200% 拡大で横はみ出し→overflow-wrap:anywhere） */
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose figcaption,.post-list .t,.post-list .d{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3,.post-list .t{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td,.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose a.open{overflow-wrap:anywhere}
