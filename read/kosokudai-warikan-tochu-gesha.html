@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高速代の割り勘、途中で降りる人がいるときは区間ごとに分けて計算した | 毎日ラボ</title>
+<meta name="description" content="高速代の割り勘で、途中のICで降りる人がいるときの分け方を、4人・往復10,800円の例で計算。全員均等と区間ごとの3通りを比べ、ETC割引があるときの配り直し方と、100円単位の端数まで。">
+<link rel="canonical" href="https://mainichi-lab.com/read/kosokudai-warikan-tochu-gesha">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="高速代の割り勘、途中で降りる人がいるときは区間ごとに分けて計算した">
+<meta property="og:description" content="4人・往復10,800円で、途中で降りる人がいるときの高速代を3通りで計算。ETC割引の配り直し方と端数の持ち方まで。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/kosokudai-warikan-tochu-gesha">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/kosokudai-warikan-tochu-gesha/hero_own.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/kosokudai-warikan-tochu-gesha/hero_own.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/kosokudai-warikan-tochu-gesha/hero_own.webp","headline":"高速代の割り勘、途中で降りる人がいるときは区間ごとに分けて計算した","description":"高速代の割り勘で、途中のICで降りる人がいるときの分け方を、4人・往復10,800円の例で計算。全員均等と区間ごとの3通りを比べ、ETC割引があるときの配り直し方と、100円単位の端数まで。","inLanguage":"ja","datePublished":"2026-11-01T18:00:00+09:00","dateModified":"2026-11-01","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/kosokudai-warikan-tochu-gesha"},"url":"https://mainichi-lab.com/read/kosokudai-warikan-tochu-gesha"}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"高速代の割り勘、途中で降りる人がいるときは区間ごとに分けて計算した","item":"https://mainichi-lab.com/read/kosokudai-warikan-tochu-gesha"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>高速代の割り勘</p>
+
+    <h1>高速代の割り勘、途中で降りる人がいるときは区間ごとに分けて計算した</h1>
+    <p class="meta">2026年11月1日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/kosokudai-warikan-tochu-gesha/hero_own.webp" width="1280" height="720" alt="往復の高速代10,800円を、全員均等と区間ごとに分けたときの1人あたりの横棒グラフ。均等なら4人とも2,700円、区間ごとに分けると途中で降りるDさんだけ1,600円で、ほかの3人は3,067円" fetchpriority="high">
+      <figcaption>図1：往復の高速代10,800円を、4人で均等に割った場合と区間ごとに分けた場合の1人あたりの金額（※筆者の計算。料金は仮定）</figcaption>
+    </figure>
+    <p>ドライブの帰りに「高速代、いくらずつ？」となったとき、途中で降りた人がいると話が止まりませんか。最後まで乗っていた人と、半分だけ乗った人が同じ額では、半分の人が払いすぎに見えます。</p>
+    <p>この記事では、4人（Aさんが運転手）のうち、Dさんだけが途中のICで降りる例で、高速代を3通りに分けて計算しました（※料金・人数は、計算のための仮定です）。ETC割引があるときの扱いと、100円単位に丸めたときの余りも扱います。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#ketsuron">1. 先に結論：高速代は車1台分、途中降りは区間ごとに割る</a></li>
+        <li><a href="#hoka">2. ほかの記事は途中降りを書いているか</a></li>
+        <li><a href="#ichidai">3. 高速代は「車1台分」の料金</a></li>
+        <li><a href="#joken">4. 条件をそろえる：4人・往復10,800円</a></li>
+        <li><a href="#keisan">5. 3通りを計算する</a></li>
+        <li><a href="#waribiki">6. ETC割引があるとき</a></li>
+        <li><a href="#hasu">7. 100円単位に丸めるとき</a></li>
+        <li><a href="#junban">8. 出発前に決める順番</a></li>
+        <li><a href="#matome">まとめ</a></li>
+        <li><a href="#shuten">出典</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="ketsuron">1. 先に結論：高速代は車1台分、途中降りは区間ごとに割る</h2>
+    <p><strong>高速代は人数で変わらない車1台分の料金なので、途中で降りる人がいるときは、区間ごとに乗っていた人数で割ると納得しやすくなります。</strong>4人・往復10,800円の例では、途中で降りるDさんは1,600円、残りの3人は約3,067円でした。全員均等なら、4人とも2,700円です。</p>
+    <ul>
+      <li>総額は変わらない——Dさんが降りても、車は目的地まで走るので、10,800円のままです</li>
+      <li>変わるのは「誰が払うか」——区間ごとに割ると、Dさんは2,700円から1,600円に下がり、ほかの3人は約367円ずつ増えます</li>
+      <li>ETC割引があっても手順は同じ——確定した請求額を、通常料金の比で配り直します</li>
+    </ul>
+
+    <h2 id="hoka">2. ほかの記事は途中降りを書いているか</h2>
+    <p><strong>僕が開いた2本には、途中で降りる人がいるときの高速代の分け方は書かれていませんでした。</strong>1本目は、ファイナンシャルフィールドの記事（2025年10月23日配信）です。均等に割る方式、運転手に1〜2割を上乗せする方式、運転距離や時間に応じて割合を決める方式の3つを紹介しています。</p>
+    <p>例は、高速代1万円・ガソリン代8,000円・駐車代2,000円の合計2万円を、3人で割るものでした。途中下車とETC割引について、記載は見つかりませんでした。2本目は、くるまのニュースの記事（2024年10月6日）で、数字はアンケートの割合だけです。高速代の円額・途中降り・割引の記載は見つかりませんでした。</p>
+    <p>前者が挙げる「運転距離や時間に応じて割合を決める」考え方を、高速道路の乗車区間に当てはめたのが、この記事の計算です。割合は事前の合意が要る、と前者も書いています。</p>
+
+    <h2 id="ichidai">3. 高速代は「車1台分」の料金</h2>
+    <p><strong>高速道路の料金は、車の種類で決まる区分ごとの金額で、乗っている人数では変わりません。</strong>NEXCO東日本のドラぷらの車種区分表では、普通乗用自動車は「普通車」、軽自動車と二輪車は「軽自動車等」に分かれています。乗車人数で区分が変わるという記述は、普通乗用自動車にはありませんでした。定員が出てくるのは、マイクロバスやバスの区分です。</p>
+    <p>ここから、2つのことが言えます。1つは、人数が多いほど1人あたりは下がることです。もう1つは、途中で降りる人がいても総額は減らないことです。Dさんが降りたあとも、車は区間2を走ります。降りた人の分を誰が持つかが、割り勘の論点になります。</p>
+
+    <h2 id="joken">4. 条件をそろえる：4人・往復10,800円</h2>
+    <p><strong>区間ごとの料金は、出発ICから降りるICまでと、目的地ICまでを別々に検索して、差を取ります。</strong>ドラぷらの料金検索で、「出発〜乙IC」と「出発〜目的地IC」の2回を調べます。区間2は、2つの差額です。</p>
+    <p>足し算ではなく差額で出すのは、料金が区間の単純な足し算にならない場合があるためです。ドラぷらの休日割引のページには、首都圏で「起終点を基本とした同一料金」が使われる例が載っています。</p>
+    <p>この記事の仮定は、出発〜乙ICが3,200円、出発〜目的地ICが5,400円で、差額の区間2が2,200円です。帰りも同じ区間を逆向きに走り、Dさんは乙ICから乗ります。往復の合計は10,800円です。</p>
+    <figure class="pic">
+      <img src="/read/img/kosokudai-warikan-tochu-gesha/body_own.webp" width="1200" height="800" alt="出発ICから乙ICまでの区間1は3,200円で4人が乗り、乙ICから目的地ICまでの区間2は2,200円で3人が乗る。Dさんは乙ICで降りる" loading="lazy">
+      <figcaption>図2：行きの高速代を2つの区間に分ける（※筆者の仮定と計算）</figcaption>
+    </figure>
+<div style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表1：条件をそろえた高速代（※筆者の仮定。実際の料金ではありません・円）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">区間</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">乗っている人</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">片道</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">往復</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">区間1（出発IC〜乙IC）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">A・B・C・Dの4人</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3,200</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">6,400</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">区間2（乙IC〜目的地IC）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">A・B・Cの3人</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,200</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">4,400</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">合計</th><td style="padding:8px 8px 8px 0;vertical-align:top"></td><td style="padding:8px 8px 8px 0;vertical-align:top">5,400</td><td style="padding:8px 0 8px 8px;vertical-align:top">10,800</td></tr></tbody></table></div>
+    <h2 id="keisan">5. 3通りを計算する</h2>
+    <p><strong>区間ごとに分けると、Dさんは1,600円になり、全員均等より1,100円安くなります。</strong>計算は、区間ごとの往復料金を、その区間に乗っている人数で割って、人ごとに足すだけです。</p>
+    <ul>
+      <li>① 全員均等——10,800円÷4人＝2,700円</li>
+      <li>② 区間ごと・運転手も払う——区間1は6,400円÷4人＝1,600円。区間2は4,400円÷3人＝約1,467円。A・B・Cは合計約3,067円、Dさんは1,600円</li>
+      <li>③ 区間ごと・運転手は払わない——区間1は6,400円÷3人（B・C・D）＝約2,133円。区間2は4,400円÷2人（B・C）＝2,200円。B・Cは約4,333円、Dさんは約2,133円、Aさんは0円</li>
+    </ul>
+<div style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表2：往復の高速代10,800円を3通りで割った1人あたり（※筆者の計算。1円未満は四捨五入・円）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">方式</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">A（運転手）</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">B</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">C</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">D（降りる人）</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">合計</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">① 全員均等</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,700</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,700</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,700</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,700</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">10,800</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">② 区間ごと・運転手も払う</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3,067</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3,067</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3,067</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1,600</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">10,801</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">③ 区間ごと・運転手は払わない</th><td style="padding:8px 8px 8px 0;vertical-align:top">0</td><td style="padding:8px 8px 8px 0;vertical-align:top">4,333</td><td style="padding:8px 8px 8px 0;vertical-align:top">4,333</td><td style="padding:8px 8px 8px 0;vertical-align:top">2,133</td><td style="padding:8px 0 8px 8px;vertical-align:top">10,799</td></tr></tbody></table></div>
+    <p>四捨五入のため、合計が10,800円から1円ずれる行があります。どの方式も、集まる額は総額と同じです。運転手の扱い（同額・半額・無料）の考え方は、<a href="/read/drive-warikan-untenshu">ドライブの割り勘の記事</a>で3通りに分けて計算しています。</p>
+
+    <h2 id="waribiki">6. ETC割引があるとき</h2>
+    <p><strong>割引は車のETCに対して適用されるので、同乗者の誰が降りても関係なく、請求額は車で1つに決まります。</strong>NEXCO東日本の休日割引は、普通車と軽自動車等が対象で、地方部の高速道路が30%割引になります。土日祝に、ETC無線通信で入口を通ることが条件です。東京・大阪の近郊区間は対象外です。</p>
+    <p>ドラぷらの例では、通常6,290円が割引後4,400円でした。6,290円の7割は4,403円なので、割引後の額は100円単位に整えられています。区間ごとに自分で3割を引くと、確定額とずれる可能性があります。</p>
+    <p>そこで、確定した請求額（ETCの利用明細などで確認できる額）を、通常料金の比で配り直します。割引後の請求額が7,600円だったと仮定すると、掛け率は7,600÷10,800で約0.704です。方式②の3,067円と1,600円に掛けると、A・B・Cが2,158円、Dさんが1,126円になります。</p>
+<div style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表3：ETC割引で請求額が7,600円になったと仮定して配り直す（※筆者の計算・円）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">方式②の場合</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">A・B・C（1人）</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">D</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">合計</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">通常料金のまま</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3,067</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1,600</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">10,801</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">割引後の確定額7,600円を、通常料金の比で配り直す（掛け率約0.704）</th><td style="padding:8px 8px 8px 0;vertical-align:top">2,158</td><td style="padding:8px 8px 8px 0;vertical-align:top">1,126</td><td style="padding:8px 0 8px 8px;vertical-align:top">7,600</td></tr></tbody></table></div>
+    <p>ETC割引の制度は、変わる予定があると報じられています。JAFMateの記事（2026年4月19日）は、2026年度以降に見直しが予定され、割引額がETCマイレージサービスから後日還元される方式になると書いています。開始日は記事に書かれておらず、僕は確認できていません。還元の方式になった場合は、戻るお金を誰の手元に入れるかも、出発前に決めておきます。</p>
+
+    <h2 id="hasu">7. 100円単位に丸めるとき</h2>
+    <p><strong>100円単位に切り上げると、集まる額は総額より少し多くなり、余りが出ます。</strong>方式②なら100円、方式③なら200円の余りです。</p>
+<div style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表4：100円単位に切り上げたときの集まる額と余り（※筆者の計算・円）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">方式</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">払う人の額</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">集まる合計</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">余り</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">① 全員均等</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4人とも2,700</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10,800</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">② 区間ごと・運転手も払う</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">A・B・C 3,100／D 1,600</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10,900</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">100</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">③ 区間ごと・運転手は払わない</th><td style="padding:8px 8px 8px 0;vertical-align:top">B・C 4,400／D 2,200／A 0</td><td style="padding:8px 8px 8px 0;vertical-align:top">11,000</td><td style="padding:8px 0 8px 8px;vertical-align:top">200</td></tr></tbody></table></div>
+    <p>余りは、運転手の手元に残す、次回のドライブに回す、と決めておけば揉めません。丸める単位を小さくすると、余りは減ります。</p>
+
+    <h2 id="junban">8. 出発前に決める順番</h2>
+    <p><strong>途中で乗り降りする人は、出発前に降りるICを決めておくと、区間ごとの料金を先に調べられます。</strong>決める順番は、次の5つです。</p>
+    <ol>
+      <li>割る対象を決める——高速代だけか、ガソリン代・駐車場代も含めるか</li>
+      <li>乗り降りするICを決める——誰がどこで降りる（乗る）かを全員で確認する</li>
+      <li>運転手の扱いを決める——同額・半額・無料（表2の②か③）</li>
+      <li>割引の扱いを決める——確定額のどこを割るか、還元があれば誰が受け取るか</li>
+      <li>丸める単位と余りの行き先を決める——100円単位に切り上げて、余りは運転手か次回に</li>
+    </ol>
+    <p>運転手の扱い3通りの計算は、自作の計算ページ「<a href="https://drive-warikan.mainichi-lab.com/?utm_source=mainichi-lab&amp;utm_medium=read&amp;utm_campaign=kosokudai_article" rel="noopener">ドライブわりかん</a>」でできます。区間ごとの按分には対応していないので、この記事の表で人ごとの高速代を出してから使ってください。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <p><strong>高速代は車1台分の料金なので、途中で降りる人がいるときは、区間ごとに乗っていた人数で割ります。</strong>4人・往復10,800円の例では、次のようになりました。</p>
+    <ul>
+      <li>全員均等——4人とも2,700円</li>
+      <li>区間ごと・運転手も払う——A・B・Cが約3,067円、Dさんが1,600円</li>
+      <li>区間ごと・運転手は払わない——B・Cが約4,333円、Dさんが約2,133円、Aさんが0円</li>
+    </ul>
+    <p>次の1アクションは、次のドライブの前に、<a href="https://www.driveplaza.com/" rel="noopener">ドラぷら</a>の料金検索で「出発〜降りるIC」と「出発〜目的地IC」の2回を調べ、差額で区間2を出してみることです。</p>
+
+    <h2 id="shuten">出典</h2>
+    <ul>
+      <li>NEXCO東日本 ドラぷら「高速道路の車種区分」（https://www.driveplaza.com/search/division/ ／2026年11月1日に確認）：普通乗用自動車は「普通車」、軽自動車等は別区分</li>
+      <li>NEXCO東日本 ドラぷら「ETC休日割引」（https://www.driveplaza.com/etc/dis/etc_dis_weekend/ ／2026年11月1日に確認）：対象車種・地方部30%割引・ETC無線通信の条件・通常6,290円が割引後4,400円の例・首都圏の同一料金の案内。ページ内の適用除外日の記載は古い年度のため使っていません</li>
+      <li>JAFMate「2026年度のETC休日割引適用除外日が発表」2026年4月19日（https://jafmate.jp/car/traffic_topics_20260419_1198935.html ／2026年11月1日に確認）：2026年度以降の見直し予定の記述</li>
+      <li>ファイナンシャルフィールド（FINANCIAL FIELD編集部）の車での費用分担の記事、2025年10月23日配信（https://financial-field.com/living/entry-474151 ／2026年11月1日に確認）：3つの分担方式と金額例</li>
+      <li>くるまのニュース「複数人でのドライブ『ガソリン代＆高速代』誰が払う？」2024年10月6日（https://kuruma-news.jp/post/826981 ／2026年11月1日に確認）：アンケートの割合</li>
+      <li>本文の金額はすべて筆者の計算（1円未満は四捨五入）。区間の料金・割引後の請求額は仮定で、実際の料金ではありません</li>
+    </ul>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/drive-warikan-untenshu"><img class="rt" src="/read/img/drive-warikan-untenshu/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ドライブの割り勘、運転手の負担を4人・往復300kmで3通り計算した</span></a></li>
+      <li><a class="rl" href="/read/gasolinedai-warikan-nenpi"><img class="rt" src="/read/img/gasolinedai-warikan-nenpi/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ガソリン代の割り勘、カタログ燃費で計算すると足りない？実燃費を下げた早見表</span></a></li>
+      <li><a class="rl" href="/read/nomanai-hito-warikan"><img class="rt" src="/read/img/nomanai-hito-warikan/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">飲み会で飲まない人はいくら安くしていい？倍率0.7の根拠を計算</span></a></li>
+    </ul>
+    </nav>
+
+    <p>この記事は、<a href="/read/warikan-bamen-betsu">割り勘の分け方を場面別に計算した読みもの</a>の関連記事です。</p>
+
+    <p class="updated">2026年11月1日公開</p>
+    <a class="back" href="/read/">← 読みもの一覧へ</a>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-01">2026年11月1日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
