@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測） | 毎日ラボ</title>
+<meta name="description" content="自分で運営する2つのサイトのGA4を、ホスト名ごとに分けて数えました。開発中の自分のアクセス(localhost)とCloudflareの既定ドメイン(pages.dev)が、表示回数の17〜42%を占めていた記録と、除外フィルタを作るときに分かったGA4の仕様を、観測日つきで書きます。">
+<link rel="canonical" href="https://mainichi-lab.com/read/ga4-self-traffic-measured">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）">
+<meta property="og:description" content="自分で運営する2つのサイトのGA4を、ホスト名ごとに分けて数えました。開発中の自分のアクセス(localhost)とCloudflareの既定ドメイン(pages.dev)が、表示回数の17〜42%を占めていた記録と、除外フィルタを作るときに分かったGA4の仕様を、観測日つきで書きます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/ga4-self-traffic-measured">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/ga4-self-traffic-measured/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/ga4-self-traffic-measured/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/ga4-self-traffic-measured/hero_aigen.webp","headline":"個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）","description":"自分で運営する2つのサイトのGA4を、ホスト名ごとに分けて数えました。開発中の自分のアクセス(localhost)とCloudflareの既定ドメイン(pages.dev)が、表示回数の17〜42%を占めていた記録と、除外フィルタを作るときに分かったGA4の仕様を、観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-01T10:00:00+09:00","dateModified":"2026-11-01T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/ga4-self-traffic-measured"},"url":"https://mainichi-lab.com/read/ga4-self-traffic-measured"}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"GA4に混ざっていた本番以外のホストの実測","item":"https://mainichi-lab.com/read/ga4-self-traffic-measured"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>GA4に混ざっていた本番以外のホスト</p>
+
+    <h1>個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）</h1>
+    <p class="meta">2026年11月1日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/ga4-self-traffic-measured/hero_aigen.webp" width="1280" height="720" alt="机の上のノートパソコンに、グラフが並んだ分析画面が表示されているイラスト。両脇に観葉植物" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
+    <p>僕は個人でいくつかの小さなWebサイトを運営していて、アクセス解析にはGoogleアナリティクス4（GA4）を使っています。立ち上げから1か月ほどたったころ（2026年8月14日と9月3日に実測）、GA4の「表示回数」をホスト名（どのドメインで見られたか）ごとに分けてみました。</p>
+    <p>先に結論です。2026年8月6日〜9月2日の28日間で、表示回数のうち本番ドメイン以外が占めた割合は、<strong>1つ目のサイト群で17.2%、2つ目で42.1%</strong>（574中99、140中59）でした（9月3日に確認）。中身は、開発中の自分のアクセス（localhost・127.0.0.1）と、Cloudflare Pagesが最初に割り当てる既定ドメイン（〜.pages.dev）です。どちらも、何もしなければ本番の数字と同じ表に足されます。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#tehon">1. よく読まれている解説と、足りなかったもの</a></li>
+        <li><a href="#hostname">2. ホスト名で分けた結果（2回分）</a></li>
+        <li><a href="#breakdown">3. 混ざっていたものの中身</a></li>
+        <li><a href="#bot">4. 国別に見たら、日本からは1人だった</a></li>
+        <li><a href="#spec">5. 除外しようとして分かったGA4の仕様</a></li>
+        <li><a href="#howto">6. 小さなサイトで最初にやること</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="tehon">1. よく読まれている解説と、足りなかったもの</h2>
+    <p>書く前に、「GA4 自分のアクセス 除外」で検索して上位の解説記事を開きました（2026年10月29日）。どれも手順は丁寧で、社内のIPアドレスを「内部トラフィック」として定義してフィルタで外す方法、Googleタグマネージャーで自分のブラウザに目印のCookieを付ける方法、ホスト名でステージング環境を外す方法が紹介されていました。「フィルタはいきなり有効にせず、まずテスト状態で確認する」という注意も共通しています。</p>
+    <p>一方で、「実際にどれくらい混ざるのか」という数字は、開いた記事のどれにも載っていませんでした。手順は分かっても、自分のサイトでやる価値があるのかは判断できません。そこで、自分のサイトの数字をそのまま出すことにしました。</p>
+
+    <h2 id="hostname">2. ホスト名で分けた結果（2回分）</h2>
+    <p>GA4の「ページとスクリーン」レポートに、ディメンション「ホスト名」を足して数えました。どの数字も、GA4の画面で読み取ったものです。設定は変えずに読み取りだけしています。</p>
+
+    <figure class="pic">
+      <svg viewBox="0 0 640 300" width="100%" role="img" aria-labelledby="chart-title chart-desc" style="max-width:640px;display:block;margin:0 auto">
+        <title id="chart-title">本番ドメインと本番以外の表示回数の割合</title>
+        <desc id="chart-desc">GA4の実測による3つの計測の横棒グラフ。サイト群Aの7月17日から8月13日は本番71.4%、既定ドメイン19.4%、開発環境9.1%。サイト群Aの8月6日から9月2日は本番82.8%、既定ドメイン8.9%、開発環境8.4%。サイト群Bの8月6日から9月2日は本番57.9%、既定ドメイン16.4%、開発環境25.7%。</desc>
+        <style>
+          .lb{font-size:14px;fill:#2b2b3a}.sm{font-size:12px;fill:#53536b}.v{font-size:13px;fill:#fff;font-weight:700}.vd{font-size:13px;fill:#2b2b3a;font-weight:700}
+          @media (prefers-color-scheme: dark){.lb{fill:#ececf2}.sm{fill:#b8b8c8}.vd{fill:#ececf2}}
+        </style>
+        <text class="lb" x="0" y="34">A：7/17〜8/13（175 PV・実測）</text>
+        <rect x="0" y="44" width="457" height="34" fill="#2f6f4f"/><rect x="457" y="44" width="124" height="34" fill="#9cc3ad"/><rect x="581" y="44" width="59" height="34" fill="#c8643c"/>
+        <text class="v" x="10" y="66">本番 71.4%</text><text class="vd" x="465" y="66">19.4%</text><text class="v" x="586" y="66">9.1%</text>
+        <text class="lb" x="0" y="116">A：8/6〜9/2（574 PV・実測）</text>
+        <rect x="0" y="126" width="530" height="34" fill="#2f6f4f"/><rect x="530" y="126" width="57" height="34" fill="#9cc3ad"/><rect x="587" y="126" width="53" height="34" fill="#c8643c"/>
+        <text class="v" x="10" y="148">本番 82.8%</text><text class="vd" x="534" y="148">8.9%</text><text class="v" x="591" y="148">8.4%</text>
+        <text class="lb" x="0" y="198">B：8/6〜9/2（140 PV・実測）</text>
+        <rect x="0" y="208" width="370" height="34" fill="#2f6f4f"/><rect x="370" y="208" width="105" height="34" fill="#9cc3ad"/><rect x="475" y="208" width="165" height="34" fill="#c8643c"/>
+        <text class="v" x="10" y="230">本番 57.9%</text><text class="vd" x="378" y="230">16.4%</text><text class="v" x="483" y="230">25.7%</text>
+        <rect x="0" y="266" width="14" height="14" fill="#2f6f4f"/><text class="sm" x="20" y="278">本番ドメイン</text>
+        <rect x="120" y="266" width="14" height="14" fill="#9cc3ad"/><text class="sm" x="140" y="278">既定ドメイン（pages.dev）</text>
+        <rect x="320" y="266" width="14" height="14" fill="#c8643c"/><text class="sm" x="340" y="278">開発環境（localhost・127.0.0.1）</text>
+      </svg>
+      <figcaption>図1：GA4の表示回数をホスト名で3つに分けた割合（自作の図。数字はGA4の画面で読み取った実測値）</figcaption>
+    </figure>
+
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：ホスト名で分けた表示回数（GA4・各28日間）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">計測</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">合計</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">開発環境</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">既定ドメイン</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">本番以外の計</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">サイト群A：7/17〜8/13（8/14時点の実測）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">175</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">16</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">34</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">50（28.6%）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">サイト群A：8/6〜9/2（9/3時点の実測）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">574</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">48</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">51</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">99（17.2%）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">サイト群B：8/6〜9/2（9/3時点の実測）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">140</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">36</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">23</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">59（42.1%）</td></tr>
+</tbody></table>
+    <p>サイト群Aは、方言クイズや資格の練習ツールなど、ひとつのGA4プロパティにまとめている複数のサブドメインです。サイト群Bは、別のプロパティで計測しているゲームのルール解説サイトです。どちらも立ち上げて間もなく、そもそもの母数が小さいサイトです。1つ目の計測と2つ目の計測は期間が8月6日〜13日で重なっているので、足し合わせて読まないでください。</p>
+    <p>母数が小さいほど、自分の作業の重みは大きくなります（表1の実測が示すとおりです）。サイト群Bで4割を超えたのは、そのぶん本番に来た人が少なかったからです。</p>
+
+    <h2 id="breakdown">3. 混ざっていたものの中身</h2>
+    <p>本番以外のホストは、性質の違う2種類に分かれます。ここを混ぜて「全部ノイズ」と考えると、判断を間違えます。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：本番以外のホストの内訳（サイト群A・8/6〜9/2・表示回数／ユーザー数）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ホスト名</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">表示回数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ユーザー</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">正体</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">localhost</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">46（実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">自分の開発中の確認</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">127.0.0.1</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">同上</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">既定ドメイン（pages.dev）3つの合計</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">51</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">25（9/3時点）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">自分の確認＋検索から来た人</td></tr>
+</tbody></table>
+    <p><strong>localhostは、2人で46回</strong>です。1人あたり20回以上で、普通の訪問者ではありえない数です。開発中に自分のパソコンで画面を開くたびに、GA4のタグが動いていました。これは消してかまいません。</p>
+    <p>注意が要るのは既定ドメインのほうです。8月14日の計測では、既定ドメインのひとつに検索（Organic Search）経由のセッションが11ありました。本番と同じページが、別のアドレスでも検索に出ていたということです。ここに来た人は本物の訪問者なので、フィルタで消すと実在する読者まで消えます。直すべきなのは計測ではなく、検索に別のアドレスが出ていること自体です（canonicalタグや転送で本番に寄せる）。</p>
+
+    <figure class="pic">
+      <img src="/read/img/ga4-self-traffic-measured/body_aigen.webp" width="1200" height="800" alt="淡い緑の背景に置かれた、細かな穴のある丸いざるのような器のイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）。何を通して何を落とすかは、ホスト名ごとに分けて決める必要がありました</figcaption>
+    </figure>
+
+    <h2 id="bot">4. 国別に見たら、日本からは1人だった</h2>
+    <p>ホスト名とは別の問題も見つかりました。サイト群Bの2026年7月17日〜8月13日（8月14日に確認）を国別に見ると、こうなっていました。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：サイト群Bの国別ユーザー（GA4・7/17〜8/13・全53人）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">国</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ユーザー</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">アメリカ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">30（8/14時点）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ドイツ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">フランス</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ポーランド・ロシア</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">各2</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">香港・韓国</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">各1</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">日本</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1（エンゲージメント時間0秒・実測）</td></tr>
+</tbody></table>
+    <p>日本語だけで書いたサイトなのに、53人中52人が海外です。全体の平均エンゲージメント時間は2秒でした（同じ期間の実測）。人が読みに来たとは考えにくく、自動のアクセスだろうと見ています（推定です。正体までは確かめられていません）。</p>
+    <p>GA4の管理画面を探しましたが、「既知のボットを除外する」という切り替えはありませんでした。GA4は、Googleが把握しているボットを自動で除外すると説明しています。つまりこの52人は、その自動除外をすり抜けた側です。ここはフィルタで消せるものではないので、数字を読むときに国で絞る、という読み方で対処しています。</p>
+
+    <h2 id="spec">5. 除外しようとして分かったGA4の仕様</h2>
+    <p>2026年8月14日〜15日に、実際に除外の設定をしました。そこで手順の解説には書かれていなかったことが3つありました。</p>
+    <ul>
+      <li><strong>「内部トラフィック」フィルタを有効にしても、何も除外されなかった。</strong>フィルタは状態が「テスト」になっていたので「有効」に変えましたが、内部トラフィックの定義（IPアドレスのルール）が0件でした。ルールが無いと目印が一度も付かないので、除外される対象もゼロです。自宅のIPアドレスが変わる環境だと、このルール自体が作りにくいという事情もあります。</li>
+      <li><strong>ホスト名のフィルタに「含まない」が無い。</strong>選べる条件は「完全一致」「先頭が一致」「最後が一致」「次を含む」の4つでした。最初は「本番ドメインを含まないものを除外」にしたかったのですが作れず、「localhostを含む」または「pages.devを含む」を除外する形にしました。2つの条件は自動でOR（どちらか）になります。</li>
+      <li><strong>フィルタ名にハイフンが使えない。</strong>先頭は英字で、英数字・スペース・アンダースコアだけでした。</li>
+    </ul>
+    <p>作ったホスト名フィルタは、まず「テスト」状態にしました。ところが、テストのまま置いていた期間に取ったのが表1の2回目の計測で、混入は続いていました。テスト状態のフィルタは、レポートの数字を何も変えません。作っただけで安心していた、というのが正直なところです。</p>
+
+    <h2 id="howto">6. 小さなサイトで最初にやること</h2>
+    <p>自分の失敗をふまえて、立ち上げたばかりの小さなサイトなら、この順番がいいと思っています。</p>
+    <ol>
+      <li>GA4でホスト名を1回だけ分けて見る。「ページとスクリーン」にホスト名を足すだけです。混ざっていなければ、ここで終わりです。</li>
+      <li>開発環境では、そもそもタグを読み込まない。表示しているホスト名がlocalhostなどのときにタグを読まないようにすれば、フィルタが要りません。後から消すより、最初から送らないほうが確実です。</li>
+      <li>既定ドメインは、消す前に「検索から人が来ていないか」を見る。来ているなら、直すのはフィルタではなく、本番への転送やcanonicalです。</li>
+      <li>フィルタを作ったら、テストから有効に切り替える日を決める。テストのままでは数字は変わりません。有効にした後に除外されたデータは戻せないので、本番のホスト名を消していないかだけは先に確かめます。</li>
+    </ol>
+    <p>母数の小さいサイトほど、この数十回の差で「伸びた」「落ちた」の判断が変わります。僕は検索での伸びを判断するときは、GA4ではなくSearch Consoleの数字を使うようにしました。Search Consoleは検索結果での表示とクリックだけを数えるので、開発中の自分のアクセスは入りません。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>2026年8月6日〜9月2日の表示回数のうち、<strong>本番以外のホストはサイト群Aで17.2%、サイト群Bで42.1%</strong>でした</li>
+      <li>localhostは<strong>2人で46回</strong>＝自分の開発中のアクセスです。既定ドメインには、検索から来た本物の訪問者も混ざっていました</li>
+      <li>「内部トラフィック」フィルタはルールが無いと効かず、<strong>ホスト名フィルタはテストのままだと数字を変えません</strong></li>
+    </ul>
+    <p>次の1アクションとして、自分のGA4で「ページとスクリーン」にホスト名を足し、本番以外のホストが何回あるかを数えてみてください。数分で終わります。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/search-503-recovery-measured">503を出したあとのSearch Console実測</a>や、<a href="/read/gsc-anonymous-queries-exam-day">Search Consoleのクエリ表が見えなかった日</a>もどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/search-503-recovery-measured"><img class="rt" src="/read/img/search-503-recovery-measured/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">503を出したあとの実測：登録済みが41から111ページに増えた</span></a></li>
+      <li><a class="rl" href="/read/gsc-anonymous-queries-exam-day"><img class="rt" src="/read/img/gsc-anonymous-queries-exam-day/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Search Consoleのクエリ表が9割見えなかった日：資格試験当日24時間の実測</span></a></li>
+      <li><a class="rl" href="/read/qiita-19-articles-measured"><img class="rt" src="/read/img/qiita-19-articles-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話</span></a></li>
+      <li><a class="rl" href="/read/asp-fee-comparison"><img class="rt" src="/read/img/asp-fee-comparison/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">同じ広告主でもASPを変えると、アフィリエイト単価は5〜7倍違う（実例つき）</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-01">2026年11月1日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
