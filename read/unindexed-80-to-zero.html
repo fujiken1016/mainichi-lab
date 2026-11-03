@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「検出 - インデックス未登録」80件が0件になるまでの記録（実測） | 毎日ラボ</title>
+<meta name="description" content="Search Consoleで「検出 - インデックス未登録」が80件たまっていた個人サイトで、原因を全件調べ、内部リンクと登録リクエストで手当てした記録です。1日に69件の登録リクエストが通ったこと、80件が0件になっても「参照元ページ」の表示は変わらなかったことを、観測日つきで書きます。">
+<link rel="canonical" href="https://mainichi-lab.com/read/unindexed-80-to-zero">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="「検出 - インデックス未登録」80件が0件になるまでの記録（実測）">
+<meta property="og:description" content="Search Consoleで「検出 - インデックス未登録」が80件たまっていた個人サイトで、原因を全件調べ、内部リンクと登録リクエストで手当てした記録です。1日に69件の登録リクエストが通ったこと、80件が0件になっても「参照元ページ」の表示は変わらなかったことを、観測日つきで書きます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/unindexed-80-to-zero">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/unindexed-80-to-zero/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/unindexed-80-to-zero/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/unindexed-80-to-zero/hero_aigen.webp","headline":"「検出 - インデックス未登録」80件が0件になるまでの記録（実測）","description":"Search Consoleで「検出 - インデックス未登録」が80件たまっていた個人サイトで、原因を全件調べ、内部リンクと登録リクエストで手当てした記録です。1日に69件の登録リクエストが通ったこと、80件が0件になっても「参照元ページ」の表示は変わらなかったことを、観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-03T10:00:00+09:00","dateModified":"2026-11-03T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/unindexed-80-to-zero"},"url":"https://mainichi-lab.com/read/unindexed-80-to-zero"}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"インデックス未登録80件が0件になるまで","item":"https://mainichi-lab.com/read/unindexed-80-to-zero"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>インデックス未登録80件が0件になるまで</p>
+
+    <h1>「検出 - インデックス未登録」80件が0件になるまでの記録（実測）</h1>
+    <p class="meta">2026年11月3日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/unindexed-80-to-zero/hero_aigen.webp" width="1280" height="720" alt="コルクボードに淡い緑色の紙が何枚も留められ、一部だけが細い糸でつながっているイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
+    <p>僕が個人で運営している方言クイズのサイトで、Search Consoleの「検出 - インデックス未登録」が80件たまっていました。Googleはページの存在を知っているのに、一度も見に来ていない状態です。2026年9月3日に、この80件を全部書き出して原因を調べ、手当てをしました。</p>
+    <p>先に結論です。<strong>9月9日に確認したとき、80件は0件になっていました。</strong>手当ては「内部リンクを足す」と「登録リクエストを送る」の2つです。登録リクエストは、1日で69件送っても上限の表示は出ませんでした。一方で、効いたと思って見ていた指標は最後まで動かず、何が効いたのかは切り分けられていません。その分からなさも含めて書きます。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#tehon">1. 解説記事を3本開いて、足りなかったもの</a></li>
+        <li><a href="#list">2. 80件を全部書き出した内訳</a></li>
+        <li><a href="#cause">3. 原因：Googleが「参照元ページ」を1つも知らなかった</a></li>
+        <li><a href="#fix">4. やったこと：内部リンクと登録リクエスト69件</a></li>
+        <li><a href="#result">5. 6日後の結果：80件が0件に</a></li>
+        <li><a href="#unknown">6. 分かっていないこと</a></li>
+        <li><a href="#lesson">7. 同じ状態の人に伝えたいこと</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="tehon">1. 解説記事を3本開いて、足りなかったもの</h2>
+    <p>書く前に、このテーマで検索して上位に出てきた記事を3本、本文まで開きました（2026年10月31日）。Googleの公式ヘルプ「ページのインデックス登録レポート」、SEOの用語解説記事、個人ブログの運営者による解説記事です。</p>
+    <ul>
+      <li>Googleの公式ヘルプは、このラベルを「検出はしたが、まだクロールしていない」状態だと説明しています。サイトへの負荷を避けるために、クロールを後に回した場合が多いという書き方です。</li>
+      <li>用語解説の記事は、冒頭に要点の箇条書きを置き、未登録の理由を一覧表にしていました。結論を最初に出す並べ方は、この記事でも使っています。</li>
+      <li>個人ブログの記事は、自分のサイトの全ページを調べた数字を載せていて、対処として内部リンクの強化を挙げていました。登録リクエストは「1日10〜20件程度で上限の表示が出る」と書かれていましたが、出典は示されていませんでした。</li>
+    </ul>
+    <p>3本とも、たまった未登録が「何件から何件になったか」を、日付つきで追った記録はありませんでした。そこを、自分のサイトの数字で埋めます。</p>
+
+    <h2 id="list">2. 80件を全部書き出した内訳</h2>
+    <p>Search Consoleの「ページのインデックス登録」で、「検出 - インデックス未登録」の一覧を100行表示にして全件を書き出しました。対象はドメイン全体（サブドメインを含む）です。80件とも「前回のクロール」は空欄でした。</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：「検出 - インデックス未登録」80件の内訳（Search Console・2026年9月3日取得）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ページの種類</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">件数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">メモ</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言の変換ページ（地域別）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">30</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">35ページ中30ページ（9/3実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言のクイズページ（地域別）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">29</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">35ページ中29ページ（9/3実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言サイトの記事</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9/3実測</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言サイトのツール・案内ページ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">診断・比較・免責など（9/3実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">変換ページの一覧（親ページ）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">30ページの親が未登録（9/3実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">資格の練習サイト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9/3実測</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ポータル</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">お問い合わせ・紹介ページ（9/3実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">合計</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">80</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">全件「前回のクロール」が空欄</td></tr>
+</tbody></table>
+    <p>80件のうち59件は、方言サイトの「地域別の変換ページ」と「地域別のクイズページ」でした。同じ作りのページが35地域ずつあり、その大半がまとめて見に来てもらえていなかったことになります。</p>
+    <p>念のため、ほかの原因も先に潰しました。サイトマップの105件は、すべて本番で正常に表示されることを確認しています。robots.txtは、この80件を塞いでいませんでした。サーバーエラーによる除外も0件でした（いずれも9月3日に確認）。</p>
+
+    <h2 id="cause">3. 原因：Googleが「参照元ページ」を1つも知らなかった</h2>
+    <p>Search ConsoleのURL検査で、未登録だった変換ページを2つ調べました。どちらも「参照元ページ」の欄に<strong>「検出されませんでした」</strong>と出ていました。Googleはサイトマップでページを知っただけで、ほかのページからのリンクを1本も見つけていない、という表示です。</p>
+    <p>そこで、本番のページを全部取得して、サイト内のリンクを数えました。数えたのは「すでにインデックスに載っているページから、何本リンクを受けているか」です。Googleが実際にたどれる道の数にあたります。</p>
+    <ul>
+      <li><strong>変換ページ30件</strong>：受けているリンクは平均0.5本で、30件中17件は0本でした。</li>
+      <li><strong>クイズページ29件</strong>：平均1.9本で、最も少ないページはクイズの一覧からの1本だけでした。</li>
+      <li><strong>変換ページの一覧（親ページ）</strong>：その親ページ自体が未登録でした。未登録の親の下に、30ページがぶら下がっていたことになります。</li>
+    </ul>
+    <p>ただし、これだけでは説明できないページもありました。ツール系の5ページは、もともとインデックス済みのページから平均21本のリンクを受けていたのに、一度もクロールされていませんでした。このころのクロールは、ドメイン全体で1日6〜16回でした（Search Consoleのクロールの統計情報・9月3日確認）。リンクの数ではなく、そもそもクロールの回数が足りていなかった可能性があります（推定）。</p>
+
+    <h2 id="fix">4. やったこと：内部リンクと登録リクエスト69件</h2>
+    <p>9月3日と4日の2日間で、次の手を打ちました。</p>
+    <ol>
+      <li><strong>方言35地域の索引を作り、トップと記事一覧に置いた。</strong>変換とクイズで計70本のリンクです。</li>
+      <li><strong>記事の下に「この記事に出てくる方言を試す」を足した。</strong>記事が扱う地域の変換・クイズへ、最大8件のリンクが出るようにしました。</li>
+      <li><strong>Search Consoleで「修正を検証」を始め、サイトマップを送り直した</strong>（9月3日）。</li>
+      <li><strong>80件すべてに、URL検査から登録リクエストを送った。</strong>9月3日に4件、9月4日に残り76件を処理しました。</li>
+    </ol>
+    <p>内部リンクを足した結果、インデックス済みページから受けるリンクは次のように増えました。</p>
+
+    <figure class="pic">
+      <svg viewBox="0 0 640 250" width="100%" role="img" aria-labelledby="chart-title chart-desc" style="max-width:640px;display:block;margin:0 auto">
+        <title id="chart-title">インデックス済みページから受けている内部リンクの平均本数（改修の前後）</title>
+        <desc id="chart-desc">本番ページを取得して数えた実測の横棒グラフ。変換ページ30件は平均0.5本から3.5本に、クイズページ29件は平均1.9本から4.8本に増えた。2026年9月3日の改修前後。</desc>
+        <style>
+          .lb{font-size:14px;fill:#2b2b3a}.sm{font-size:12px;fill:#53536b}.vd{font-size:13px;fill:#2b2b3a;font-weight:700}
+          @media (prefers-color-scheme: dark){.lb{fill:#ececf2}.sm{fill:#b8b8c8}.vd{fill:#ececf2}}
+        </style>
+        <text class="lb" x="0" y="22">変換ページ30件</text>
+        <text class="sm" x="0" y="48">改修前</text>
+        <rect x="150" y="34" width="38" height="20" fill="#c8643c"/><text class="vd" x="196" y="49">0.5本</text>
+        <text class="sm" x="0" y="78">改修後</text>
+        <rect x="150" y="64" width="263" height="20" fill="#2f6f4f"/><text class="vd" x="421" y="79">3.5本</text>
+        <text class="lb" x="0" y="122">クイズページ29件</text>
+        <text class="sm" x="0" y="148">改修前</text>
+        <rect x="150" y="134" width="143" height="20" fill="#c8643c"/><text class="vd" x="301" y="149">1.9本</text>
+        <text class="sm" x="0" y="178">改修後</text>
+        <rect x="150" y="164" width="360" height="20" fill="#2f6f4f"/><text class="vd" x="518" y="179">4.8本</text>
+        <text class="sm" x="0" y="230">インデックス済みページから受けている内部リンクの平均。2026年9月3日の改修前後の実測</text>
+      </svg>
+      <figcaption>図1：内部リンクの本数（自作の図。数字は本番ページを取得して数えた実測値）</figcaption>
+    </figure>
+
+    <p>登録リクエストは、送る前に1件ずつURL検査をかけました。9月4日に処理した76件のうち、<strong>7件は前日から1日のうちに登録済みに変わっていた</strong>ので、送らずに飛ばしています。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：2026年9月4日の登録リクエストの記録</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">項目</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">件数</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">処理した件数</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">76（9/4実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">登録リクエストを送った</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">69（すべて「優先クロールキューに追加しました」を確認）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">すでに登録済みで飛ばした</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">7（資格の練習サイト6・クイズ1）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">一時的な送信エラー</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4（4件とも再試行1回で成功）</td></tr>
+</tbody></table>
+    <p>69件送っても、上限に達したという表示は出ませんでした。途中で4件、「送信中に問題が発生しました」というエラーが出ました。これを上限と思い込んで止めていたら、残りは翌日以降に回していたはずです。4件とも、もう1回押すだけで通りました。上限の件数は時期やサイトで変わる可能性があるので、この数字は「このサイトで、この日はこうだった」という記録として読んでください。</p>
+
+    <figure class="pic">
+      <img src="/read/img/unindexed-80-to-zero/body_aigen.webp" width="1200" height="800" alt="両側に緑の葉が茂る、まっすぐな石畳の小道のイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）。道を足すことと、実際に人が歩いてくることは、別の話でした</figcaption>
+    </figure>
+
+    <h2 id="result">5. 6日後の結果：80件が0件に</h2>
+    <p>9月9日にSearch Consoleを開くと、数字は次のようになっていました（レポートの最終更新日は9月4日）。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：手当ての前と後（Search Console・ドメイン全体）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">指標</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">9月3日</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">9月9日</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">検出 - インデックス未登録</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">80</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0（9/9実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">インデックス登録済みのページ数</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">91</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">189（9/9実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">「修正を検証」</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">開始</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">合格（9月5日付）</td></tr>
+</tbody></table>
+    <p>登録済みのページは91から189へ、98ページ増えました。未登録として残ったのは28件で、内訳はリダイレクト11件、noindex 9件、404が3件、正しいcanonicalがある代替ページ2件、robots.txtでのブロック1件、クロール済み・未登録2件でした（9月9日実測）。どれも意図して外しているか、別の理由のものです。</p>
+    <p>404の3件は、9月16日に中身を調べました。2件は、本文の文字列をGoogleがURLと読み違えたもので、該当するリンクはサイトのどこにもありませんでした。残り1件は、配信サービスのメールアドレス保護の仕組みが使う、もともと404を返すアドレスでした。どれも直す必要はありませんでした。</p>
+
+    <h2 id="unknown">6. 分かっていないこと</h2>
+    <p>いちばん正直に書いておきたいのは、ここです。</p>
+    <p>手当ての前に「これが変われば内部リンクが効いた証拠だ」と決めていた指標がありました。URL検査の「参照元ページ」です。ところが、変換ページの代表として見ていた1ページは、9月9日にはインデックスに載っていたのに、<strong>「参照元ページ」は「検出されませんでした」のまま</strong>でした。9月16日に見ても同じでした。</p>
+    <p>そのページの「前回のクロール」は9月3日で、ちょうど登録リクエストを送った日です。なので、<strong>このページについては、内部リンクより登録リクエストのほうが直接効いた可能性が高い</strong>と見ています（推定）。一方で、変換ページの親（一覧ページ）は9月4日の時点で「参照元ページ」にトップとクイズの一覧が表示されるようになっていて、内部リンクをGoogleが認識し始めた形跡もありました。</p>
+    <p>内部リンク、登録リクエスト、修正の検証、サイトマップの再送信を2日間でまとめてやったので、どれがどれだけ効いたのかは切り分けられません。立ち上げたばかりのサイトなので、何もしなくても時間がたてば載っていった可能性も残ります。同じ時期のサーバーエラーと検索の表示回数の動きは、<a href="/read/search-503-recovery-measured">503を出したあとの実測</a>に書きました。</p>
+
+    <h2 id="lesson">7. 同じ状態の人に伝えたいこと</h2>
+    <ol>
+      <li><strong>まず全件を書き出して、種類ごとに数える。</strong>80件と聞くとばらばらに見えますが、分けてみると59件が同じ作りのページでした。原因の当たりがつけやすくなります。</li>
+      <li><strong>URL検査で「参照元ページ」を見る。</strong>「検出されませんでした」なら、そのページはサイトマップでしか知られていません。インデックス済みのページから、何本リンクが届いているかを数えると、手を入れる場所がはっきりします。</li>
+      <li><strong>登録リクエストは、送る前にURL検査を1回かける。</strong>前日から登録済みに変わっているページがあります。僕の場合は76件中7件でした。</li>
+      <li><strong>送信エラーが出ても、1回は再試行する。</strong>上限の表示とは限りません。</li>
+      <li><strong>効いたかどうかの指標を1つに絞りすぎない。</strong>結果（インデックス登録）が先に出て、見ていた指標が動かないこともありました。</li>
+    </ol>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>2026年9月3日に<strong>80件</strong>あった「検出 - インデックス未登録」は、9月9日の確認で<strong>0件</strong>になり、登録済みのページは91から189に増えました</li>
+      <li>原因の中心は、インデックス済みのページから届く内部リンクの少なさでした。変換ページ30件の平均は0.5本でした</li>
+      <li>登録リクエストは9月4日に69件送り、上限の表示は出ませんでした。4件のエラーは再試行で通りました</li>
+      <li>何が効いたのかは切り分けられていません。「参照元ページ」の表示は、インデックスに載ったあとも変わりませんでした</li>
+    </ul>
+    <p>次の1アクションとして、自分のサイトのSearch Consoleで「検出 - インデックス未登録」を開き、一覧を書き出して、ページの種類ごとに数えてみてください。何件が同じ種類かが分かるだけで、手を入れる場所が決まります。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/gsc-anonymous-queries-exam-day">Search Consoleのクエリ表が見えなかった日</a>もどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/search-503-recovery-measured"><img class="rt" src="/read/img/search-503-recovery-measured/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">503を出したあとの実測：登録済みが41から111ページに増えた</span></a></li>
+      <li><a class="rl" href="/read/gsc-anonymous-queries-exam-day"><img class="rt" src="/read/img/gsc-anonymous-queries-exam-day/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Search Consoleのクエリ表が9割見えなかった日：資格試験当日24時間の実測</span></a></li>
+      <li><a class="rl" href="/read/qiita-19-articles-measured"><img class="rt" src="/read/img/qiita-19-articles-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話</span></a></li>
+      <li><a class="rl" href="/read/asp-fee-comparison"><img class="rt" src="/read/img/asp-fee-comparison/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">同じ広告主でもASPを変えると、アフィリエイト単価は5〜7倍違う（実例つき）</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-03">2026年11月3日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
