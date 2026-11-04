@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測） | 毎日ラボ</title>
+<meta name="description" content="Claudeの予約タスクを約100本動かしていたら、週の利用上限に当たって24.5時間すべて止まりました。原因は、予約タスクが対話で最後に選んだモデルを引き継ぐ仕組みでした。日ごとのモデル内訳と、上限の消費の推移を観測日つきで書きます。">
+<link rel="canonical" href="https://mainichi-lab.com/read/scheduled-tasks-model-inherit">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測）">
+<meta property="og:description" content="Claudeの予約タスクを約100本動かしていたら、週の利用上限に当たって24.5時間すべて止まりました。原因は、予約タスクが対話で最後に選んだモデルを引き継ぐ仕組みでした。日ごとのモデル内訳と、上限の消費の推移を観測日つきで書きます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/scheduled-tasks-model-inherit">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/scheduled-tasks-model-inherit/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/scheduled-tasks-model-inherit/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/scheduled-tasks-model-inherit/hero_aigen.webp","headline":"AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測）","description":"Claudeの予約タスクを約100本動かしていたら、週の利用上限に当たって24.5時間すべて止まりました。原因は、予約タスクが対話で最後に選んだモデルを引き継ぐ仕組みでした。日ごとのモデル内訳と、上限の消費の推移を観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-04T10:00:00+09:00","dateModified":"2026-11-04T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/scheduled-tasks-model-inherit"},"url":"https://mainichi-lab.com/read/scheduled-tasks-model-inherit"}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"予約タスクで利用上限を使い切った記録","item":"https://mainichi-lab.com/read/scheduled-tasks-model-inherit"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>予約タスクで利用上限を使い切った記録</p>
+
+    <h1>AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測）</h1>
+    <p class="meta">2026年11月4日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/scheduled-tasks-model-inherit/hero_aigen.webp" width="1280" height="720" alt="低い机の上にノートパソコンが置かれ、両脇に鉢植えの観葉植物が並んでいるイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
+    <p>僕は個人のサイト運営や情報収集を、AI（Claude）の「予約タスク」でかなり自動化しています。決まった時刻に、決まった手順書を読んで作業する仕組みです。2026年10月19日に一覧を取ったときで、登録は約100件ありました。</p>
+    <p>先に結論です。2026年9月に、<strong>週の利用上限に当たって、予約タスクが24.5時間まるごと止まりました</strong>。原因は作業量ではなく、使っていたモデルでした。予約タスクには、モデルを指定する欄がありません。発火するたびに、アプリが覚えている既定のモデル（対話で最後に選んだモデル）を引き継ぎます。10月17日には、その日の予約タスク104回が、すべて上位モデルで動いていました。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#tehon">1. よく読まれている解説と、足りなかったもの</a></li>
+        <li><a href="#stop">2. 24.5時間、すべて止まった</a></li>
+        <li><a href="#usage">3. 週の上限は3日で63%から99%に</a></li>
+        <li><a href="#inherit">4. 日ごとのモデル内訳で、仕組みが見えた</a></li>
+        <li><a href="#taisaku">5. やったことと、効かなかったこと</a></li>
+        <li><a href="#howto">6. 予約タスクを増やす前に決めておくこと</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="tehon">1. よく読まれている解説と、足りなかったもの</h2>
+    <p>書く前に、「Claude Code 利用上限 対策」で検索して上位の解説を3本開きました（2026年11月1日）。どれも、週の上限はすべてのモデルで共有の1つの枠であること、残りは使用量の画面で確かめられること、作業に合わせてモデルを使い分けると長持ちすることを説明していました。冒頭に結論を置き、プランごとの違いを表にまとめる構成も共通しています。</p>
+    <p>一方で、3本とも自分で測った数字はありませんでした。公式の説明やコミュニティの声をまとめた内容です。そして、「人が見ていない予約タスクが、どのモデルで動いているか」に触れた記事はありませんでした。僕が上限を使い切った原因は、まさにそこでした。</p>
+
+    <h2 id="stop">2. 24.5時間、すべて止まった</h2>
+    <p>止まったのは、9月26日11時04分から翌27日11時36分までの約24.5時間です（自分の作業記録より）。この間、30分おきの見張りも、毎時のチェックも、毎朝のレポートも、予約タスクは1本も動きませんでした。締切のある作業もまたいでしまいました。</p>
+    <p>その少し後、9月30日に予約タスクの実行記録を開いて、どのモデルで動いたかを見ました。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：予約タスクの実行に使われていたモデル（2026年9月30日に実行記録で確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">予約タスク</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">頻度</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">実際のモデル</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">止まっていないかの見張り</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">30分おき（1日48回）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">上位モデル（長文脈版）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">抽選・先着の確認</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">毎時（1日24回）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">上位モデル（長文脈版）</td></tr>
+</tbody></table>
+    <p>どちらも「変わったことが無いか見て、無ければ終わる」だけの定型の作業です。それが、いちばん重い枠で1日に72回動いていました。</p>
+
+    <h2 id="usage">3. 週の上限は3日で63%から99%に</h2>
+    <p>止まった後も、すぐには直せませんでした。使用量の画面で週の枠（全モデル共通）を毎日見ていた数字が、こちらです。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：週の利用上限の消費（使用量の画面で確認した実測）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">確認した日</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">週の枠の消費</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">メモ</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月2日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">63%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">リセットまで約2日</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月3日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">89%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1日で26ポイント増</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月4日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">99%</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">リセットの約10時間前</td></tr>
+</tbody></table>
+    <p>リセット直前で間に合いましたが、9月に止まったときと同じ水位です。この週も、予約タスクは上位モデルのままでした（10月4日に実行記録で確認）。</p>
+
+    <figure class="pic">
+      <img src="/read/img/scheduled-tasks-model-inherit/body_aigen.webp" width="1200" height="800" alt="砂が下に落ちきった大小2つの砂時計と、丸い素焼きの壺が台の上に並んでいるイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）。週の枠は、気づいたときには残りわずかになっていました</figcaption>
+    </figure>
+
+    <h2 id="inherit">4. 日ごとのモデル内訳で、仕組みが見えた</h2>
+    <p>原因をはっきりさせたのは、10月19日に取った集計です。アプリが手元に残しているセッションの記録から、予約タスクの回だけを抜き出し、日ごとにどのモデルで動いたかを数えました。</p>
+
+    <figure class="pic">
+      <svg viewBox="0 0 640 300" width="100%" role="img" aria-labelledby="chart-title chart-desc" style="max-width:640px;display:block;margin:0 auto">
+        <title id="chart-title">予約タスクの回のモデル内訳（10月16日〜18日）</title>
+        <desc id="chart-desc">セッション記録の集計による横棒グラフ。10月16日は標準モデル43回、上位モデル27回。10月17日は上位モデル104回で標準モデルは0回。10月18日は上位モデル58回、標準モデル41回で、途中で切り替えた。</desc>
+        <style>
+          .lb{font-size:14px;fill:#2b2b3a}.sm{font-size:12px;fill:#53536b}.v{font-size:13px;fill:#fff;font-weight:700}
+          @media (prefers-color-scheme: dark){.lb{fill:#ececf2}.sm{fill:#b8b8c8}}
+        </style>
+        <text class="lb" x="0" y="34">10月16日（70回・実測）</text>
+        <rect x="0" y="44" width="248" height="34" fill="#2f6f4f"/><rect x="248" y="44" width="156" height="34" fill="#c8643c"/>
+        <text class="v" x="10" y="66">標準 43</text><text class="v" x="256" y="66">上位 27</text>
+        <text class="lb" x="0" y="116">10月17日（104回・実測）</text>
+        <rect x="0" y="126" width="600" height="34" fill="#c8643c"/>
+        <text class="v" x="10" y="148">上位 104（すべて）</text>
+        <text class="lb" x="0" y="198">10月18日（99回・実測）</text>
+        <rect x="0" y="208" width="335" height="34" fill="#c8643c"/><rect x="335" y="208" width="237" height="34" fill="#2f6f4f"/>
+        <text class="v" x="10" y="230">上位 58</text><text class="v" x="343" y="230">標準 41</text>
+        <rect x="0" y="266" width="14" height="14" fill="#2f6f4f"/><text class="sm" x="20" y="278">標準モデル</text>
+        <rect x="120" y="266" width="14" height="14" fill="#c8643c"/><text class="sm" x="140" y="278">上位モデル</text>
+      </svg>
+      <figcaption>図1：予約タスクの回を、動いたモデルで分けた回数（自作の図。数字はセッション記録を集計した実測値）</figcaption>
+    </figure>
+
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：予約タスクの回のモデル内訳（10月12日〜19日・10月19日に集計）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">日付</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">内訳</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">備考</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月12日〜15日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">すべて標準モデル</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月16日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">標準43・上位27</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2種類が混在</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月17日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">上位104（すべて）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">標準モデルは0回</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月18日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">上位58→標準41</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">対話側を切り替えた時刻で入れ替わった</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月19日</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">すべて標準モデル</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td></tr>
+</tbody></table>
+    <p>10月18日に、対話のほうのモデルを標準に戻した時刻を境に、予約タスクの回もそろって入れ替わりました。予約タスクは独立して設定されているのではなく、<strong>人が対話で最後に選んだモデルについてくる</strong>ということです。設計の相談で一時的に上位モデルを選び、そのまま1日置いておくと、裏の予約タスクが全部それで動きます。</p>
+    <p>ただし、例外も1回ありました。10月2日に対話で標準モデルを選んだ直後に発火した予約タスクは、まだ上位モデルのままでした。このときはなぜ切り替わらなかったのか、原因を特定できていません。「切り替えれば必ずすぐ反映される」とまでは言えないので、切り替えた後に実行記録で1回確かめるようにしています。</p>
+
+    <h2 id="taisaku">5. やったことと、効かなかったこと</h2>
+    <p>上限に当たらないようにするために、2026年10月に次のことをしました。</p>
+    <ul>
+      <li><strong>対話のモデルを、作業が終わったら標準に戻す。</strong>いちばん効いたのはこれです。上位モデルが要る仕事は、対話全体ではなく、その仕事を任せる担当（サブエージェント）にだけモデルを指定して渡すようにしました。</li>
+      <li><strong>30分おきの見張りを、60分おきにした（10月2日）。</strong>止まったら自動で再開する仕組みを別に用意できたので、10月19日には見張りの予約タスク自体を止めました。</li>
+      <li><strong>毎時のチェックが読む手順書を分けた（10月19日）。</strong>35,088バイトの手順書を、毎回読む本体27,548バイトと、1日3回だけ読む詳細9,507バイトに分けました。1日24回のうち21回は本体だけを読むので、読み込みが21.5%減ります。</li>
+    </ul>
+    <p>効かなかったこともあります。実行済みの1回きりの予約タスク44本を、フォルダごと別の場所に移して一覧を軽くしようとしましたが、アプリは登録を別に持っていて一覧から消えませんでした。元に戻しています。手順書を分けたのも、目標にしていた15KBには届きませんでした。毎時の回でも使う部分が多く、削れなかったためです。</p>
+    <p>なお、対策の後に上限へ当たる回数がどれだけ減ったかは、今回の手元の記録では測れていません。ここに書いたのは、対策の前に起きていたことの実測です。</p>
+
+    <h2 id="howto">6. 予約タスクを増やす前に決めておくこと</h2>
+    <p>自分の失敗をふまえて、予約タスクを何本も動かすなら、この順番がいいと思っています。</p>
+    <ol>
+      <li>予約タスクの実行記録を開いて、実際に動いたモデルを1回見る。設定画面ではなく、動いた結果を見ます。</li>
+      <li>対話で上位モデルを選んだら、終わったときに標準へ戻す。戻した後、次に動いた予約タスクのモデルをもう一度見ます。</li>
+      <li>頻度の高いタスクほど、手順書を短くする。毎時なら1日24回読まれるので、1回あたりの差がそのまま24倍になります。</li>
+      <li>使用量の画面で、週の枠を毎日1回見る。僕の場合、63%から99%までは3日でした。</li>
+    </ol>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>2026年9月、週の利用上限に当たって予約タスクが<strong>24.5時間すべて止まりました</strong></li>
+      <li>予約タスクにはモデルの指定欄がなく、対話で最後に選んだモデルを引き継ぎます。10月17日は104回すべてが上位モデルでした</li>
+      <li>週の枠は10月2日の63%から、4日に99%まで進みました</li>
+    </ul>
+    <p>次の1アクションとして、予約タスクを使っているなら、直近の実行記録を1件開いて、どのモデルで動いたかを確かめてみてください。数分で終わります。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/ga4-self-traffic-measured">GA4に混ざっていた本番以外のホストの実測</a>や、<a href="/read/qiita-19-articles-measured">Qiita記事を19本書いた結果</a>もどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/ga4-self-traffic-measured"><img class="rt" src="/read/img/ga4-self-traffic-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）</span></a></li>
+      <li><a class="rl" href="/read/qiita-19-articles-measured"><img class="rt" src="/read/img/qiita-19-articles-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話</span></a></li>
+      <li><a class="rl" href="/read/lessons-building-apps"><img class="rt" src="/read/img/lessons-building-apps/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
+      <li><a class="rl" href="/read/keep-going-system"><img class="rt" src="/read/img/keep-going-system/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">独学が続かないのは意志のせいじゃない — 続く仕組みの作り方</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-04">2026年11月4日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
