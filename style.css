@@ -160,3 +160,8 @@ footer.site a:hover{color:var(--ink)}
 @media(min-width:1024px){.prose td{text-wrap:balance}}
 .prose td,.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
 .prose a.open{overflow-wrap:anywhere}
+/* トップの画像（2026-11-06 週次デザイン K26/K30：主役画像＋ツールカードの16:9画像） */
+.hero .hero-img,.svc .svc-img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;background:var(--accent-soft)}
+.hero .hero-img{margin:0 0 18px}
+.svc .svc-img{margin:0 0 16px}
+@media(prefers-color-scheme:dark){.hero .hero-img,.svc .svc-img{filter:brightness(.88)}}
