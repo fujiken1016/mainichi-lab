@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測） | 毎日ラボ</title>
-<meta name="description" content="自分で運営する2つのサイトのGA4を、ホスト名ごとに分けて数えました。開発中の自分のアクセス(localhost)とCloudflareの既定ドメイン(pages.dev)が、表示回数の17〜42%を占めていた記録と、除外フィルタを作るときに分かったGA4の仕様を、観測日つきで書きます。">
+<meta name="description" content="自分のサイト2つのGA4をホスト名ごとに数えると、localhostとpages.devのアクセスが表示回数の17〜42%を占めていました。除外フィルタを作るときに分かったGA4の仕様も書きます。">
 <link rel="canonical" href="https://mainichi-lab.com/read/ga4-self-traffic-measured">
 <meta property="og:site_name" content="毎日ラボ">
 <meta property="og:title" content="個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）">
-<meta property="og:description" content="自分で運営する2つのサイトのGA4を、ホスト名ごとに分けて数えました。開発中の自分のアクセス(localhost)とCloudflareの既定ドメイン(pages.dev)が、表示回数の17〜42%を占めていた記録と、除外フィルタを作るときに分かったGA4の仕様を、観測日つきで書きます。">
+<meta property="og:description" content="自分のサイト2つのGA4をホスト名ごとに数えると、localhostとpages.devのアクセスが表示回数の17〜42%を占めていました。除外フィルタを作るときに分かったGA4の仕様も書きます。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mainichi-lab.com/read/ga4-self-traffic-measured">
 <meta property="og:image" content="https://mainichi-lab.com/read/img/ga4-self-traffic-measured/hero_aigen.webp">
@@ -23,7 +23,7 @@
 <script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/ga4-self-traffic-measured/hero_aigen.webp","headline":"個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）","description":"自分で運営する2つのサイトのGA4を、ホスト名ごとに分けて数えました。開発中の自分のアクセス(localhost)とCloudflareの既定ドメイン(pages.dev)が、表示回数の17〜42%を占めていた記録と、除外フィルタを作るときに分かったGA4の仕様を、観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-01T10:00:00+09:00","dateModified":"2026-11-01T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/ga4-self-traffic-measured"},"url":"https://mainichi-lab.com/read/ga4-self-traffic-measured"}</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"GA4に混ざっていた本番以外のホストの実測","item":"https://mainichi-lab.com/read/ga4-self-traffic-measured"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"GA4に混ざっていた本番以外のホスト","item":"https://mainichi-lab.com/read/ga4-self-traffic-measured"}]}
 </script>
 <script src="/oc.js" defer></script>
 </head>
