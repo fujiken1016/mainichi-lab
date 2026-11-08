@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KDPのペーパーバックを自作の組版で入稿した実測：余白・背幅・表紙の数字（A5・62ページ） | 毎日ラボ</title>
+<meta name="description" content="AmazonのKDPで紙の本（A5・62ページ）を自作の組版で出して、販売中になるまでの実測を書きます。余白、背幅3.55mm、表紙305.9×216.35mm、背文字が入れられないページ数の下限を、KDP公式ヘルプの数字と並べ、食い違った点も記録しました。">
+<link rel="canonical" href="https://mainichi-lab.com/read/kdp-paperback-specs-measured">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="KDPのペーパーバックを自作の組版で入稿した実測：余白・背幅・表紙の数字（A5・62ページ）">
+<meta property="og:description" content="AmazonのKDPで紙の本（A5・62ページ）を自作の組版で出して、販売中になるまでの実測を書きます。余白、背幅3.55mm、表紙305.9×216.35mm、背文字が入れられないページ数の下限を、KDP公式ヘルプの数字と並べ、食い違った点も記録しました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/kdp-paperback-specs-measured">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/kdp-paperback-specs-measured/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/kdp-paperback-specs-measured/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/kdp-paperback-specs-measured/hero_aigen.webp", "headline": "KDPのペーパーバックを自作の組版で入稿した実測：余白・背幅・表紙の数字（A5・62ページ）", "description": "AmazonのKDPで紙の本（A5・62ページ）を自作の組版で出して、販売中になるまでの実測を書きます。余白、背幅3.55mm、表紙305.9×216.35mm、背文字が入れられないページ数の下限を、KDP公式ヘルプの数字と並べ、食い違った点も記録しました。", "inLanguage": "ja", "datePublished": "2026-11-08T10:00:00+09:00", "dateModified": "2026-11-08T10:00:00+09:00", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about"}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/kdp-paperback-specs-measured"}, "url": "https://mainichi-lab.com/read/kdp-paperback-specs-measured"}</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "KDP紙の本の実測", "item": "https://mainichi-lab.com/read/kdp-paperback-specs-measured"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>KDP紙の本の実測</p>
+
+    <h1>KDPのペーパーバックを自作の組版で入稿した実測：余白・背幅・表紙の数字（A5・62ページ）</h1>
+    <p class="meta">2026年11月8日 ／ フジケン</p>
+
+    <p>僕は2026年9月に、自分で書いた電子書籍の紙版（ペーパーバック）を、AmazonのKDPから出しました。本文のPDFも表紙のPDFも、市販の組版ソフトを使わず、自分のコードで組んでいます。この記事は、そのとき実際に測った数字と、KDP公式ヘルプの数字を並べた記録です。</p>
+    <p>先に結論です。<strong>A5（148×210mm）・62ページの本の場合、表紙PDFは305.90×216.35mm、背幅は3.55mmでした</strong>。実際に出力した表紙PDFは305.82×216.24mmで、計算との差は幅0.08mm・高さ0.11mmでした。背幅が3.55mmしかないので、背に文字は入れていません。公式の下限は79ページで、62ページの本は入れられないからです。</p>
+    <p>数字を取ったのは2026年9月17日〜21日の入稿作業の記録と、KDP公式ヘルプを開いた2026年11月4日です。</p>
+
+    <figure class="pic top">
+      <img src="/read/img/kdp-paperback-specs-measured/hero_aigen.webp" width="1280" height="720" alt="平らに重ねた白い紙の束と鉛筆が机に置かれ、両脇に鉢植えの植物が並んでいるイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul><li><a href="#tehon">1. 先に読んだ3本と、足りなかったもの</a></li><li><a href="#cond">2. 入稿した条件</a></li><li><a href="#margin">3. 本文の余白：公式と実測</a></li><li><a href="#spine">4. 背幅と表紙のサイズ</a></li><li><a href="#text">5. 背に文字を入れられるのは79ページから</a></li><li><a href="#safe">6. 安全域は公式より厳しく取っていた</a></li><li><a href="#check">7. 数字で落とした検査と、3回外したこと</a></li><li><a href="#scale">8. 原因を一度、間違えた話</a></li><li><a href="#after">9. 出した後に分かったこと</a></li><li><a href="#todo">10. まだ確かめていないこと</a></li><li><a href="#matome">まとめ</a></li></ul>
+    </nav>
+
+    <h2 id="tehon">1. 先に読んだ3本と、足りなかったもの</h2>
+    <p>書く前に、「KDP ペーパーバック 背幅 余白」で検索して出てきた解説を3本、本文まで開きました（2026年11月4日）。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：先に読んだ3本の中身（2026年11月4日に確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">記事</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">冒頭の答え</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">表・図</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">自分で測った数字</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href='https://univers.studio/ja/kdp-calculator/' rel='nofollow noopener'>Univers Studio「KDP 電卓」</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">計算ツールのボタンが答えの代わり。式は背幅が白紙「ページ数×0.002252インチ」</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">価格比較表あり</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（式とツールの出力）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href='https://www.vappingo.com/word-blog/kdp-cover-size-calculator/' rel='nofollow noopener'>Vappingo「KDP Cover Size Calculator」</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">裁ち落とし0.125インチ、背文字は79ページ以上、300 DPIを先頭で提示</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（チェックリストのみ）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（公式の引用）。背幅の式は載っていない</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href='https://creativeparamita.com/?p=18114' rel='nofollow noopener'>Creative Paramita「Paperback Spine Width」</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">式は第2節まで出てこない</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（例題の計算のみ）</td></tr>
+</tbody></table>
+    <p>3本とも、公式の数字を整理して、計算式や計算ツールで答えを出す作りでした。足りなかったのは、実際に入稿して通った一冊の数字です。そこで、この記事では式だけでなく、自分の本の寸法と、出力したPDFの実測値を並べました。逆に、3本から取り入れた点もあります。先頭で数字を出す構成、背幅を式と例で示す書き方、そして「最終確認は公式のテンプレートで」という但し書きです。</p>
+
+    <h2 id="cond">2. 入稿した条件</h2>
+    <p>入稿したのは、先に電子書籍で出していた自作の解説書「宅建 法改正ノート【令和8年度】」の紙版です。条件はこうでした。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：入稿した条件（2026年9月17日〜21日の作業記録より）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">項目</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">値</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">判型</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">A5（148×210mm）。KDPの選択肢では5.83×8.27インチ（14.81×21.01cm）で、既定のまま一致</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ページ数</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">62ページ</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">用紙・インク</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">本文は白黒、用紙は白</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">裁ち落とし</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">本文はなし／表紙はあり</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">表紙の仕上げ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">光沢なし</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">組版</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">MANUSCRIPT.md（原稿）から自作スクリプトでPDF化。原稿は1文字も書き換えない</td></tr>
+</tbody></table>
+    <p>組版ソフトを使わなかった理由は単純で、この環境にそういうソフトが入っていなかったからです。Chromeの印刷機能でPDFにできることが分かったので、そこから組みました。</p>
+
+    <h2 id="margin">3. 本文の余白：公式と実測</h2>
+    <p>本文の余白は、KDP公式ヘルプ（<a href="https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6" rel="nofollow noopener">Paperback Submission Guidelines</a>・英語版・2026年11月4日に確認）では、外側が裁ち落とし無しで最小6.4mm（0.25インチ）、裁ち落とし有りで9.6mm（0.375インチ）です。内側のノド（綴じ側）はページ数で変わります。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：ノドの最小値（公式）と、この本の実測</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ページ数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ノド（公式）</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">この本</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">24〜150</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9.6mm（0.375インチ）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">62ページ。左右とも9.6mm</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">151〜300</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">12.7mm（0.5インチ）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">301〜500</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">15.9mm（0.625インチ）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">501〜700</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">19.1mm（0.75インチ）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">701〜828</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">22.3mm（0.875インチ）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td></tr>
+</tbody></table>
+    <p>この本は、上下を15mm、左右をどちらも9.6mmにしました。左右対称にしたのは、Chromeの印刷で、見開きの左ページ・右ページごとに余白を変える指定が信頼できなかったからです。対称にすると外側が少し広くなるだけで、公式の最小値は必ず満たせます。</p>
+    <p>注意点がひとつあります。ページ数が閾値をまたぐと、必要なノドが変わります。ビルドするまでページ数は分からないので、スクリプトは「暫定のノドで一度組む→ページ数から必要なノドを決める→違っていたら組み直す」の2回構成にしました。62ページは24〜150の範囲なので、1回で確定しました。</p>
+
+    <h2 id="spine">4. 背幅と表紙のサイズ</h2>
+    <p>背幅は、公式ヘルプ（<a href="https://kdp.amazon.com/en_US/help/topic/G201953020" rel="nofollow noopener">Create a Paperback Cover</a>・2026年11月4日に確認）で、1ページあたりの値が決まっています。ページ数に掛けるだけです。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表4：紙の種類ごとの1ページあたりの背幅（公式）と、62ページ・79ページの場合の計算値</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">紙</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">1ページあたり</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">62ページ（計算）</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">79ページ（計算）</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">白（白黒）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.002252インチ＝0.0572mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3.55mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4.52mm</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">クリーム（白黒）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.0025インチ＝0.0635mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3.94mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">5.02mm</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">カラー（高品質）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.002347インチ＝0.0596mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3.70mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4.71mm</td></tr>
+</tbody></table>
+    <p>この本は白の用紙なので、62×0.0572＝3.546で、丸めて<strong>3.55mm</strong>です。表紙全体の横幅は、公式の式「裁ち落とし＋裏表紙＋背＋表表紙＋裁ち落とし」に当てはめます。</p>
+    <ul>
+      <li>横：3.175＋148＋3.55＋148＋3.175＝<strong>305.90mm</strong></li>
+      <li>縦：3.175＋210＋3.175＝<strong>216.35mm</strong></li>
+    </ul>
+    <figure class="pic">
+      <svg viewBox="0 0 640 190" width="100%" role="img" aria-labelledby="c-t c-d" style="max-width:640px;display:block;margin:0 auto">
+<title id="c-t">表紙PDFの横の内訳（A5・62ページ・実寸の比率）</title>
+<desc id="c-d">左から、裁ち落とし3.175mm、裏表紙148mm、背3.55mm、表表紙148mm、裁ち落とし3.175mm。合計305.90mm。背は全体の約1.2%の幅しかない。</desc>
+<style>.lb{font-size:13px;fill:#2b2b3a}.sm{font-size:12px;fill:#53536b}.w{font-size:13px;fill:#fff;font-weight:700}
+@media (prefers-color-scheme: dark){.lb{fill:#ececf2}.sm{fill:#b8b8c8}}</style>
+<rect x="10" y="60" width="6.2" height="70" fill="#c8643c"/>
+<rect x="16.2" y="60" width="288.8" height="70" fill="#2f6f4f"/>
+<rect x="305" y="60" width="6.9" height="70" fill="#c8643c"/>
+<rect x="311.9" y="60" width="288.8" height="70" fill="#2f6f4f"/>
+<rect x="600.7" y="60" width="6.2" height="70" fill="#c8643c"/>
+<text class="w" x="110" y="100">裏表紙（表4） 148</text>
+<text class="w" x="400" y="100">表表紙（表1） 148</text>
+<text class="lb" x="10" y="40">裁ち落とし 3.175</text>
+<text class="lb" x="475" y="40">裁ち落とし 3.175</text>
+<line x1="308.5" y1="132" x2="308.5" y2="152" stroke="#c8643c" stroke-width="2"/>
+<text class="lb" x="308" y="170" text-anchor="middle">背 3.55（62ページ×0.0572）</text>
+<text class="sm" x="10" y="186">単位はmm。横の合計は305.90、縦は3.175＋210＋3.175＝216.35</text>
+</svg>
+      <figcaption>図1：表紙PDFの横の内訳（自作の図。比率は実寸どおり）。背は全体の約1.2%しかありません</figcaption>
+    </figure>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表5：計算値と、出力した表紙PDFの実測（2026年9月17日）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top"></th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">計算値</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">実測</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">差</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">横</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">305.90mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">305.82mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.08mm</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">縦</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">216.35mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">216.24mm</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.11mm</td></tr>
+</tbody></table>
+    <p>なお、公式の裁ち落としは0.125インチで、ヘルプには3.2mmと書かれています。僕のスクリプトは0.125インチをそのまま換算した3.175mmを使っているので、公式の3.2mmとは0.025mm違います。入稿は通っているので実害はありませんでしたが、数字を突き合わせるときは、この丸めの差を知っておくと混乱しません。</p>
+    <p>表紙の絵は、最初は電子書籍用のJPEG（1600×2560ピクセル）を貼っていました。ところがA5の縦横比は1：1.419で、この画像は1：1.600だったため、上下が切れました。さらに幅151.2mmに引き伸ばすと約269dpiで、公式の最低300dpiに届きません。この表紙は画像ではなくCSSだけで組んであったので、A5の比率に組み直した版を、ラスタ画像にせずベクタのまま載せて解決しました（ベクタには解像度の制約がかかりません）。</p>
+
+    <h2 id="text">5. 背に文字を入れられるのは79ページから</h2>
+    <p>ここが、解説記事でいちばん間違えやすいところだと思います。背に文字を入れられる最小ページ数について、公式ヘルプには<strong>79ページ</strong>と書かれていました（なお、KDPのカバークリエイターは80ページ以上が必要とのことです）。事前の僕のメモは「100ページ」で、公式を開いて初めて違うと分かりました。</p>
+    <p>この本は62ページなので、背には何も入れていません。公式には、79ページ未満の本に背文字を入れると、カバーが却下されて、直すまで出版できないとあります。背の端から1.6mm（0.0625インチ）以上あけることも要件です。62ページで背幅が3.55mmだと、両側に1.6mmずつあけると、文字を置ける幅は3.55−1.6×2＝0.35mmしかない計算になります。</p>
+    <figure class="pic">
+      <img src="/read/img/kdp-paperback-specs-measured/body_aigen.webp" width="1200" height="800" alt="緑の鉢植えの植物、素焼きのカップ、薄く重ねた紙の束が並んでいるイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）。62ページの本は、背幅が3.55mmしかありません</figcaption>
+    </figure>
+
+    <h2 id="safe">6. 安全域は公式より厳しく取っていた</h2>
+    <p>表紙の安全域は、僕のスクリプトでは「裁ち線から内側6.35mm（0.25インチ）」にしていました。ところが、公式ヘルプで確かめると、表表紙と裏表紙の文字は<strong>トリムライン（裁ち線）の内側3.2mm（0.125インチ）以上</strong>と書かれています。6.4mm（0.25インチ）が出てくるのは、枠線（ボーダー）を使う場合でした。</p>
+    <p>つまり僕の検査は、公式の文字の基準より約2倍厳しい値で見ていました。入稿は通っているので問題はありませんが、「安全域は6.35mm」と言い切って書いてあるテンプレートを見かけたら、公式の3.2mmとは別の基準だと思って読んでください。ここは、素材の値と公式が食い違った点として、記録しておきます。</p>
+
+    <h2 id="check">7. 数字で落とした検査と、3回外したこと</h2>
+    <p>出す前に、数字で落とせる検査を自作しました。目視だけでは見逃すからです。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表6：本文PDF（62ページ）の検査結果（2026年9月17日）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">検査</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">結果</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">判型</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">A5 148×210mm（PDFのサイズ420×594.96ptで一致）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">本文の欠落</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">原稿33,785字に対してPDFから抽出できたのが33,825字。100.1%</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">表</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">原稿の表8個が、すべて表として組まれ、崩れた行は0件</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">章の改ページ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">第2章の冒頭が12ページ目、第10章の冒頭が55ページ目で効いている</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">薄いページ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4件。扉（1ページ目）、奥付（62ページ目）、章の最終ページ2件で、すべて説明がつく</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ノンブル</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3ページで番号が一致。扉は番号なし</td></tr>
+</tbody></table>
+    <p>表紙には別の検査を作りました。表紙PDFが1ページか、寸法が期待どおりか、すべての文字が安全域に入っているか、背の上に文字が乗っていないか、本名・住所・電話が入っていないか、の5つを数えます。本文側の検査は、わざと壊した版（本文が欠けた版、ノンブルが入っていない版）を食わせて、ちゃんと落ちることまで確かめています。落ちない検査は、検査になっていないからです。</p>
+    <p>いちばん手間取ったのは、ページ番号（ノンブル）です。Chromeの印刷だけではページ番号が入らず、組版ライブラリ（paged.js）を使うことにして、3回外しました。</p>
+    <ol>
+      <li>CDNのURLが404でした。ところが、ヘッドレスChromeは、スクリプトが読めなくても黙って印刷を完了させます。<strong>「ノンブル付き」に見える62ページのPDFができましたが、中身には番号が1つも入っていませんでした</strong>。</li>
+      <li>ライブラリを手元に置いたら読めましたが、組み終わる前に印刷が走って、1ページの白紙になりました。待ち時間の指定では待てませんでした。</li>
+      <li>組み上がりをDOMで吸い出す方法も、組み終わる前にダンプされました。</li>
+    </ol>
+    <p>最終的には、ブラウザをプログラムから操作して、組み上がったページの数が1.2秒間変わらなくなったら完了とみなし、そこで印刷する形にしました。印刷前に62ページ分の箱があることも確認しています。</p>
+
+    <h2 id="scale">8. 原因を一度、間違えた話</h2>
+    <p>表紙を点検していた2026年9月24日、僕は「<code>transform: scale()</code>の中では、背景のグラデーションが印刷で消える」と結論して、記録に残しました。ところが翌25日に条件を揃えて測り直したら、<strong>この結論は間違い</strong>でした。</p>
+    <p>最初の実験は、縮む分を打ち消すために、箱を1/0.32倍に拡大していました。その結果、グラデーションの帯が、縮める前の座標で紙の外（116〜172mm、紙は60mm）に来ていただけでした。塗りの種類と入れ物の種類を掛け合わせた418通りを、大きさを揃えて測り直すと、紙に出たインクの量を画面と比べた比は0.821〜1.218（中央値1.029）で、0.35を下回る組み合わせは0件でした。どの塗りも、<code>transform</code>の中だから落ちる、ということはありませんでした。</p>
+    <p>本当の原因は、<code>transform</code>は描画だけを縮めて、レイアウトの高さは元のまま残ることでした。印刷は、縮める前の高さで紙を割ります。決め手になったのが、このテストです。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表7：未変換180mmの版面（20mm間隔の帯9本）を、60mmの紙に刷った結果（Chrome 153.0.8010.53・macOS 26.5・2026年9月25日）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">書き方</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">PDFのページ数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">1ページ目に出た帯</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><code>transform: scale(.32)</code></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4／9</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><code>scale: .32</code>（個別プロパティ）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4／9</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><code>zoom: .32</code></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9／9</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">紙と同じ高さの祖先に<code>overflow:hidden</code></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9／9</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">縮めた要素自身に<code>overflow:hidden</code></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3／9（ページ数は1なのに中身が消える）</td></tr>
+</tbody></table>
+    <p>倍率を0.10にしても0.75にしても、結果は同じでした。表紙のHTMLでは、印刷時にhtmlとbodyへ紙と同じ寸法の<code>overflow:hidden</code>を当てていたので、1ページに収まります。この件で学んだのは、<strong>2つの条件を同時に動かした実験は、片方の効果をもう片方に付け替えてしまう</strong>ことでした。紙の本の入稿に直接かかわる話なので、あえて間違えた経緯ごと書いておきます。</p>
+
+    <h2 id="after">9. 出した後に分かったこと</h2>
+    <p>2026年9月21日に提出して、KDPの校正ビューアでは問題0件でした（62ページすべてをサムネイルで目視）。バーコードは表4の左下に自動で入り、本文とは重なりませんでした。審査は最大72時間と案内されていて、10月8日に管理画面で「販売中」を確認しました。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表8：価格まわりの実測（2026年9月21日に設定・10月8日、10日に確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">項目</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">値</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">価格</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">¥1,800（管理画面）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">印刷コスト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">¥422</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ロイヤリティ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">60%で、1冊あたり¥658（1,800×0.6−422）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">最低価格</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">¥844（印刷コスト¥422の2倍。¥1,000未満は50%のため）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">Amazon商品ページの表示</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">¥1,980（税込10%表示で、1,800×1.1と一致）</td></tr>
+</tbody></table>
+    <p>価格は、同じ本の電子版（¥1,400）より高くしました。62ページと薄いので、1,800円が妥当かどうかは、売れ行きを見てからでないと分かりません。この記事を書いた時点では、紙版の販売数を集計していません。</p>
+
+    <h2 id="todo">10. まだ確かめていないこと</h2>
+    <ul>
+      <li>実物の試し刷り（プルーフ）は取っていません。余白や表紙の色が紙でどう見えるかは、画面とプレビューアでしか確認していません</li>
+      <li>公式ヘルプは英語版を読んでいます。日本のKDPの画面で数字が変わっている箇所があるかは、全項目を確かめてはいません</li>
+      <li>クリーム紙・カラー・厚い本（151ページ以上）は試していません。表4の該当列は、公式の係数からの計算値です</li>
+    </ul>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>A5・62ページ・白紙の本は、<strong>背幅3.55mm、表紙305.90×216.35mm</strong>。実際に出力したPDFとの差は0.1mm前後でした</li>
+      <li>背に文字を入れられるのは<strong>79ページ以上</strong>。62ページの本は無地で出しました</li>
+      <li>本文のノドは24〜150ページで9.6mm。表紙の文字の安全域は、公式が3.2mm、僕の検査は6.35mmでした</li>
+      <li>「グラデーションが消える」という自分の診断は、測り直したら誤りで、本当の原因は印刷の紙割りでした</li>
+    </ul>
+    <p>次の1アクションとして、これから紙の本を出す人は、ページ数が決まった時点で、公式ヘルプのページ数と背幅の係数（白紙なら0.0572mm）を掛けて、背文字を入れられるかどうかを先に確かめてください。1分で終わります。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/scheduled-tasks-model-inherit">予約タスクで利用上限を使い切った記録</a>や、<a href="/read/ga4-self-traffic-measured">GA4に混ざっていた本番以外のホストの実測</a>もどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/scheduled-tasks-model-inherit"><img class="rt" src="/read/img/scheduled-tasks-model-inherit/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測）</span></a></li>
+      <li><a class="rl" href="/read/ga4-self-traffic-measured"><img class="rt" src="/read/img/ga4-self-traffic-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）</span></a></li>
+      <li><a class="rl" href="/read/qiita-19-articles-measured"><img class="rt" src="/read/img/qiita-19-articles-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話</span></a></li>
+      <li><a class="rl" href="/read/lessons-building-apps"><img class="rt" src="/read/img/lessons-building-apps/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-08">2026年11月8日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
