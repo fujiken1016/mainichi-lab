@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TCG BOX 定価在庫チェッカー | 毎日ラボ</title>
-<meta name="description" content="ポケカ・ワンピカ・ドラゴンボールの現行BOXについて、楽天市場で定価以下の在庫があるかを1時間ごとに確認して表示します。定価を超える出品は表示しません。">
+<meta name="description" content="ポケカ・ワンピカ・ドラゴンボールの現行BOXについて、楽天市場で定価以下の在庫があるかを、ページを開いたときに確認して表示します。定価を超える出品は表示しません。">
 <link rel="canonical" href="https://mainichi-lab.com/stock/">
 <meta property="og:site_name" content="毎日ラボ">
 <meta property="og:title" content="TCG BOX 定価在庫チェッカー | 毎日ラボ">
@@ -23,7 +23,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"毎日ラボ","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"定価在庫チェッカー","item":"https://mainichi-lab.com/stock/"}]}</script>
 <script src="/oc.js" defer></script>
 <script src="/stock/stock.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"TCG BOX 定価在庫チェッカー | 毎日ラボ","url":"https://mainichi-lab.com/stock/","inLanguage":"ja","datePublished":"2026-10-16","dateModified":"2026-10-16"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"TCG BOX 定価在庫チェッカー | 毎日ラボ","url":"https://mainichi-lab.com/stock/","inLanguage":"ja","datePublished":"2026-10-16","dateModified":"2026-11-09"}</script>
 </head>
 <body>
 <header class="site">
@@ -46,7 +46,7 @@
     <h1>TCG BOX <span class="nb">定価在庫チェッカー</span></h1>
     <p class="meta" id="status" role="status">在庫データを読み込んでいます。</p>
 
-    <p>ポケカ・ワンピカ・ドラゴンボールの現行BOXについて、楽天市場に<strong>定価以下の在庫</strong>があるかを1時間ごとに確認しています。定価を超える出品（いわゆるプレ値）は表示しません。</p>
+    <p>ポケカ・ワンピカ・ドラゴンボールの現行BOXについて、楽天市場に<strong>定価以下の在庫</strong>があるかを、ページを開いたときに確認しています。定価を超える出品（いわゆるプレ値）は表示しません。</p>
 
     <div id="list" aria-live="polite"></div>
     <noscript><p class="note">この表示にはJavaScriptが必要です。</p></noscript>
@@ -54,17 +54,40 @@
     <h2>見方と注意</h2>
     <ul>
       <li>表示するのは、税込の定価以下で「在庫あり」の楽天市場の出品だけです。「現在、定価の在庫はありません」は、確認した時点で該当がなかったという意味です。</li>
-      <li>確認は1時間に1回です。表示後に売り切れることがあります。リンク先の価格・在庫・送料・発送時期は、必ず商品ページで確認してください。</li>
+      <li>確認結果は最長5分間まとめて使い回します（上の「最終確認」が、その結果を取得した時刻です）。表示後に売り切れることがあります。リンク先の価格・在庫・送料・発送時期は、必ず商品ページで確認してください。</li>
       <li>送料は店舗ごとに異なります。「送料別」と出ているものは、定価に送料が加わります。</li>
       <li>対象は、定価を確認できた商品に限っています。定価を確認できていない商品は載せていません。</li>
     </ul>
+
+    <h2>使い方</h2>
+    <ol>
+      <li>ページを開くと、商品ごとに「定価以下の在庫あり」または「現在、定価の在庫はありません」が表示されます。</li>
+      <li>在庫ありの商品は、安い順に最大5件の出品が並びます。出品名・税込価格・送料の込み別・店舗名を見比べてください。</li>
+      <li>気になる出品があれば、リンク先の楽天市場の商品ページで、価格・在庫・送料・発送時期を確認してから購入を判断してください。</li>
+      <li>在庫がなかった商品は、時間をおいて開き直してください。このページは自動で再読み込みしません。</li>
+    </ol>
+
+    <h2>データの出所と更新のしくみ</h2>
+    <p>在庫と価格は、楽天ウェブサービスの商品検索APIから取得しています。ページを開くと、サーバー側でAPIに問い合わせ、結果を最長5分間だけ一時的に使い回します。取得した出品データは、このサイトでは保存していません。上の「最終確認」の時刻が3時間以上前のときは、取得が止まっている可能性があるため、その旨を表示します。取得に失敗したときは「在庫なし」とは表示せず、取得できなかったことを表示します。</p>
+
+    <h2>定価の決め方と、表示しない出品</h2>
+    <p>ここでいう定価は、BOX1箱の税込価格です。複数の店舗での販売価格と実際の購入価格が一致したものだけを採用し、販売店によって金額が割れる商品や、定価を確認できていない商品は載せていません。税込の端数だけ異なる表示（例：定価6,000円に対して6,006円）は、定価を超えるものとして扱い、表示しません。</p>
+    <p>次の出品は、BOX以外の商品が混ざるのを避けるため、表示の対象から外しています。</p>
+    <ul>
+      <li>定価の85%に満たない価格の出品（別の商品や誤った表記の可能性があるため）</li>
+      <li>カードセット・デッキセット・ばら売り・パック販売・カートン・ケース・中古・開封済み・抽選や応募・福袋・オリパ・並行・海外などと書かれた出品</li>
+    </ul>
+    <p>商品名の書き方は店舗ごとに違うため、定価のBOXなのに表示されない出品や、反対に別の商品が混ざる場合があります。出品名はそのまま表示しているので、最終的にはリンク先でご確認ください。</p>
+
+    <h2>表示の誤りを見つけたとき</h2>
+    <p>定価の金額、商品名、出品の内容が実際と違っているときは、<a href="/contact">お問い合わせ</a>からご連絡ください。商品名と、気づいた時刻、画面に出ていた内容を添えていただくと確認しやすくなります。確認できた誤りは、このページの表示条件に反映します。なお、注文・返品・配送といった購入後のお問い合わせは、各販売店にお願いします。</p>
 
     <p class="note small">このページのリンクは楽天アフィリエイトを利用しています。購入された場合、運営者に報酬が入ることがあります（価格は変わりません）。商品情報は楽天ウェブサービスを利用して取得しています。<a href="https://developers.rakuten.com/" rel="noopener">Supported by Rakuten Developers</a></p>
     <p class="updated">運営：フジケン（個人事業主）</p>
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-10-16">2026年10月16日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-10-16">2026年10月16日</time>　最終更新：<time datetime="2026-11-09">2026年11月9日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
