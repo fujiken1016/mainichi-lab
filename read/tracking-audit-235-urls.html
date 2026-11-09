@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>235ページのGA4計測を全数検査したら、タグ欠落0でも「出口」を測れない面が72あった（実測） | 毎日ラボ</title>
+<meta name="description" content="個人で運営する10サイト・235ページを、GA4タグと計測用JSの有無で全数検査しました（2026年9月）。タグの欠落は0件。ところが、読者がページから出ていくリンクを測れるかで数え直すと、50ページ中11ページと、別のサイトの61ページ全部が測れていませんでした。検査ツール自身の誤判定も含めて記録します。">
+<link rel="canonical" href="https://mainichi-lab.com/read/tracking-audit-235-urls">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="235ページのGA4計測を全数検査したら、タグ欠落0でも「出口」を測れない面が72あった（実測）">
+<meta property="og:description" content="個人で運営する10サイト・235ページを、GA4タグと計測用JSの有無で全数検査しました（2026年9月）。タグの欠落は0件。ところが、読者がページから出ていくリンクを測れるかで数え直すと、50ページ中11ページと、別のサイトの61ページ全部が測れていませんでした。検査ツール自身の誤判定も含めて記録します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/tracking-audit-235-urls">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/tracking-audit-235-urls/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/tracking-audit-235-urls/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/tracking-audit-235-urls/hero_aigen.webp", "headline": "235ページのGA4計測を全数検査したら、タグ欠落0でも「出口」を測れない面が72あった（実測）", "description": "個人で運営する10サイト・235ページを、GA4タグと計測用JSの有無で全数検査しました（2026年9月）。タグの欠落は0件。ところが、読者がページから出ていくリンクを測れるかで数え直すと、50ページ中11ページと、別のサイトの61ページ全部が測れていませんでした。検査ツール自身の誤判定も含めて記録します。", "inLanguage": "ja", "datePublished": "2026-11-09T10:00:00+09:00", "dateModified": "2026-11-09T10:00:00+09:00", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about"}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/tracking-audit-235-urls"}, "url": "https://mainichi-lab.com/read/tracking-audit-235-urls"}</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "GA4計測の全数検査", "item": "https://mainichi-lab.com/read/tracking-audit-235-urls"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>GA4計測の全数検査</p>
+
+    <h1>235ページのGA4計測を全数検査したら、タグ欠落0でも「出口」を測れない面が72あった（実測）</h1>
+    <p class="meta">2026年11月9日 ／ フジケン</p>
+
+    <p>僕は個人で、学習サイトやツールを10個ほど運営しています。2026年9月に、その全ページでアクセス解析（GA4）がきちんと取れているかを、1ページずつ機械で検査しました。この記事はその記録です。</p>
+    <p>先に結論です。<strong>2026年9月16日の検査では、235ページすべてにGA4のタグが入っていて、欠落は0件でした</strong>。ところが、「読者がそのページから外へ出ていくリンクを、測れる形で置いているか」で数え直すと、話が変わりました。宅建の学習サイトでは50ページ中11ページ（9月14日）、トレカの抽選カレンダーでは61ページ全部（9月17日）が、出口を測れない状態でした。合わせて72ページです。</p>
+    <p>「タグが入っている」と「知りたいことが測れている」は別物でした。以下、検査の順番どおりに書きます。</p>
+
+    <figure class="pic top">
+      <img src="/read/img/tracking-audit-235-urls/hero_aigen.webp" width="1280" height="720" alt="薄緑と白のタイルの壁に、素焼きの持ち手の虫めがねが掛かり、脇に鉢植えと素焼きの壺が置かれたイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul><li><a href="#tehon">1. 先に読んだ3本と、足りなかったもの</a></li><li><a href="#tag">2. タグの全数検査：235ページで欠落0</a></li><li><a href="#ver">3. 計測用のJSが5つの版に分かれていた</a></li><li><a href="#exit">4. 「出口」で数え直すと、11ページが測れていなかった</a></li><li><a href="#tool">5. 検査ツールのほうが間違えていた</a></li><li><a href="#tcg">6. 毎日更新しているページが、61ページ全部ゼロだった</a></li><li><a href="#fire">7. 本当に送信されているか：半分だけ確かめた</a></li><li><a href="#dirty">8. 測れてはいるが、名前が化けている流入</a></li><li><a href="#how">9. 同じ検査を自分でやる手順</a></li><li><a href="#matome">まとめ</a></li></ul>
+    </nav>
+
+    <h2 id="tehon">1. 先に読んだ3本と、足りなかったもの</h2>
+    <p>書く前に、「GA4 計測漏れ 確認方法」や「GA4 audit」で検索して出てきた記事を3本、本文まで開きました（2026年11月6日）。日本語の記事も2本開こうとしましたが、1本は404、1本はアクセスを断られたので差し替えています。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：先に読んだ3本の中身（2026年11月6日に確認）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">記事</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">冒頭の答え</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">表・図</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">自分で測った数字</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href='https://pagecrawl.io/blog/analytics-tag-tamper-monitoring' rel='nofollow noopener'>PageCrawl「Analytics Tag Tamper Monitoring」</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">購入完了の線がゼロになっていた、という例え話から入る。結論はその後</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">表1（料金）・画像2</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（「19日」は例え話の数字）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href='https://improvado.io/blog/google-analytics-audit' rel='nofollow noopener'>Improvado「How to Audit Google Analytics」</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">定義と、他社調査の数字1つから入る</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">表が約10・チェックリスト多数</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（他社の数字の引用と、出典のない目安）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700"><a href='https://digivate.com/blog/analytics/ga4-setup-mistakes' rel='nofollow noopener'>Digivate「GA4 setup mistakes」</a></th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">「初期設定のままだとデータが静かに壊れる」と2文目で主張</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">表なし・画像1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">なし（「多くの設定で見る」は件数なし）</td></tr>
+</tbody></table>
+
+    <p>3本とも、チェックすべき項目の一覧としてはよくできていました。とくに「タグがあるかではなく、測定IDそのものを見る」「購入完了のような大事なページこそ見落とされる」という指摘は、僕の検査でも当たっていました。足りなかったのは、実際に何ページ検査して何件見つかったかという数字です。そこでこの記事では、項目の一覧ではなく、検査の段階ごとの件数を出します。冒頭で結論を出す書き方と、表で整理する形は3本から借りました。</p>
+
+    <h2 id="tag">2. タグの全数検査：235ページで欠落0</h2>
+    <p>最初に見たのは、いちばん基本の2つです。各ページのHTMLに、GA4のタグ（gtag.js）が入っているか。そして、クリックを記録するための自作の計測用JS（以下「計測JS」）を読み込んでいるか。サイトマップに載っている全URLを本番から取得して、機械で判定しました。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：GA4タグと計測用JSの全数検査（2026年9月16日時点の実測）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">サイト</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ページ数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">GA4欠落</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">計測JS欠落</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">収益リンク</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">うち未計測</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">宅建の学習サイト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">51</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">80</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言の学習サイト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">107</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">別ドメインのゲーム系4サイト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">33</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">12</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">食事記録アプリ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">麻雀の学習サイト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">15</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">7</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ポータル（このサイト）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">14</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">英語版のトレカ情報サイト</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">合計</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">235</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">118</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td></tr>
+</tbody></table>
+
+    <p><strong>欠落は0件でした</strong>（2026年9月16日時点の実測）。1週間前の9月9日の実測では、234ページ中1件だけ不合格がありました。ポータルの1ページにある外部の販売ページへのリンクが、計測JSの対象に入っていなかったのです。計測JSにそのリンク先の扱いを足して、不合格は0になりました。9月16日の実測は初回から0件です。</p>
+    <p>この段階だけを見ると「計測は完璧」と言いたくなります。でも、ここで言えるのは「タグが置いてある」までです。</p>
+
+    <h2 id="ver">3. 計測用のJSが5つの版に分かれていた</h2>
+    <p>9月9日の検査で、もう1つ見つかったことがあります。各サイトが読み込んでいる計測JSのファイルを、中身のハッシュ値（md5）で比べたところ、正本から外れた5つの版が動いていました。サイトを作るたびにファイルをコピーして、それぞれで少しずつ直していたのが原因です。</p>
+    <p>古い版には、「ページのどの枠のリンクが押されたか」を記録する項目がありませんでした。表2の「計測JS欠落0」は、ファイルが置いてあるという意味でしかなく、同じ項目が取れているとは限らなかったわけです。9月14日に、手元の11個のコピーを1つの版にそろえ、本番の9ホストでハッシュ値が一致することを確かめました。</p>
+
+    <h2 id="exit">4. 「出口」で数え直すと、11ページが測れていなかった</h2>
+    <p>僕のサイトで知りたいのは、ページを見た人数よりも、そのページから教材や本の紹介ページへ何人が移ったかです。そこで、9月14日に検査の物差しを変えました。</p>
+    <p>ここで言う「出口」は、本文の中にある次のリンクです。</p>
+    <ul>
+      <li>自分の教材（note）や電子書籍（Kindle）の商品ページ</li>
+      <li>提携先（ASP）のリンク</li>
+      <li>問い合わせ窓口</li>
+    </ul>
+    <p>そのリンクを計測JSが記録できれば<strong>「測れる出口」</strong>と数えます。サイト内の別ページへの誘導は、出口に数えません。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：宅建の学習サイト50ページの「出口」検査（2026年9月14日時点の実測）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">判定</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">配線前</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">配線後</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">中身</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">測れる出口がある（OK）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">34</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">45</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">本文に、計測対象の外部リンクが1本以上</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">測れる出口がない（NG）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">外部への出口0本。サイト内の別ページへの誘導だけ</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">判定不能</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">トップページ。リンクがCSSで隠れた分岐の中にある</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">除外</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">運営者情報・問い合わせ・プライバシー・免責</td></tr>
+</tbody></table>
+
+    <p>NGの11ページは、どれも宅建の解説記事でした。サイト内のまとめページへ誘導するリンクはあっても、そこから先の出口が本文に1本もありません。中には、このサイトで検索からの表示がいちばん多い記事も入っていました。人がいちばん来るページで、出ていく先を何も測っていなかったことになります。</p>
+    <p>同じ日に、11ページそれぞれの文脈に合う出口を、既存の案内枠の中に1本ずつ置きました。共通のテンプレートは変えていません。もう一度検査した実測で、<strong>NGは11から0、OKは34から45</strong>になりました。</p>
+<figure class="pic">
+<svg viewBox="0 0 640 230" width="100%" role="img" aria-labelledby="g-t g-d" style="max-width:640px;display:block;margin:0 auto">
+<title id="g-t">出口検査の内訳（ページ数）</title>
+<desc id="g-d">宅建の学習サイト50ページは、配線前がOK34・NG11・判定不能1・除外4、配線後がOK45・NG0・判定不能1・除外4。トレカ抽選カレンダー61ページはNG61。</desc>
+<style>.lb{font-size:13px;fill:#2b2b3a}.sm{font-size:12px;fill:#53536b}.w{font-size:12px;fill:#fff;font-weight:700}
+@media (prefers-color-scheme: dark){.lb{fill:#ececf2}.sm{fill:#b8b8c8}}</style>
+<text class="lb" x="10" y="38">宅建 配線前</text>
+<rect x="120" y="22" width="231.2" height="26" fill="#2f6f4f"/><rect x="351.2" y="22" width="74.8" height="26" fill="#c8643c"/><rect x="426" y="22" width="6.8" height="26" fill="#9a9aa8"/><rect x="432.8" y="22" width="27.2" height="26" fill="#cfcfd8"/>
+<text class="w" x="128" y="40">OK 34</text><text class="w" x="358" y="40">NG 11</text>
+<text class="lb" x="10" y="98">宅建 配線後</text>
+<rect x="120" y="82" width="306" height="26" fill="#2f6f4f"/><rect x="426" y="82" width="6.8" height="26" fill="#9a9aa8"/><rect x="432.8" y="82" width="27.2" height="26" fill="#cfcfd8"/>
+<text class="w" x="128" y="100">OK 45</text><text class="sm" x="468" y="100">NG 0</text>
+<text class="lb" x="10" y="158">トレカ</text>
+<rect x="120" y="142" width="414.8" height="26" fill="#c8643c"/>
+<text class="w" x="128" y="160">NG 61（全ページ）</text>
+<text class="sm" x="10" y="200">緑＝測れる出口あり　橙＝なし　灰＝判定不能　薄灰＝除外</text>
+<text class="sm" x="10" y="220">1ページ＝6.8px。宅建は2026年9月14日、トレカは9月17日の検査</text>
+</svg>
+<figcaption>図1：出口検査の内訳（自作の図。長さはページ数に比例）</figcaption>
+</figure>
+
+    <h2 id="tool">5. 検査ツールのほうが間違えていた</h2>
+    <p>正直に書くと、最初に出た数字はNG11ではなく、NG20でした（2026年9月14日時点の初回判定）。</p>
+    <p>出口を判定する自作の検査スクリプトが、2種類のリンクを取り逃していました。1つは電子書籍の商品ページへのリンク、もう1つは「https:」を省いて「//」から始まる書き方の提携先リンクです。どちらも本当は測れる出口なのに、「出口なし」と判定していました。</p>
+    <p>気づいたきっかけは、粗い別の方法との突き合わせです。全ページを取得して、出口になりうるドメイン名を文字列で数えるだけの検査を別に走らせ、2つの結果が食い違ったページを1つずつ見ました。直したあとの11ページは、文字列の検査でも出口のドメインが0件で、2つの方法の結果が一致しています。</p>
+    <p>もう1つ、トップページは「判定不能」のまま残しました。出口のリンクは書いてあるのですが、画面の切り替えに使う、CSSで隠された分岐の中にあるためです。HTMLを読むだけの検査では、見えているかどうかを決められません。そこで、幅375pxのスマホ表示で実際に描画して、4本の出口が画面内に見えることを目で確かめました（実測）。検査の結果は判定不能のままですが、実害はないと判断しています。</p>
+
+    <h2 id="tcg">6. 毎日更新しているページが、61ページ全部ゼロだった</h2>
+    <p>9月14日の出口検査は、宅建の学習サイトだけでした。3日後の9月17日、トレカの抽選情報をまとめたカレンダーのサイトにも同じ検査をかけたところ、<strong>61ページ全部がNG</strong>でした。理由はどのページも同じで、計測JSを読み込んでおらず、測れる出口が0本です。</p>
+    <p>GA4のタグ自体は全ページに入っていました。つまり、何人来たかは測れていて、どこへ出ていったかは測れていなかったわけです。僕のサイトの中で、毎日中身が変わって、また見に来る理由があるのはこのカレンダーくらいです。それが、出口ゼロのまま毎日更新されていました。</p>
+    <p>このサイトは、まだ直していません。直すと61ページすべてに変更が入るので、ほかのサイトの審査が終わるまで、全ページに及ぶ変更を止めているのが1つ目の理由です。2つ目は、トレカの抽選を探している人に、どの出口を見せるのがよいかを決めていないことです。宅建や麻雀の教材を置いても、読む人が違います。検査で見つけた日と、直していない理由は、記録に残してあります。</p>
+    <figure class="pic">
+      <img src="/read/img/tracking-audit-235-urls/body_aigen.webp" width="1200" height="800" alt="白い壁に緑色の扉が1つあり、両脇に木と低い植え込み、足元に素焼きの鉢が並ぶイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）。入口は測れていても、出口が測れているとは限りません</figcaption>
+    </figure>
+
+    <h2 id="fire">7. 本当に送信されているか：半分だけ確かめた</h2>
+    <p>リンクが計測対象になっていても、クリックしたときに本当に記録が飛ぶかは別の話です。9月14日に、計測JSの版をそろえたあと、宅建の学習サイトの2ページで確かめました。</p>
+    <p>教材へのリンクを押すと、ブラウザの中の記録用の配列（dataLayer）に、クリックのイベントが、商品・押したページ・枠の名前つきで積まれることを確認しました。学習の開始ボタンのイベントも、同じように積まれていました。</p>
+    <p>ただし、そこからGoogleのサーバーへ実際にデータ（ビーコン）が送られたかは、確かめきれていません。検査に使ったブラウザのツールが、この種の送信を通信の記録に残さなかったためです。dataLayerまでは正常なので、実害がある可能性は低いと見ていますが、確定させるにはGA4のリアルタイム表示などで裏を取る必要があります。ここは「未確認」です。</p>
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表4：検査の段階ごとに分かったこと</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">見たもの</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">日付</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">結果</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ページにGA4タグがあるか</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2026年9月9日・16日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">234〜235ページで欠落0</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">計測用JSがあるか・版がそろっているか</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2026年9月9日・14日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">欠落0。ただし版が5種類に分かれていた→1種類に統一</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">本文の外部リンクが計測対象か</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2026年9月9日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">234ページ中1件が未計測→計測対象に追加</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ページに「測れる出口」があるか</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2026年9月14日・17日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">宅建50ページ中11、トレカ61ページ中61がなし</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">クリックでイベントが積まれるか</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2026年9月14日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2ページで確認（dataLayerまで）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">Googleにビーコンが届いたか</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2026年9月14日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">未確認（ツールで捕捉できず）</td></tr>
+</tbody></table>
+
+
+    <h2 id="dirty">8. 測れてはいるが、名前が化けている流入</h2>
+    <p>9月16日の検査では、もう1つ、数えても見えない問題が残りました。宅建の学習サイトには、短いURL「/note」から別のページへ飛ばす転送設定があり、その転送先のURLに「noteのプロフィールから来た」という印（utmパラメータ）が付いていました。</p>
+    <p>この転送は、noteのプロフィールに貼ったリンク用に作ったものです。ところが、検索から「/note」のURLに来た人も同じ転送を通るので、GA4の上では「note経由」の訪問に化けます。タグも計測JSもそろっていて、記録は取れている。それでも、流入元の名前が間違っている状態です。直すにはnote側のリンクの貼り替えとセットになるので、2026年9月16日の時点では未修正として記録しました。</p>
+    <p>本番以外のホストからの記録が混ざっていた件は、<a href="/read/ga4-self-traffic-measured">GA4に混ざっていた本番以外のホストの実測</a>に書いています。あちらは「余計なものが入っている」、この記事は「入っているが足りない・名前が違う」という話です。</p>
+
+    <h2 id="how">9. 同じ検査を自分でやる手順</h2>
+    <p>僕がやった順番を、道具を問わない形で書いておきます。</p>
+    <ol>
+      <li>サイトマップから全URLを取り出し、本番のHTMLを取得する（手元のファイルではなく本番を見る）</li>
+      <li>各ページに、GA4の測定ID（G-から始まる文字列）が入っているかを数える</li>
+      <li>クリックを記録する仕組みを使っているなら、そのファイルの中身を全サイトでハッシュ値比較し、版が1つかを確かめる</li>
+      <li>「このページで測りたい出口」を決め、本文の出口リンクが記録の対象になっているかを1ページずつ判定する</li>
+      <li>判定スクリプトとは別に、出口のドメイン名を文字列で数えるだけの粗い検査も走らせ、食い違ったページを目で見る</li>
+      <li>隠れた分岐の中にあるリンクは、実際の画面幅で描画して見えるかを確かめる</li>
+      <li>最後に、リンクを実際に押して、記録が積まれるか、送信されるかを確かめる</li>
+    </ol>
+    <p>2と3だけで終えると、僕のように「欠落0」で安心してしまいます。僕の実測では、4から先をやって初めて、72ページの穴が見えました。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>2026年9月16日時点の実測で、10サイト・235ページのGA4タグと計測JSの欠落は0件でした</li>
+      <li>計測JSは5つの版に分かれていて、取れる項目がサイトごとに違いました（9月14日に1つに統一）</li>
+      <li>出口で数え直すと（9月14日・17日の実測）、宅建の学習サイトで50ページ中11、トレカのカレンダーで61ページ中61が測れていませんでした</li>
+      <li>最初の判定はNG20で、検査ツール側の取り逃しでした。別の粗い方法と突き合わせて見つけています</li>
+      <li>クリックのイベントが積まれることまでは確認し、Googleへの送信は未確認です</li>
+    </ul>
+    <p>次の1アクションとして、自分のサイトで「いちばん表示が多いページ」を1つ開き、そのページから外へ出るリンクが記録の対象になっているかだけ確かめてみてください。タグの有無を見るより、こちらのほうが穴が見つかります。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/nine-sites-search-traffic-share">9サイトの検索クリックの内訳</a>や、<a href="/read/unindexed-80-to-zero">インデックス未登録80件が0件になるまで</a>もどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/ga4-self-traffic-measured"><img class="rt" src="/read/img/ga4-self-traffic-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）</span></a></li>
+      <li><a class="rl" href="/read/nine-sites-search-traffic-share"><img class="rt" src="/read/img/nine-sites-search-traffic-share/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">個人で9サイトを運営して、検索クリックの84%は1サイトだった（28日間の実測）</span></a></li>
+      <li><a class="rl" href="/read/unindexed-80-to-zero"><img class="rt" src="/read/img/unindexed-80-to-zero/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">「検出 - インデックス未登録」80件が0件になるまでの記録（実測）</span></a></li>
+      <li><a class="rl" href="/read/search-503-recovery-measured"><img class="rt" src="/read/img/search-503-recovery-measured/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">503を出したあとの実測：登録済みが41から111ページに増えた</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-09">2026年11月9日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
