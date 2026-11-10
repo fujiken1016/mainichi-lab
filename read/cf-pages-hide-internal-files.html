@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測） | 毎日ラボ</title>
+<meta name="description" content="個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。">
+<link rel="canonical" href="https://mainichi-lab.com/read/cf-pages-hide-internal-files">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）">
+<meta property="og:description" content="個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/cf-pages-hide-internal-files">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp", "headline": "Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）", "description": "個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。", "inLanguage": "ja", "datePublished": "2026-11-10T10:00:00+09:00", "dateModified": "2026-11-10T10:00:00+09:00", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about"}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}, "url": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "Cloudflare Pagesで内部ファイルを404にする", "item": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>Cloudflare Pagesで内部ファイルを404にする</p>
+
+    <h1>Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）</h1>
+    <p class="meta">2026年11月10日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/cf-pages-hide-internal-files/hero_aigen.webp" width="1280" height="720" alt="緑色の戸棚の扉と引き出しが閉まっていて、両脇に鉢植えが置かれているイラスト" fetchpriority="high">
+      <figcaption>イメージ画像（AI生成のイラスト）</figcaption>
+    </figure>
+
+    <p>僕は個人で9つのWebサイトを運営しています（<a href="/read/nine-sites-search-traffic-share">9サイトの検索流入の内訳</a>は別の記事に書きました）。2026年8月、そのうちの1つで、リポジトリに置いていた運用メモがURLを打つだけで読めることに気づきました。<code>README.md</code> や、どの記事にどの広告を差し込むかを書いたメモです。</p>
+    <p>9サイトすべてを点検すると、同じ状態のファイルは2026年8月30日の時点で5サイト・20ファイルありました。8サイトはCloudflare Pagesで配信しています。そこで、ファイルを消さずに「URLでは読めない」状態にする方法を、本番で6通り試しました。</p>
+    <p>先に結論です。<strong>404にできたのは Pages Functions のミドルウェア（<code>functions/_middleware.js</code>）だけでした。</strong><code>_redirects</code> に404を書く方法、ドット付きフォルダに移す方法、無視リストに書く方法は、どれも200のままでした。<code>_headers</code> の noindex は検索結果に出さない設定で、URLを知っている人は読めます。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#tehon">1. 解説記事を3本開いて、足りなかったもの</a></li>
+        <li><a href="#found">2. 9サイトを点検して見つかったもの</a></li>
+        <li><a href="#methods">3. 6通りを本番で試した結果</a></li>
+        <li><a href="#why">4. なぜ _redirects では404にならないのか</a></li>
+        <li><a href="#how">5. 効いた方法：ミドルウェアと _routes.json</a></li>
+        <li><a href="#cache">6. 「直った」の判定でつまずいたこと</a></li>
+        <li><a href="#now">7. その後の点検（2026年11月7日）</a></li>
+        <li><a href="#limit">8. この記録の限界</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="tehon">1. 解説記事を3本開いて、足りなかったもの</h2>
+    <p>書く前に、関連する記事を3本、本文まで開きました（2026年11月7日）。</p>
+    <p>1本目は、<a href="https://techearl.com/exposed-git-directory-attack" rel="noopener">公開された .git ディレクトリから中身を復元する手順を解説した記事</a>です。冒頭で「<code>/.git/HEAD</code> に1回リクエストすれば分かる」と答えを出し、検査コードとサーバーごとの塞ぎ方を並べていました。2本目は、<a href="https://securityaffairs.com/187674/security/nearly-5-million-web-servers-found-exposing-git-metadata-study-reveals-widespread-risk-of-code-and-credential-leaks.html" rel="noopener">約496万のIPで .git が読めたという2026年の調査を伝える記事</a>です。3本目は、<a href="https://dev.to/junyiz/how-to-return-410-gone-on-cloudflare-pages-the-redirects-gotcha-48je" rel="noopener">Cloudflare Pagesで410を返そうとして _redirects でつまずいた記事</a>で、ステータスコードごとに使う仕組みを表にまとめていました。</p>
+    <p>この3本から、冒頭で答えを出すこと、検査を curl 1行で示すこと、方法を表で並べることを型として借りました。足りなかったのは、Cloudflare Pagesで「既にあるファイル」を隠す方法を複数並べて比べた実測です。410の記事は存在しないURLの話で、手元にあるファイルを404にしたい場合とは条件が違います。</p>
+
+    <h2 id="found">2. 9サイトを点検して見つかったもの</h2>
+    <p>点検は2回に分けて行いました。1回目は2026年8月13日、2回目は8月30日です。どちらも、存在しないはずのパスに curl でリクエストを送り、返ってきたステータスコードと本文を見ました。</p>
+<pre><code>curl -s -o /dev/null -w '%{http_code}' "https://example.com/README.md"</code></pre>
+    <p>1回目（8月13日）で見つかったのは2種類です。1つ目は、存在しないURLでもトップページを200で返す「ソフト404」で、9サイト中5サイトがこの状態でした。Cloudflare Pagesは、公開フォルダに <code>404.html</code> が無いとトップページを返します。5サイトとも <code>404.html</code> を置いて直りました。</p>
+    <p>2つ目は、Cloudflare Pagesではない1サイト（Renderで動かしているもの）で、<code>README.md</code> や <code>server.js</code>、<code>.git/</code> の一部が読めたことです。<code>.git/config</code> と中身のオブジェクトは404で、履歴は復元できない状態でした。このサイトは、配信してよいファイル名だけを並べた許可リスト方式に変えて塞ぎました。</p>
+    <p><code>.env</code> と <code>.git/config</code> は、8月13日も8月30日も9サイトすべてで404でした。パスワードやAPIキーが外から読めた形跡はありません。</p>
+    <p>問題は、1回目に「検索に出なければよい」と判断して、運用メモに <code>_headers</code> で <code>X-Robots-Tag: noindex</code> を付けるだけにしたことです。2回目（8月30日）に測り直すと、noindex を付けたファイルも含めて、次の数が200で読めました。</p>
+
+    <figure class="pic">
+      <svg viewBox="0 0 640 250" width="100%" role="img" aria-labelledby="chart-title chart-desc" style="max-width:640px;display:block;margin:0 auto">
+        <title id="chart-title">URLで読めた内部ファイルの数（2026年8月30日）</title>
+        <desc id="chart-desc">サイト別の横棒グラフ。食事記録アプリ10件、ゲーム系サイトB 4件、ゲーム系サイトA 3件、ポータル2件、ゲーム系サイトC 1件、合計20件。2026年8月30日の実測。</desc>
+        <style>
+          .lb{font-size:14px;fill:#2b2b3a}.sm{font-size:12px;fill:#53536b}.vd{font-size:13px;fill:#2b2b3a;font-weight:700}
+          @media (prefers-color-scheme: dark){.lb{fill:#ececf2}.sm{fill:#b8b8c8}.vd{fill:#ececf2}}
+        </style>
+        <text class="lb" x="0" y="25">食事記録アプリ</text><rect x="160" y="10" width="380" height="20" fill="#c8643c"/><text class="vd" x="548" y="25">10件</text>
+        <text class="lb" x="0" y="65">ゲーム系サイトB</text><rect x="160" y="50" width="152" height="20" fill="#2f6f4f"/><text class="vd" x="320" y="65">4件</text>
+        <text class="lb" x="0" y="105">ゲーム系サイトA</text><rect x="160" y="90" width="114" height="20" fill="#2f6f4f"/><text class="vd" x="282" y="105">3件</text>
+        <text class="lb" x="0" y="145">ポータル</text><rect x="160" y="130" width="76" height="20" fill="#2f6f4f"/><text class="vd" x="244" y="145">2件</text>
+        <text class="lb" x="0" y="185">ゲーム系サイトC</text><rect x="160" y="170" width="38" height="20" fill="#2f6f4f"/><text class="vd" x="206" y="185">1件</text>
+        <text class="sm" x="0" y="235">curl で200が返り、本文が実ファイルだったもの。2026年8月30日の実測（計20件）</text>
+      </svg>
+      <figcaption>図1：URLで読めた内部ファイルの数（自作の図。2026年8月30日の実測）</figcaption>
+    </figure>
+
+    <p>食事記録アプリの10件には、サーバー側の Python ファイルや <code>requirements.txt</code> も入っていました。中身を確かめると、APIキーは環境変数から読む書き方で、ファイルには入っていませんでした。ほかのサイトの <code>README.md</code> と広告枠のメモも、本文を取得して広告IDや個人情報を探し、0件でした。</p>
+    <p>この20件とは別に、資格試験の学習サイトでは、広告の提携IDと、競合を調べたSEOのメモや運用手順書がそのまま読めました。広告IDは公開ページのリンクにも入っているので、IDそのものは秘密ではありません。読まれて困るのは、どの記事にどの広告をどう入れるかという計画のほうでした。</p>
+
+    <h2 id="methods">3. 6通りを本番で試した結果</h2>
+    <p>試したのは2026年8月30日、Cloudflare Pagesで配信している本番サイト2つ（資格試験の学習サイトと、ゲーム系サイトの1つ）です。ファイルはリポジトリに残したまま、URLで読めなくすることを目標にしました。</p>
+
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：内部ファイルを404にする6通りの結果（2026年8月30日、本番で実測）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">方法</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">結果</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">見たこと</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">① <code>_redirects</code> にパスを書く</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">200のまま</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top"><code>/README.md /404.html 404</code> と書いても中身が返った</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">② <code>_redirects</code> に拡張子でまとめて書く</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">200のまま</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top"><code>/*.md /404.html 404</code> でも同じ</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">③ ドット付きフォルダに移す</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">200のまま</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top"><code>.docs/</code> に移したファイルも配信された</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">④ <code>.cfignore</code> に書く</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">200のまま</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top"><code>.cfignore</code> 自体も200で配信された</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">⑤ <code>.assetsignore</code> に書く</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">200のまま</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">Workersの静的アセット向けの仕組みで、Pagesでは効かなかった</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">⑥ <code>functions/_middleware.js</code> で404を返す</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">404になった</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">本文が <code>Not Found</code>（9バイト）の text/plain で返った</td></tr>
+</tbody></table>
+
+    <p>⑥が本当にミドルウェアの404なのかは、本文で見分けました。<code>404.html</code> の画面ではなく、ミドルウェアに書いた9バイトの <code>Not Found</code> が返ってきたので、どの仕組みが効いたのかがはっきりしました。</p>
+    <p>noindex の <code>_headers</code> は、ヘッダーが付くこと自体は確かめられました。ただ、これは検索エンジンに「載せないで」と伝える設定です。URLを知っている人がブラウザで開けば、中身はそのまま表示されます。</p>
+
+    <figure class="pic">
+      <img src="/read/img/cf-pages-hide-internal-files/body_aigen.webp" width="1200" height="800" alt="壁のくぼみに小さな受付台があり、上に棒が渡されていて、周りに鉢植えが並んでいるイラスト" loading="lazy">
+      <figcaption>イメージ画像（AI生成のイラスト）。ファイルを消さずに、入口で止める考え方です</figcaption>
+    </figure>
+
+    <h2 id="why">4. なぜ _redirects では404にならないのか</h2>
+    <p>試した当日は「実在するファイルが <code>_redirects</code> より優先されるからだ」と考えて、メモにもそう書きました。この記事を書くために<a href="https://developers.cloudflare.com/pages/configuration/redirects/" rel="noopener">Cloudflareの公式ドキュメント（Redirects）</a>を読み直すと（2026年11月7日）、別の理由が書いてありました。</p>
+    <p>公式の説明では、リダイレクトはファイルがあってもなくても適用されます。そのうえで、対応しているステータスコードは301・302・303・307・308の5つです。404など「ほかのステータスコードで返す書き換え」は、対応表で非対応になっていました。つまり、①と②が効かなかったのは、404という書き方そのものが対応外だったから、と読むのが公式の説明に合います。</p>
+    <p>当日の解釈は間違いでした。結果（200のまま）は変わりませんが、理由を取り違えたまま「静的ファイルが勝つ」と覚えていると、301で別のURLに飛ばすような使い方まで効かないと思い込んでしまいます。3本目の手本の記事も、410が無視された理由を同じく「対応コードは5つだけ」と説明していました。</p>
+    <p>⑥が効く理由は、<a href="https://developers.cloudflare.com/pages/functions/middleware/" rel="noopener">公式のMiddlewareの説明</a>にあります。<code>functions</code> フォルダの直下に <code>_middleware.js</code> を置くと、静的ファイルを返す前にも実行されます。</p>
+
+    <h2 id="how">5. 効いた方法：ミドルウェアと _routes.json</h2>
+    <p>実際にポータルサイトに置いたものは、次の内容です。<code>.md</code> で終わるパスと、名前を並べたファイルだけに404を返し、それ以外は <code>context.next()</code> でいつも通り配信します。</p>
+<pre><code>const DENY = new Set(["/.gitignore"]);
+
+export async function onRequest(context) {
+  const path = new URL(context.request.url).pathname;
+  if (path.toLowerCase().endsWith(".md") || DENY.has(path)) {
+    return new Response("Not Found", {
+      status: 404,
+      headers: { "content-type": "text/plain; charset=utf-8", "x-robots-tag": "noindex" },
+    });
+  }
+  return context.next();
+}</code></pre>
+    <p><code>.md</code> を拡張子でまとめて止めたのは、どのサイトにもMarkdownをそのまま見せるページが1つも無かったからです。それ以外は名前を1つずつ書きました。拡張子でまとめると、<code>robots.txt</code> や <code>sitemap.xml</code>、<code>ads.txt</code> まで巻き込むおそれがあるためです。</p>
+    <p>資格試験の学習サイトでは、さらに <code>_routes.json</code> の <code>include</code> に止めたい6つのパスだけを書きました。こうすると、ふつうのページはFunctionsを通らず、これまで通り静的に配信されます。代わりに、新しい運用メモをリポジトリの直下に置いたら、<code>include</code> にも書き足す必要があります。</p>
+    <p>入れる前と後で、正規のページが壊れていないかも測りました。8月30日に、ポータル10本、食事記録アプリ9本、ゲーム系サイト3つで8本・8本・7本のURLを測り、すべて200のままでした。食事記録アプリはすでにFunctionsでAPIを動かしていたので、ヘルスチェック用のAPIが200を返し続けることも確かめました。</p>
+    <p>なお、<code>functions</code> フォルダを足すと、そのサイトのデプロイはWorkerを含むビルドに変わります（メンテナンス中に503を返したときの検索への影響は<a href="/read/search-503-recovery-measured">503の実測記事</a>にまとめています）。ビルドに失敗しても、1つ前のデプロイが動き続けるので、サイトが止まることはありませんでした。ただ、デプロイのたびに正規ページの200を測る手間は増えます。</p>
+
+    <h2 id="cache">6. 「直った」の判定でつまずいたこと</h2>
+    <p>8月31日、資格試験の学習サイトで、リポジトリから消したはずのファイルが200で返ってきました。レスポンスヘッダーの <code>age</code> は1092で、CDNに残った古いコピーが返っていました。URLの末尾に <code>?cb=</code> と適当な値を付けて、キャッシュを通さずに測ると404でした。</p>
+    <p>キャッシュを意識せずに1回だけ測ると、塞げていないものを「塞げた」と判定することもあれば、その逆もあります。それ以来、完了の判定は「そのまま」と「<code>?cb=</code> 付き」の両方で404になること、にしています。</p>
+
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：点検で使っている判定（2026年8月の点検から運用）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">見えたもの</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">判定</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">存在しないURLが200</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">ソフト404。公開フォルダに <code>404.html</code> を置く</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">200だが本文がトップページ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">ファイルは露出していない（ソフト404の表れ）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">200で本文が実ファイル</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">露出。ミドルウェアで止めるか、配信物から外す</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">そのままは200、<code>?cb=</code> 付きは404</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">CDNのキャッシュ。期限切れを待つか、再度測る</td></tr>
+</tbody></table>
+
+    <h2 id="now">7. その後の点検（2026年11月7日）</h2>
+    <p>この記事を書く前に、9サイトを測り直しました（2026年11月7日）。各サイトで次の9パスを、<code>?cb=</code> 付きで測りました。</p>
+    <ul>
+      <li>存在しないURL（ソフト404の確認）</li>
+      <li><code>.env</code>、<code>.git/config</code>、<code>.git/HEAD</code>（秘密情報とリポジトリの確認）</li>
+      <li><code>README.md</code> と広告枠のメモ（運用メモの確認）</li>
+      <li><code>vercel.json</code>、<code>.gitignore</code>、<code>package.json</code>（設定ファイルの確認）</li>
+    </ul>
+    <p>結果は9サイト×9パス＝81件がすべて404で、各サイトのトップページは9件とも200でした。2026年9月17日の点検（9サイト×8パス＝72件がすべて404）から、後戻りはありませんでした。</p>
+
+    <h2 id="limit">8. この記録の限界</h2>
+    <ul>
+      <li>6通りを試したのは、2026年8月30日時点のCloudflare Pagesです。仕様が変われば結果も変わる可能性があります</li>
+      <li><code>.assetsignore</code> がPagesで使えないことは公式の説明を全文確認できておらず、ここでは「試して効かなかった」という実測だけを書いています</li>
+      <li>①と②が効かなかった理由は、試した当日ではなく後から公式ドキュメントを読んで当てはめたものです。ほかの要因が重なっていたかは、切り分けて試していません</li>
+      <li>点検で測ったのは、こちらで思いついたパスだけです。リポジトリの中身を全部数えて照合したわけではないので、名前を知らないファイルが残っている可能性はあります</li>
+    </ul>
+    <p>一番確実なのは、そもそも公開しないファイルを配信するフォルダに入れないことです。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>個人で運営する9サイトを2026年8月に点検すると、運用メモなど20ファイルがURLで読めました。noindex を付けていたファイルも、読める点では同じでした</li>
+      <li>Cloudflare Pagesで6通りを本番で試し、既にあるファイルを404にできたのは <code>functions/_middleware.js</code> だけでした</li>
+      <li><code>_redirects</code> は301・302・303・307・308しか扱えず、404は書いても効きません（公式ドキュメントの説明）</li>
+      <li>直ったかどうかは、キャッシュを通す測り方と通さない測り方の両方で確かめています</li>
+    </ul>
+    <p>次の1アクションとして、自分のサイトのURLの末尾に <code>/README.md</code> と <code>/.git/HEAD</code> を付けて開いてみてください。404でなければ、本文がトップページなのか、実ファイルなのかを見るところから始められます。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/nine-sites-search-traffic-share"><img class="rt" src="/read/img/nine-sites-search-traffic-share/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">個人で9サイトを運営して、検索クリックの84%は1サイトだった（28日間の実測）</span></a></li>
+      <li><a class="rl" href="/read/search-503-recovery-measured"><img class="rt" src="/read/img/search-503-recovery-measured/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">503を出したあとの実測：登録済みが41から111ページに増えた</span></a></li>
+      <li><a class="rl" href="/read/unindexed-80-to-zero"><img class="rt" src="/read/img/unindexed-80-to-zero/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">「検出 - インデックス未登録」80件が0件になるまでの記録（実測）</span></a></li>
+      <li><a class="rl" href="/read/ga4-self-traffic-measured"><img class="rt" src="/read/img/ga4-self-traffic-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-10">2026年11月10日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
