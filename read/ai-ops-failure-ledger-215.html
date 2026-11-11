@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIに任せた運用の失敗を書き溜めた台帳215件を数えたら、同じ型が3つ見えた（実測） | 毎日ラボ</title>
+<meta name="description" content="AI（Claude）に仕事を任せた運用で、失敗のたびに書き足してきた台帳は、2026年11月11日時点で215件でした。月別の件数と、10月8日に1日で見つかった同じ型の失敗を、実際の数字つきで書きます。">
+<link rel="canonical" href="https://mainichi-lab.com/read/ai-ops-failure-ledger-215">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="AIに任せた運用の失敗を書き溜めた台帳215件を数えたら、同じ型が3つ見えた（実測）">
+<meta property="og:description" content="AI（Claude）に仕事を任せた運用で、失敗のたびに書き足してきた台帳は、2026年11月11日時点で215件でした。月別の件数と、10月8日に1日で見つかった同じ型の失敗を、実際の数字つきで書きます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/ai-ops-failure-ledger-215">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/ai-ops-failure-ledger-215/fig1_by_month.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/ai-ops-failure-ledger-215/fig1_by_month.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/ai-ops-failure-ledger-215/fig1_by_month.png","headline":"AIに任せた運用の失敗を書き溜めた台帳215件を数えたら、同じ型が3つ見えた（実測）","description":"AI（Claude）に仕事を任せた運用で、失敗のたびに書き足してきた台帳は、2026年11月11日時点で215件でした。月別の件数と、10月8日に1日で見つかった同じ型の失敗を、実際の数字つきで書きます。","inLanguage":"ja","datePublished":"2026-11-11T10:00:00+09:00","dateModified":"2026-11-11T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/ai-ops-failure-ledger-215"},"url":"https://mainichi-lab.com/read/ai-ops-failure-ledger-215"}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"AI運用の失敗台帳215件を数えた実測","item":"https://mainichi-lab.com/read/ai-ops-failure-ledger-215"}]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AIの失敗を、なぜ会話ではなくファイルに書くのですか？","acceptedAnswer":{"@type":"Answer","text":"AIは、セッションが終わるとその会話を覚えていないからです。次のセッションが読むのは設定ファイルとメモなので、学んだことは会話の中ではなく、ファイルに書いておく必要があります。"}},{"@type":"Question","name":"台帳の件数が多いのは、失敗が多いということですか？","acceptedAnswer":{"@type":"Answer","text":"そうとは限りません。件数は記録の量で、作業量や書く量にも左右されます。10月が105件と多いのは事実ですが、失敗が増えたからかどうかは、この数字だけでは言えません。"}},{"@type":"Question","name":"「成功したと報告する失敗」は、どう防げますか？","acceptedAnswer":{"@type":"Answer","text":"処理した本数だけでなく、届いていない本数も最後に1行出す形にしました。条件に合う対象N本、まだ取れていないM本、と出すと、止まっていることに気づけます。"}}]}</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>AI運用の失敗台帳215件を数えた実測</p>
+
+    <h1>AIに任せた運用の失敗を書き溜めた台帳215件を数えたら、同じ型が3つ見えた（実測）</h1>
+    <p class="meta">2026年11月11日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/ai-ops-failure-ledger-215/fig1_by_month.png" width="1200" height="630" alt="失敗台帳の月ごとの記録件数の棒グラフ。2026年8月が36件、9月が42件、10月が105件、11月は11日までで18件" fetchpriority="high">
+      <figcaption>図1：失敗台帳の月ごとの記録件数（2026年11月11日に数えた結果）</figcaption>
+    </figure>
+
+    <p>僕は個人のサイト運営や情報収集の多くを、AI（Claude）に任せています。AIはセッションが終わると、その会話を覚えていません。だから失敗したら、会話ではなく1つのファイルに書き足す運用にしています。そのファイルを、2026年11月11日に数え直しました。</p>
+    <p>先に結論です。<strong>台帳の教訓は215件（2026年11月11日の実測）で、半分近い105件は10月の記録でした。そのうち、10月8日の1日に書いた3件には共通の型があり、「成功したと報告する失敗」「落ちない検査」「古い結論の書き写し」でした。</strong>どれも、AIが怠けたというより、僕と仕組みの側が「気づける形」にしていなかったことが原因です。ただし、件数は記録の量であって、失敗の多さそのものではありません。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#tehon">1. 他の人の事故一覧と、足りなかったもの</a></li>
+        <li><a href="#count">2. 台帳は215件。半分近くが10月</a></li>
+        <li><a href="#type">3. 10月8日の1日で見つけた、同じ型の3件</a></li>
+        <li><a href="#type2">4. 型2と型3：落ちない検査と、古い結論の書き写し</a></li>
+        <li><a href="#why">5. 3つに共通すること</a></li>
+        <li><a href="#genkai">6. この記録から言えないこと</a></li>
+        <li><a href="#howto">7. 自分で台帳を作るなら</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="tehon">1. 他の人の事故一覧と、足りなかったもの</h2>
+    <p>AI運用の失敗の記録について、日本語で上位に出る記事を開きました（2026年11月11日）。AI社員の運用事故15件を、日付・起きたこと・原因・入れた仕組み・型の列で表にして、5つの型に分けている記事です（2026年11月11日に確認）。件数や割合は「自社の環境の記録で、業界全体の傾向ではない」と断っていて、できていないことを書く節もあります。読む側が、自分の運用に引き寄せて使える作りです。</p>
+    <p>真似したのは、一覧を表にする点と、限界を書く点です。一方で、台帳全体の件数や月ごとの増減は載っていませんでした。僕の台帳でそこを数えたのが、この記事です。</p>
+
+    <h2 id="count">2. 台帳は215件。半分近くが10月</h2>
+    <p>台帳は1つのMarkdownファイルで、2026年11月11日時点で2,244行、約326KBあります。見出しは221件で、そこから章の見出し6件を除いた215件が、1件ずつの教訓です。</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：失敗台帳の月別件数（見出しの日付で数えた。2026年11月11日の実測）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">月</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">件数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">メモ</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">2026年8月</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">36件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">最初の記録は8月13日（実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">9月</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">42件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9月7日から、見出しを番号ではなく日付にした</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">10月</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">105件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">全体の約49%（105÷215の計算）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">11月（11日まで）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">18件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">途中の数字</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">日付が見出しにないもの</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">14件</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">章ごとにまとめた古い記録（実測）</td></tr>
+</tbody></table></div>
+    <p>10月が多いのは、失敗が増えたからなのか、作業量が増えたからなのか、書く量が増えたからなのかは、この数字だけでは分かりません。件数が多い月ほど失敗した、とは言えないので、ここでは「記録が多い月だった」とだけ書いておきます。</p>
+    <p>見出しの語を機械的に数えると（2026年11月11日の実測）、「検査」「測」「計測」などの語を含む見出しが43件、「公開」「本番」「push」などを含む見出しが25件ありました。これは型の分類ではなく、語が出る回数を数えただけです。215件すべてを型に分ける作業は、まだしていません。</p>
+
+    <h2 id="type">3. 10月8日の1日で見つけた、同じ型の3件</h2>
+    <p>型の説明に使うのは、数字つきで裏が取れる3件です。すべて2026年10月8日の台帳に書いたものです。</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：10月8日の台帳から選んだ3件（自分の記録）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">型</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">起きたこと</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">気づけなかった理由</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">入れた仕組み</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">成功したと報告する失敗</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">収集ツールが、取りこぼしたまま正常終了していた</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">ログに「やったこと」しか出ていなかった</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">最後に「まだ取れていない本数」を1行出す</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">落ちない検査</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">検査を足したのに、壊しても落ちるかを確かめていなかった</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">通ると「守られている」と思い込める</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">足した日に、わざと壊して落ちるのを見る</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">古い結論の書き写し</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">「この環境に node は無い」を毎週書き写していた</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">一度調べた結論を、条件が変わったあとも信じた</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">「無い」と書く前に、フォルダ内を1回探す</td></tr>
+</tbody></table></div>
+
+    <h3>型1：成功したと報告する失敗</h3>
+    <p>同じ日に、収集系のツールで似たバグが見つかりました。台帳には、症状が6行並んでいます。たとえば、ウェブページの本文を取り込むツールが、本文を途中で切っていました。602本中121本（20.1%）です。ログには「新規0／既存602」と出ていて、読み終えたように見えていました。</p>
+    <p>動画の字幕を取るツールでは、上限の60件を「既存かどうかの確認」より前に当てていました。そのため、先頭の60行が埋まると、61行目以降に進めません。字幕なしの取り直しも、319本のうち60本しか見ていなかった（実際に試したのは1本）。見られていなかったのは259本で、81.2%です。ログの表示は「対象60／まだ字幕なし1」で、取れるものが無いように見えていました。</p>
+    <figure class="pic">
+      <img src="/read/img/ai-ops-failure-ledger-215/fig2_silent_gap.png" width="1200" height="470" alt="ログは正常なのに取りこぼしていた割合の棒グラフ。本文を途中で切っていたのが20.1%、取り直しで未確認の動画が81.2%、対象外の動画が混ざった索引が42.7%" loading="lazy">
+      <figcaption>図2：ログが正常でも取りこぼしていた割合（2026年10月8日の台帳より）</figcaption>
+    </figure>
+    <p>共通点は、どのツールも「何本処理したか」しか出力しておらず、「何本届いていないか」を誰も出していなかったことです。失敗は例外として目立ちますが、取りこぼしは正常終了します。だから今は、収集系のツールの最後に必ず「条件に合う対象N本／まだ取れていないM本」を1行出させています。</p>
+
+    <h2 id="type2">4. 型2と型3：落ちない検査と、古い結論の書き写し</h2>
+    <h3>型2：落ちない検査</h3>
+    <p>同じ日に、記録していた「検査」にも同じ疑いを向けました。検査を足したのに、通るのが当たり前になっていたら、無いより悪いからです。そこで2本の検査を、わざと壊してみました。1本は、索引に書いた語を存在しない語に替える。もう1本は、計算式の係数を少しだけ変える。結果は、2本とも検査が落ちて、戻すと通りました。</p>
+    <figure class="pic">
+      <img src="/read/img/ai-ops-failure-ledger-215/fig3_break_test.png" width="1200" height="380" alt="検査をわざと壊して落ちるかを確かめた結果の図。2本の検査はどちらも落ち、元に戻すと通った" loading="lazy">
+      <figcaption>図3：検査をわざと壊した結果（2026年10月8日の台帳より）</figcaption>
+    </figure>
+    <p>この確認で分かったのは、この2本は動いていた、ということだけです（台帳の記録より）。ほかの検査が動いているかは別の話なので、新しい検査を足した日に、1回だけ壊して確かめる運用にしました。</p>
+
+    <h3>型3：古い結論の書き写し</h3>
+    <p>手順のメモに、2026年9月13日から毎週、「この環境に node は無い」と書いていました。ところが、実際にはリポジトリの中に node がありました。シェルで場所を調べるコマンドが空を返したので、「無い」ように見えただけです。見つかったのは10月8日で、25日間、同じ注記を書き写していたことになります。</p>
+    <p>これは、調べずに書いた失敗ではありません（台帳の記録より）。一度調べた結論を、条件が変わったあと（node をフォルダに置いたのは別の作業でした）も信じて書き続けた失敗です。括弧書きで毎週コピーされる注記ほど、古くなります。</p>
+
+    <h2 id="why">5. 3つに共通すること</h2>
+    <ul>
+      <li>どれも、<strong>気づくきっかけが仕組みの側に無かった</strong>。ログ、検査の合格表示、毎週の注記が、すべて「大丈夫」と読める形でした。</li>
+      <li>AIに「もっと注意して」と言っても直らない種類の問題です。直したのは、出力の形（残りを出す）と、運用の手順（壊して確かめる、探してから書く）でした。</li>
+      <li>見つけたのは、この日に台帳を見直したからです。書き溜めた台帳があったので、同じ型が並んで見えました。</li>
+    </ul>
+
+    <h2 id="genkai">6. この記録から言えないこと</h2>
+    <ul>
+      <li>215件のすべてを型に分けたわけではなく、3つの型は「数字つきで裏が取れた3件」から選んだものです。</li>
+      <li>台帳の件数と、実際に起きた失敗の数は同じではありません。1件の中に複数の症状が入っていることもあります（型1は1件に6行）。</li>
+      <li>対策を入れたあとに、同じ型の失敗が減ったかどうかは測っていません。</li>
+      <li>1人の運用、1つの台帳の話です。他の環境の傾向を示す数字ではありません。</li>
+    </ul>
+
+    <h2 id="howto">7. 自分で台帳を作るなら</h2>
+    <ol>
+      <li>1件ごとに、日付・短い名前・「何が起きたか」の一文を見出しにします。僕は9月7日から、番号ではなく日付にしました。番号は途中で重複して、参照が壊れたからです。</li>
+      <li>本文には、きっかけ、やったこと、次から変える一般化を書きます。</li>
+      <li>月に1回、見出しだけを数えます。件数が多い月は、中身を読み返して、同じ型が並んでいないかを見ます。</li>
+      <li>同じ型が2件以上あったら、注意ではなく、出力や手順を変えます。</li>
+    </ol>
+
+    <h2 id="faq">よくある質問</h2>
+    <h3>AIの失敗を、なぜ会話ではなくファイルに書くのですか？</h3>
+    <p>AIは、セッションが終わるとその会話を覚えていないからです。次のセッションが読むのは設定ファイルとメモなので、学んだことは会話の中ではなく、ファイルに書いておく必要があります。</p>
+    <h3>台帳の件数が多いのは、失敗が多いということですか？</h3>
+    <p>そうとは限りません。件数は記録の量で、作業量や書く量にも左右されます。10月が105件と多いのは事実ですが、失敗が増えたからかどうかは、この数字だけでは言えません。</p>
+    <h3>「成功したと報告する失敗」は、どう防げますか？</h3>
+    <p>処理した本数だけでなく、届いていない本数も最後に1行出す形にしました。条件に合う対象N本、まだ取れていないM本、と出すと、止まっていることに気づけます。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <ul>
+      <li>失敗台帳は<strong>215件</strong>で、10月が105件でした（2026年11月11日に数えた結果）</li>
+      <li>10月8日の1日で、「成功したと報告する失敗」「落ちない検査」「古い結論の書き写し」の3つの型が見えました</li>
+      <li>収集の取りこぼしは、本文の切れが20.1%（602本中121本）、字幕の取り直しの未確認が81.2%（319本中259本）でした</li>
+      <li>件数は記録の量で、失敗の多さそのものではありません</li>
+    </ul>
+    <p>次の1アクションとして、自分が使っている自動化やスクリプトを1つ選び、出力の最後に「届いていない数」を出す行があるかを確かめてみてください。ログが「正常」のときに、何本が未処理なのかが答えられるかが分かります。</p>
+    <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/scheduled-tasks-model-inherit">予約タスクで利用上限を使い切った記録</a>や、<a href="/read/audit-own-33-articles-measured">自作の検査を記事33本に当てた実測</a>もどうぞ。</p>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/scheduled-tasks-model-inherit"><img class="rt" src="/read/img/scheduled-tasks-model-inherit/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測）</span></a></li>
+      <li><a class="rl" href="/read/tracking-audit-235-urls"><img class="rt" src="/read/img/tracking-audit-235-urls/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">235ページのGA4計測を全数検査したら、タグ欠落0でも「出口」を測れない面が72あった（実測）</span></a></li>
+      <li><a class="rl" href="/read/qiita-19-articles-measured"><img class="rt" src="/read/img/qiita-19-articles-measured/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話</span></a></li>
+      <li><a class="rl" href="/read/lessons-building-apps"><img class="rt" src="/read/img/lessons-building-apps/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">学習アプリを個人で5つ作って分かった、UIの失敗5つ</span></a></li>
+    </ul>
+    </nav>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-11">2026年11月11日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
