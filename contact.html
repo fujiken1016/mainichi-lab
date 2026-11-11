@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お問い合わせ | 毎日ラボ</title>
-<meta name="description" content="毎日ラボへのご意見・不具合報告・広告掲載のご相談窓口。あわせて、Webサービス・学習ツールの制作、メディア運用の伴走、AI業務自動化の90分相談、note／Kindleで書く人の伴走、サイト監査のご依頼も受け付けています（料金の目安を掲載）。">
+<meta name="description" content="毎日ラボへのご意見・不具合報告・広告掲載のご相談窓口。あわせて、Webサービス・学習ツールの制作、メディア運用の伴走、AI業務自動化の90分相談、note／Kindleで書く人の伴走、サイト監査、AIを業務で動かす方向けの書面診断（運用ルール監査・回答品質の評価セット・API費用の見積もり）のご依頼も受け付けています（料金の目安を掲載）。">
 <link rel="canonical" href="https://mainichi-lab.com/contact">
 <meta property="og:site_name" content="毎日ラボ">
 <meta property="og:title" content="お問い合わせ | 毎日ラボ">
@@ -24,7 +24,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"お問い合わせ","item":"https://mainichi-lab.com/contact"}]}
 </script>
 <script src="/oc.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"お問い合わせ | 毎日ラボ","url":"https://mainichi-lab.com/contact","inLanguage":"ja","datePublished":"2026-08-02","dateModified":"2026-10-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"お問い合わせ | 毎日ラボ","url":"https://mainichi-lab.com/contact","inLanguage":"ja","datePublished":"2026-08-02","dateModified":"2026-11-11"}</script>
 <style>
 /* お仕事のご依頼セクション（2026-09-06 追加）— design_guidelines.md のトークンに準拠 */
 .work{--w-accent:#2f6f4f;--w-line:#e5e5ed;--w-muted:#53536b;
@@ -130,8 +130,44 @@
 <li><b>サイトの単発監査（サイト健全性チェック）</b>
   <span class="price">¥55,000／1サイト（50面まで・5営業日）</span>
   <span class="note">表示速度ではなく、スマホでの読みやすさ・押しやすさ・記事の構造・計測もれ・似すぎたページ・個人情報の露出を実測し、「今すぐ直す／改善余地あり／合格」に分けて、直す順番まで並べたレポートをお渡しします。必要なのは公開URLだけで、ログイン情報はお預かりしません。自社サイト49ページに実際に掛けたサンプルレポートがありますので、ご相談時にお送りします。<b>順位やアクセスが上がることは約束しません。問題を見つけて直し方を示すまでが範囲です。</b></span>
-  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E7%9B%A3%E6%9F%BB%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit">公開URLだけで相談する</a></li>
+  <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E7%9B%A3%E6%9F%BB%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit">公開URLだけで相談する</a>
+  <span class="note"><b>同じ「書面で返す」型で、AIを業務で動かしている方向けの診断もお受けしています。</b>いずれも、お客さまが書き出した資料か公開されている情報だけで進めます。APIキー・管理画面のログイン情報はお預かりしません。結果の良し悪しや「精度○％」はお約束せず、見つけたことと直し方を書面でお渡しします。</span>
+  <ul class="work-menu">
+  <li><b>Claude Code・AIエージェントの運用ルール監査</b>
+    <span class="price">¥22,000（3営業日・再監査1回つき）</span>
+    <span class="note">CLAUDE.md・権限設定・自動実行タスクの定義を読んで、止まりやすい所・上限を食いやすい所を12項目で判定し、そのまま貼れる設定ファイル案と、直す順番3つをお渡しします。自社の運用で実際に踏んだ失敗から作った項目です。設定ファイルは、秘密情報を伏せてお送りいただきます。</span>
+    <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E9%81%8B%E7%94%A8%E3%83%AB%E3%83%BC%E3%83%AB%E7%9B%A3%E6%9F%BB%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit_ops">運用監査を相談する</a></li>
+  <li><b>AIチャットボットの回答品質「評価セット」の作成と採点</b>
+    <span class="price">単発 ¥55,000（30問・1回採点）／月次の再採点 ¥22,000</span>
+    <span class="note">FAQボットや社内AIを作ったものの、良くなったか悪くなったかを測る物差しがない方向けです。必須の語・言ってはいけない語・出典URL・文字数など機械で確かめられる条件と、人が見る欄を分けた評価セット（CSV）を作り、回答を流し込めば合否が出る形にします。不合格の理由と、直す順番の所見（1枚）つき。回答がなかったものは合格に数えません。意味の正しさ・適法性の最終判断、ボット自体の開発・改修、「精度○％」の保証はしません。公開されているFAQ・ページで足りる範囲から始めます。架空のFAQで試した見本をご相談時にお送りします。</span>
+    <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E5%9B%9E%E7%AD%94%E5%93%81%E8%B3%AA%E3%81%AE%E8%A9%95%E4%BE%A1%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit_eval">評価セットを相談する</a></li>
+  <li><b>生成AI APIの月額費用の見積もりと、止まり方の設計</b>
+    <span class="price">¥38,500（用途3つまで・想定／暴走時の2通り）</span>
+    <span class="note">用途ごとの呼び出し回数×トークン数×公式の単価で月額を出し、「ここで止める」上限と、止まったときの運用を1枚にします。単価は公式ページの値を使い、確認日を書きます（載っていないモデルは推測で埋めません）。数値はお客さまが書き出してお渡しください（請求画面へのログインはしません）。為替の予測・税務処理・社内の予算承認の代行はしません。自社でも、生成AIのAPIの利用上限に当たって音声・画像の生成が止まったことがあります。</span>
+    <a class="work-cta-sub" href="mailto:contact@mainichi-lab.com?subject=%E7%94%9F%E6%88%90AI%20API%E8%B2%BB%E7%94%A8%E3%81%AE%E8%A6%8B%E7%A9%8D%E3%82%82%E3%82%8A%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_audit_cost">費用の見積もりを相談する</a></li>
+  </ul></li>
 </ul>
+
+<h3>うちで測った3つの記録（自社サイトでの実測です）</h3>
+<p>お客さまの事例ではなく、毎日ラボ自身のサイトで測った記録です。どう調べて、どう数えて、何が分かって何が分からなかったかまで公開しています。ご依頼でも、同じ形で数字を出します。</p>
+<ul class="work-menu">
+<li><b>サイトの「計測」を235ページ全数で検査した（GA4）</b>
+  <span class="note">課題：タグが入っているのに、読者の「外へ出るクリック」が測れているか分からなかった。</span>
+  <span class="note">やったこと：全URLを機械で検査（2026年9月16日）。タグの欠落0件を確かめたうえで、出口を測れる形で置いているかを数え直した。</span>
+  <span class="note">結果：タグ欠落は0件。ただし出口を測れないページが72ページ見つかった。「タグがある」と「知りたいことが測れている」は別、という記録。</span>
+  <span class="note"><a href="/read/tracking-audit-235-urls">記事を読む（GA4計測の全数検査）</a></span></li>
+<li><b>Search Console の「未登録80件」を0件にした記録</b>
+  <span class="note">課題：Search Console の「検出 - インデックス未登録」が80件たまっていた。</span>
+  <span class="note">やったこと：80件を全件書き出して原因を調べ（2026年9月3日）、内部リンクの追加と登録リクエストを行った。</span>
+  <span class="note">結果：9月9日の確認で0件になった。ただし2つの手当てを同時にやったため、どちらが効いたかは切り分けられていない。</span>
+  <span class="note"><a href="/read/unindexed-80-to-zero">記事を読む（未登録80件の記録）</a></span></li>
+<li><b>サーバーエラー（503）のあとの検索の動きを測った</b>
+  <span class="note">課題：2026年8月〜9月にサーバーエラー（503）が出て、検索順位に響いたのではと気になった。</span>
+  <span class="note">やったこと：Search Console のクロール統計を並べて確認（2026年9月8日）。</span>
+  <span class="note">結果：Googlebot が記録した5xxは11件のまま増えず、登録済みページは41から111に増えた。ただし同日に複数の対処をしたため、何が効いたかは切り分けられていない。</span>
+  <span class="note"><a href="/read/search-503-recovery-measured">記事を読む（503のあとの実測）</a></span></li>
+</ul>
+<p class="small">上の3件は自社サイトでの記録です。お客さまのサイトで同じ結果になることをお約束するものではありません。</p>
 
 <p>ご相談の段階では費用はかかりません。やりたいことと、いまの状態（サイトのURL、使っているツール、困っていること）をお書き添えのうえ、下記のアドレスまでメールをお送りください。</p>
 <p class="work-mailbox">メールの宛先：<span class="addr" translate="no"><span>contact</span><span>&#64;</span><span>mainichi-lab.com</span></span>
@@ -151,7 +187,7 @@
   ご相談から合意までの間に費用は発生しません。この画面では申し込みの受付・決済は行っていません。</dd>
 
 <dt>掲載されている料金で確定ですか。</dt>
-<dd>目安です。上の6本の金額は「この規模ならこのくらい」という水準で、内容をうかがったうえで個別にお見積りします。<b>金額と範囲に合意してから着手します</b>ので、見積りより先に作業を始めることはありません。</dd>
+<dd>目安です。上の金額は「この規模ならこのくらい」という水準で、内容をうかがったうえで個別にお見積りします。<b>金額と範囲に合意してから着手します</b>ので、見積りより先に作業を始めることはありません。</dd>
 
 <dt>遠方でも依頼できますか。</dt>
 <dd>オンラインで進められます。AI業務自動化の90分スポット相談は、1回きり・完全オンラインです。制作やメディア運用の伴走も、メールとオンラインの打ち合わせで進行できます。</dd>
@@ -165,7 +201,7 @@
   </ul></dd>
 
 <dt>相談のメールには何を書けばよいですか。</dt>
-<dd>やりたいことと、いまの状態（サイトのURL／使っているツール／困っていること）をお書き添えください。上の各メニューにある相談ボタンを押していただくと、件名が入った状態でメールソフトが開きます。サイトの単発監査については、必要なのは公開URLだけで、ログイン情報はお預かりしません。</dd>
+<dd>やりたいことと、いまの状態（サイトのURL／使っているツール／困っていること）をお書き添えください。上の各メニューにある相談ボタンを押していただくと、件名が入った状態でメールソフトが開きます。サイトの単発監査については、必要なのは公開URLだけで、ログイン情報はお預かりしません。<br>上のメニューにないご相談（たとえば、AIで作ったアプリを公開する前に、秘密情報が混ざっていないかを見てほしい、など）も、内容をうかがったうえで、お受けできるかどうかをお返しします。<a href="mailto:contact@mainichi-lab.com?subject=AI%E3%81%A7%E4%BD%9C%E3%81%A3%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E5%85%AC%E9%96%8B%E5%89%8D%E7%82%B9%E6%A4%9C%E3%81%AE%E7%9B%B8%E8%AB%87" data-slot="menu_other_appcheck">その他の相談として送る</a></dd>
 </dl>
 
 <p><a class="work-cta" href="mailto:contact@mainichi-lab.com?subject=%E5%88%B6%E4%BD%9C%E3%83%BB%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%AE%E3%81%94%E4%BE%9D%E9%A0%BC" data-work-cta>メールで相談する</a></p>
@@ -175,7 +211,7 @@
 <p>「AI導入には補助金が出ます」とだけ書いてある案内をよく見かけますが、公募要領を読むと、<b>制作費以外はほとんど対象外</b>です。うちのメニューでいうと、次のようになります。</p>
 <ul>
 <li><b>対象になりうるのは、①Webサービス・学習ツールの制作費だけ</b>です（新事業進出・ものづくり商業サービス補助金の「機械装置・システム構築費」、小規模事業者持続化補助金の「ウェブサイト関連費」＝上限30万円・この費目だけでの申請は不可）。</li>
-<li><b>②メディア伴走／③90分相談／④研修／⑤note・Kindle伴走／⑥サイト監査は、対象外</b>です。公募要領に「コンサルティング、アドバイス費用」「講習会・セミナー研修等の参加費や受講費」「電子書籍や本の出版に係る費用」が、対象とならない経費として明記されているためです。</li>
+<li><b>②メディア伴走／③90分相談／④研修／⑤note・Kindle伴走／⑥サイト監査（AI運用まわりの書面診断3種を含む）は、対象外</b>です。公募要領に「コンサルティング、アドバイス費用」「講習会・セミナー研修等の参加費や受講費」「電子書籍や本の出版に係る費用」が、対象とならない経費として明記されているためです。</li>
 </ul>
 <p><b>「実質負担◯円」という書き方はしません。</b>補助金は後払いで、申請しても採択されないことがあります。採択されなければ全額が自己負担になるので、それを前提にした金額はお出しできません。</p>
 <p><b>申請書類の作成・代行も行いません。</b>報酬を得て官公署に提出する書類を作成することは行政書士の業務とされているためです（行政書士法第十九条）。申請そのものは、貴社ご自身か、行政書士・認定経営革新等支援機関へご相談ください。</p>
@@ -207,12 +243,12 @@
 <h2>個人情報の取り扱い</h2>
 <p>お問い合わせでいただいたメールアドレスおよび内容は、返信と当該案件の対応のみに使用し、それ以外の目的には利用しません。詳細は<a href="/privacy">プライバシーポリシー</a>をご確認ください。</p>
 
-<p class="updated">最終更新：2026年9月7日</p>
+<p class="updated">最終更新：2026年11月11日</p>
 <a class="back" href="/">← トップへ戻る</a>
 </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-02">2026年8月2日</time>　最終更新：<time datetime="2026-10-08">2026年10月8日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-02">2026年8月2日</time>　最終更新：<time datetime="2026-11-11">2026年11月11日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
