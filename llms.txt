@@ -1,0 +1,65 @@
+# 毎日ラボ
+
+> 個人開発者「フジケン」（個人事業主）が運営する無料Webツールと、作る過程で実測・調査した記録の読みものをまとめたサイトです。記事は実測値に観測日をつけて書き、公的資料は一次資料にあたって整理しています。登録不要・ログイン不要。
+
+運営者表記は「フジケン（個人事業主）」。連絡先は https://mainichi-lab.com/contact 。このファイルは実験的に置いたもので、AI検索での引用への効果は確認できていません。
+
+## 実測・検証の記録（サイト運営・計測・SEO）
+
+- [個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）](https://mainichi-lab.com/read/ga4-self-traffic-measured)
+- [個人で9サイトを運営して、検索クリックの84%は1サイトだった（28日間の実測）](https://mainichi-lab.com/read/nine-sites-search-traffic-share)
+- [503を出したあとの実測：登録済みが41から111ページに増えた](https://mainichi-lab.com/read/search-503-recovery-measured)
+- [「検出 - インデックス未登録」80件が0件になるまでの記録（実測）](https://mainichi-lab.com/read/unindexed-80-to-zero)
+- [235ページのGA4計測を全数検査したら、タグ欠落0でも「出口」を測れない面が72あった（実測）](https://mainichi-lab.com/read/tracking-audit-235-urls)
+- [Search Consoleのクエリ表が9割見えなかった日：資格試験当日24時間の実測](https://mainichi-lab.com/read/gsc-anonymous-queries-exam-day)
+- [Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）](https://mainichi-lab.com/read/cf-pages-hide-internal-files)
+- [KDPのペーパーバックを自作の組版で入稿した実測：余白・背幅・表紙の数字（A5・62ページ）](https://mainichi-lab.com/read/kdp-paperback-specs-measured)
+- [Qiita記事を19本書いて分かった、「伸びる型」が自分には効かなかった話](https://mainichi-lab.com/read/qiita-19-articles-measured)
+- [アフィリエイトの「穴場ジャンル」を案件数で探した記録：16カテゴリを6週あけて数え直した（実測）](https://mainichi-lab.com/read/affiliate-niche-count-measured)
+- [同じ広告主でもASPを変えると、アフィリエイト単価は5〜7倍違う（実例つき）](https://mainichi-lab.com/read/asp-fee-comparison)
+- [ブログの挿絵を無料で作れるAI画像生成、10手段を同じお題で試した（実測）](https://mainichi-lab.com/read/free-ai-image-tools-same-prompt)
+- [AIの予約タスクを約100本回して、週の利用上限を使い切った記録（実測）](https://mainichi-lab.com/read/scheduled-tasks-model-inherit)
+
+## 個人開発の設計メモ
+
+- [学習アプリを個人で5つ作って分かった、UIの失敗5つ](https://mainichi-lab.com/read/lessons-building-apps)
+- [学習アプリの問題を自分で作って分かった、いい問題と悪い問題の差](https://mainichi-lab.com/read/making-questions)
+- [独学が続かないのは意志のせいじゃない — 続く仕組みの作り方](https://mainichi-lab.com/read/keep-going-system)
+- [ログイン不要・端末内保存にした理由と、その代償](https://mainichi-lab.com/read/no-login-design)
+- [「片手・立ったまま・1分」を前提に作るということ](https://mainichi-lab.com/read/one-hand-mobile)
+
+## 制度・手続きを一次資料で整理（専門家の助言ではありません）
+
+- [「AI導入に補助金は使える」と書いてあるものを、公募要領まで全部読んでみた](https://mainichi-lab.com/read/ai-subsidy-reality)
+- [相続した実家が空き家になったとき、解体と売却のどちらが先か。決める前に確かめる3つの日付](https://mainichi-lab.com/read/akiya-kaitai-baikyaku)
+- [親が亡くなった後、遺品整理を業者に頼む前に自分でやる3つのこと](https://mainichi-lab.com/read/ihin-seiri-jibun-de)
+- [個人店がPOSレジを選ぶ前に決めておく3つのこと](https://mainichi-lab.com/read/pos-regi-kojinten)
+- [居酒屋10席のシフト表を、Excelから勤怠アプリに移した記録](https://mainichi-lab.com/read/kintai-excel-to-app)
+
+## 割り勘の計算
+
+- [割り勘の分け方を場面別に計算した読みもの5本](https://mainichi-lab.com/read/warikan-bamen-betsu)
+- [同棲の生活費、折半と収入比を手取り30万・20万で計算して比べた](https://mainichi-lab.com/read/dosei-seikatsuhi-warikata)
+- [ドライブの割り勘、運転手の負担を4人・往復300kmで3通り計算した](https://mainichi-lab.com/read/drive-warikan-untenshu)
+- [ガソリン代の割り勘、カタログ燃費で計算すると足りない？実燃費を下げた早見表](https://mainichi-lab.com/read/gasolinedai-warikan-nenpi)
+- [傾斜割り勘の決め方3通りを、同じ5万円の会計で計算してみた](https://mainichi-lab.com/read/keisha-warikan-kimekata)
+- [高速代の割り勘、途中で降りる人がいるときは区間ごとに分けて計算した](https://mainichi-lab.com/read/kosokudai-warikan-tochu-gesha)
+- [飲み会で飲まない人はいくら安くしていい？倍率0.7の根拠を計算](https://mainichi-lab.com/read/nomanai-hito-warikan)
+- [同僚への結婚祝い、連名なら1人いくら？人数別の合計と端数の割り方](https://mainichi-lab.com/read/renmei-kekkon-iwai)
+
+## ペース表
+
+- [ハーフマラソンのペース表：目標タイム別の5kmごとの通過と、最後の1.0975km](https://mainichi-lab.com/read/half-marathon-pace-table)
+- [サブ4・サブ4.5・サブ5のペース表：5kmごとの通過タイムと時速](https://mainichi-lab.com/read/marathon-pace-table-sub4)
+
+## 運営している学習ツール（すべて無料）
+
+- [宅建GYM（宅建・賃貸不動産経営管理士の一問一答と記事）](https://takken.mainichi-lab.com/)
+- [方言ラボ（方言の変換・クイズ・診断と解説記事）](https://hogen.mainichi-lab.com/)
+- [雀トレ（麻雀の初心者向け練習・点数計算・何切るドリル）](https://mahjong.mainichi-lab.com/)
+- [トレ飯相棒（食事記録とPFC）](https://meshi.mainichi-lab.com/)
+
+## このサイトについて
+
+- [運営者について](https://mainichi-lab.com/about)
+- [読みもの一覧](https://mainichi-lab.com/read/)
