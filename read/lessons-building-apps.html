@@ -21,7 +21,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
 <script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/lessons-building-apps/hero_aigen.webp","headline":"学習アプリを個人で5つ作って分かった、UIの失敗5つ","description":"正しい手が「不正解」になるバグ、0.8秒で消える大事な表示、指で押せないボタン。個人開発でWebツールを5つ公開する過程で実際に出したUIの失敗と、そこから決めた自分用のルールを具体的に書きました。","inLanguage":"ja","datePublished":"2026-08-13T15:45:35+09:00","dateModified":"2026-11-08","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/lessons-building-apps"},"url":"https://mainichi-lab.com/read/lessons-building-apps"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/lessons-building-apps/hero_aigen.webp","headline":"学習アプリを個人で5つ作って分かった、UIの失敗5つ","description":"正しい手が「不正解」になるバグ、0.8秒で消える大事な表示、指で押せないボタン。個人開発でWebツールを5つ公開する過程で実際に出したUIの失敗と、そこから決めた自分用のルールを具体的に書きました。","inLanguage":"ja","datePublished":"2026-08-13T15:45:35+09:00","dateModified":"2026-11-12","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/lessons-building-apps"},"url":"https://mainichi-lab.com/read/lessons-building-apps"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"UIの失敗5つ","item":"https://mainichi-lab.com/read/lessons-building-apps"}]}
 </script>
@@ -54,6 +54,8 @@
     </figure>
 
     <p>毎日ラボで公開しているツールは今のところ5つです。全部ひとりで作っていて、レビューしてくれる同僚もいないので、失敗はだいたい公開してから自分で踏みます。この記事は、実際に出してしまったUIの失敗と、そのたびに決めた自分用のルールの記録です。うまくいった話より、こっちのほうが役に立つと思うので。</p>
+
+    <p>先に結論です。<strong>ひとりで作った学習ツール5つで踏んだUIの失敗は5つあり、どれも「作り手の視点と、初めて使う人の視点のズレ」でした。</strong>遅延処理と画面切り替えの組み合わせで正しい手が不正解になったこと、大事な表示が読む前に消えたこと、指で押せない小さなボタン、連打・二重送信への備えの不足、順番どおりの操作しかテストしていなかったことです。決めた対策は、遅れて実行される処理は必ず取り消せるようにする、タップできる要素は40px以上にする、確認は幅375pxで行う、などです。</p>
 
     <h2>失敗1：正しい手が「不正解」と判定された</h2>
     <p>いちばん質の悪いバグでした。麻雀のツールで、明らかに正しいはずの牌を切ったのに不正解が出る。しかも毎回ではなく、特定の操作をしたときだけ。</p>
@@ -111,7 +113,7 @@
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-11-08">2026年11月8日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-11-12">2026年11月12日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
