@@ -207,8 +207,10 @@
     }else{
       r.items.forEach(function(x){h+='<div class="blk"><h3>'+esc(x.t)+'</h3><p class="vd">'+x.v+'</p><p class="why">'+esc(x.w)+'</p></div>';});
     }
+    if(r.mode==='main'){h+='<div class="tool-actions"><button type="button" class="btn ghost" id="cp">結果を文字でコピー</button><span id="cpm" role="status"></span></div>';}
     h+='<p class="disc" style="margin-top:20px">一般論です。書類の形式や提出の時期は勤め先ごとに違います。最終判断は勤め先の担当者か税務署へ。</p>'+SRC+'</div>';
     res.innerHTML='<h2 style="margin-top:0">判定結果</h2>'+h;res.focus();
+    var cp=document.getElementById('cp');if(cp){cp.addEventListener('click',function(){var txt='年末調整で出す書類（毎日ラボの判定・一般論）\n'+r.items.map(function(x){return '・'+x.t+'：'+x.v;}).join('\n');var m=document.getElementById('cpm');(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){m.textContent='コピーしました';},function(){m.textContent='コピーできませんでした';});try{window.gtag('event','result_copy',{tool_name:'nencho-shorui'});}catch(_){}});}
     if(res.scrollIntoView){res.scrollIntoView({block:'start'});}
     try{window.gtag('event','scoring_complete',{tool_name:'nencho-shorui',result:r.mode+'|'+(r.items.map(function(x){return x.v;}).join(','))});}catch(_){}
   });
