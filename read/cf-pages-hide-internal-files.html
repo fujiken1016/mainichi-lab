@@ -26,7 +26,7 @@
   gtag('js', new Date());
   gtag('config', 'G-XRJ40EFR6C');
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp", "headline": "Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）", "description": "個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。", "inLanguage": "ja", "datePublished": "2026-11-10T10:00:00+09:00", "dateModified": "2026-11-10T10:00:00+09:00", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}, "url": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp", "headline": "Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）", "description": "個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。", "inLanguage": "ja", "datePublished": "2026-11-10T10:00:00+09:00", "dateModified": "2026-11-16", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}, "url": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}</script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "Cloudflare Pagesで内部ファイルを404にする", "item": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}]}
 </script>
@@ -84,7 +84,7 @@
 
     <h2 id="found">2. 9サイトを点検して見つかったもの</h2>
     <p>点検は2回に分けて行いました。1回目は2026年8月13日、2回目は8月30日です。どちらも、存在しないはずのパスに curl でリクエストを送り、返ってきたステータスコードと本文を見ました。</p>
-<pre><code>curl -s -o /dev/null -w '%{http_code}' "https://example.com/README.md"</code></pre>
+<pre style="overflow-x:auto;max-width:100%;white-space:pre"><code>curl -s -o /dev/null -w '%{http_code}' "https://example.com/README.md"</code></pre>
     <p>1回目（8月13日）で見つかったのは2種類です。1つ目は、存在しないURLでもトップページを200で返す「ソフト404」で、9サイト中5サイトがこの状態でした。Cloudflare Pagesは、公開フォルダに <code>404.html</code> が無いとトップページを返します。5サイトとも <code>404.html</code> を置いて直りました。</p>
     <p>2つ目は、Cloudflare Pagesではない1サイト（Renderで動かしているもの）で、<code>README.md</code> や <code>server.js</code>、<code>.git/</code> の一部が読めたことです。<code>.git/config</code> と中身のオブジェクトは404で、履歴は復元できない状態でした。このサイトは、配信してよいファイル名だけを並べた許可リスト方式に変えて塞ぎました。</p>
     <p><code>.env</code> と <code>.git/config</code> は、8月13日も8月30日も9サイトすべてで404でした。パスワードやAPIキーが外から読めた形跡はありません。</p>
@@ -136,13 +136,13 @@
 
     <h2 id="why">4. なぜ _redirects では404にならないのか</h2>
     <p>試した当日は「実在するファイルが <code>_redirects</code> より優先されるからだ」と考えて、メモにもそう書きました。この記事を書くために<a href="https://developers.cloudflare.com/pages/configuration/redirects/" rel="noopener">Cloudflareの公式ドキュメント（Redirects）</a>を読み直すと（2026年11月7日）、別の理由が書いてありました。</p>
-    <p>公式の説明では、リダイレクトはファイルがあってもなくても適用されます。そのうえで、対応しているステータスコードは301・302・303・307・308の5つです。404など「ほかのステータスコードで返す書き換え」は、対応表で非対応になっていました。つまり、①と②が効かなかったのは、404という書き方そのものが対応外だったから、と読むのが公式の説明に合います。</p>
+    <p>公式の説明では、リダイレクトはファイルがあってもなくても適用されます。そのうえで、リダイレクトとして対応しているステータスコードは301・302・303・307・308の5つです（ほかに、同じサイト内の相対パスへ中身を出す200のプロキシは対応。2026年11月16日に再確認）。404など「ほかのステータスコードで返す書き換え」は、対応表で非対応になっていました。つまり、①と②が効かなかったのは、404という書き方そのものが対応外だったから、と読むのが公式の説明に合います。</p>
     <p>当日の解釈は間違いでした。結果（200のまま）は変わりませんが、理由を取り違えたまま「静的ファイルが勝つ」と覚えていると、301で別のURLに飛ばすような使い方まで効かないと思い込んでしまいます。3本目の手本の記事も、410が無視された理由を同じく「対応コードは5つだけ」と説明していました。</p>
     <p>⑥が効く理由は、<a href="https://developers.cloudflare.com/pages/functions/middleware/" rel="noopener">公式のMiddlewareの説明</a>にあります。<code>functions</code> フォルダの直下に <code>_middleware.js</code> を置くと、静的ファイルを返す前にも実行されます。</p>
 
     <h2 id="how">5. 効いた方法：ミドルウェアと _routes.json</h2>
     <p>実際にポータルサイトに置いたものは、次の内容です。<code>.md</code> で終わるパスと、名前を並べたファイルだけに404を返し、それ以外は <code>context.next()</code> でいつも通り配信します。</p>
-<pre><code>const DENY = new Set(["/.gitignore"]);
+<pre style="overflow-x:auto;max-width:100%;white-space:pre"><code>const DENY = new Set(["/.gitignore"]);
 
 export async function onRequest(context) {
   const path = new URL(context.request.url).pathname;
@@ -213,7 +213,7 @@ export async function onRequest(context) {
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-10">2026年11月10日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-10">2026年11月10日</time>　最終更新：<time datetime="2026-11-16">2026年11月16日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
