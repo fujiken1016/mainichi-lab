@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた | 毎日ラボ</title>
+<meta name="description" content="AIと作った方言変換ツールに日常文12本×36方言の全組み合わせを通すと、432通り中417通りで文の途中に定型句が入り、文が壊れていました。見つけ方と直し方、直した後の数字を2026年11月16日に記録します。">
+<link rel="canonical" href="https://mainichi-lab.com/read/dialect-converter-417-of-432-broken">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた">
+<meta property="og:description" content="AIと作った方言変換ツールに日常文12本×36方言の全組み合わせを通すと、432通り中417通りで文の途中に定型句が入り、文が壊れていました。見つけ方と直し方、直した後の数字を2026年11月16日に記録します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/dialect-converter-417-of-432-broken">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+.tscroll::before{content:"表は横にスクロールできます →";display:block;font-size:.875rem;line-height:1.8;color:var(--sub)}
+@media(min-width:640px){.tscroll::before{display:none}}
+.prose .tscroll td,.prose .tscroll th[scope=col]{white-space:nowrap}
+.prose .tscroll th[scope=row]{min-width:12em}
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた", "description": "AIと作った方言変換ツールに日常文12本×36方言の全組み合わせを通すと、432通り中417通りで文の途中に定型句が入り、文が壊れていました。見つけ方と直し方、直した後の数字を2026年11月16日に記録します。", "inLanguage": "ja", "datePublished": "2026-11-16T10:00:00+09:00", "dateModified": "2026-11-16", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about"}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/dialect-converter-417-of-432-broken"}, "url": "https://mainichi-lab.com/read/dialect-converter-417-of-432-broken"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた", "item": "https://mainichi-lab.com/read/dialect-converter-417-of-432-broken"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "方言変換ツールで文が壊れるのは、AIが作ったからですか？", "acceptedAnswer": {"@type": "Answer", "text": "この件については、作り方より「組み合わせの出力を見ていなかった」ことが原因でした。診断用のひとことを変換の語彙にも使い、文の途中にも当てる作りで、部品の1つ1つは正しく動いていました。人が書いても起きうる種類の不具合です。"}}, {"@type": "Question", "name": "全部の組み合わせを数えるのは、いつでもできますか？", "acceptedAnswer": {"@type": "Answer", "text": "入力と出力の組み合わせが数百〜数千通りなら、できます。今回は12文×36方言の432通りで、数秒で終わりました。組み合わせが数百万通りになる場合は、ランダムに選ぶ方法（別の記事で見たUbieの例）が現実的です。"}}, {"@type": "Question", "name": "直したあとは、もう壊れませんか？", "acceptedAnswer": {"@type": "Answer", "text": "ひとこと丸ごとの当て方に起きていた壊れ方は、検査した範囲では0件になりました。ただし、辞典の複合語の一部だけが置き換わる組が1,755件残っていて、まだ分類していません。壊れていないとは言い切れません。"}}]}</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>方言変換ツールを全組み合わせで数えた記録</p>
+
+    <h1>自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた</h1>
+    <p class="meta">2026年11月16日 ／ フジケン</p>
+
+    <p>僕は、方言変換ツール（<a href="https://hogen.mainichi-lab.com/translate?utm_source=mainichi-lab&amp;utm_medium=read&amp;utm_campaign=dialect-converter-417-of-432-broken">方言ラボ</a>）を、AI（Claude Code）に作らせています。サイトの訪問の多くはこの変換ツールに来るのに、変換した結果の文を、僕はきちんと読んでいませんでした。2026年11月15日に、変換結果をすべて並べて読んだところ、文が壊れていました。その記録です。</p>
+    <p>先に結論です。<strong>日常の文12本を36方言に通した432通りのうち、417通りで、文の途中に「ひとこと丸ごと」の定型句が入って文が壊れていました。</strong>辞典の語を1語ずつ確かめる検査は通っていたので、気づけませんでした。直したあとは、文の途中に定型句が入る組は、同じ種類の12文で見ると420通り中10通りに減り、残った10通りは語ひとつに収まる言い方だけです。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#tehon">1. 他の記事は何を書いていたか</a></li>
+        <li><a href="#kowarekata">2. どう壊れていたか</a></li>
+        <li><a href="#mitsuke">3. 見つけ方：全部の組み合わせを並べる</a></li>
+        <li><a href="#genin">4. 原因と直し方</a></li>
+        <li><a href="#after">5. 直したあとの数字</a></li>
+        <li><a href="#nokori">6. まだ残っていること</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="tehon">1. 他の記事は何を書いていたか</h2>
+    <p>「AI テスト 組み合わせ バグ」で探して、上位の2本を開きました（2026年11月16日）。</p>
+    <ul>
+      <li>Zennの「AIにテストを書かせてカバレッジ100%、それでもバグが出るのはなぜか」：カバレッジは実行された箇所を示すだけで、結果の正しさは示さないこと、条件の組み合わせは別に設計が要ることを、段階を分けて説明しています。記事に筆者の実測数字は載っていません（数値は説明用の例）。</li>
+      <li>Zennの「組み合わせ爆発に立ち向かうために、AIと“ぶんまわしくん”を作った話」（Ubie）：同じ操作を新旧のエンジンで夜間に繰り返し、最終画面の文字を比べて差分を出す仕組みを書いています。見つけたバグの件数は書かれていません。</li>
+    </ul>
+    <p>どちらも「組み合わせを見ないと見落とす」ことは分かります。この記事では、自分のツールで数えた件数と、直した前後の出力を書きます。</p>
+
+    <h2 id="kowarekata">2. どう壊れていたか</h2>
+    <p>変換ツールに「とても疲れたので、早く家に帰りたい。ありがとう。」を入れて、土佐弁に変換した結果です（2026年11月15日）。</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表1：土佐弁に変換した結果（2026年11月15日の本番）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top"></th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">変換結果</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">入力</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">とても疲れたので、早く家に帰りたい。ありがとう。</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">直す前</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">こじゃんとこじゃんとだれたにゃあので、早く家に帰りたい。まっことありがとう。</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">直した後</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">こじゃんとんだれたので、早く家に帰りたい。ありがとう。</td></tr>
+</tbody></table></div>
+<figure class="pic"><svg viewBox="0 0 340 96" role="img" aria-label="文の途中に定型句が入った組の数。直す前は432通り中417通り、直した後は14通り" style="display:block;width:100%;max-width:480px;height:auto"><text x="0" y="17" font-size="15" fill="currentColor">直す前</text><rect x="0" y="24" width="253" height="14" rx="3" fill="currentColor" opacity="0.85"/><text x="261" y="36" font-size="15" fill="currentColor">417</text><text x="0" y="63" font-size="15" fill="currentColor">直した後</text><rect x="0" y="70" width="8" height="14" rx="3" fill="currentColor" opacity="0.35"/><text x="16" y="82" font-size="15" fill="currentColor">14</text></svg><figcaption>図1：文の途中に定型句が入った組の数（2026年11月15日・12文×36方言＝432通り）</figcaption></figure>
+    <p>「こじゃんと」が2回続き、文の途中に「にゃあ」という語尾が差し込まれています。他の方言でも同じで、北海道弁では「久しぶりに会えてうれしい。」が「久しぶりだべさ！に会えてうれしい。」になっていました。</p>
+    <p>数えると、日常の文12本×36方言＝432通りのうち、<strong>417通りで、文の途中に定型句が入っていました</strong>。</p>
+
+    <h2 id="mitsuke">3. 見つけ方：全部の組み合わせを並べる</h2>
+    <p>見つけた方法は単純で、文12本と方言36の全部を変換して、結果を並べて読んだだけです。これまでの検査は、辞典の語1つ1つや、クイズの問題1問1問を照合するものでした（クイズ280問の照合、出題プールの検査など）。これらの検査は、直したあとも通っています。つまり、語や問題の単位で見る検査で、文に組み合わせた出力は見ていませんでした。</p>
+    <p>これは僕の読みですが、語や問題の「部品」を検査しても、部品を組み合わせた出力の質は分かりません。1つ目の記事（カバレッジの話）が言っていることと同じ向きだと思います。</p>
+
+    <h2 id="genin">4. 原因と直し方</h2>
+    <p>原因は、診断ゲーム用に用意した「ひとこと」を、変換の語彙としても使っていたことでした。「ありがとう」→「まっことありがとう」のように、そのひとこと（強調語・語尾・感嘆符を含む）を、文の途中でも当てていました。文の途中に当てると、「ありがとね〜ございます」「久しぶりだべさ！に会えて」のように文が壊れます。</p>
+    <p>直した内容は、次の3つです（コード：lib/translate_dict.ts）。</p>
+    <ol>
+      <li>入力が丸ごと、そのひとことのときだけ、方言の言い方をひとこと丸ごと返す</li>
+      <li>文の途中では、語ひとつに収まる言い方（伸ばし記号・感嘆符・読点を含まない、元の語を含まない、元より2字以上長くない）だけを当てる</li>
+      <li>当てる位置は、前後がひらがなで続かないところだけ（「ありがとう|ございます」には当てない）</li>
+    </ol>
+
+    <h2 id="after">5. 直したあとの数字</h2>
+    <p>直したあと、同じ検査をもう一度回しました（2026年11月15日）。文の途中に定型句が入った組は、直す前の417通りから、14件の語ひとつ型（「おおきに」「いかんちや」のような言い方）だけになりました。回帰の検査（文の途中の定型句11文×36方言＝396通りと、単体35方言）も0件です。</p>
+    <p>もう1つ、今日（11月16日）に別の日常文12本×35方言＝420通りを、直す前の版（Gitの履歴の版）と今の版に通して比べました。</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表2：同じ420通りを、直す前の版と今の版に通した結果（2026年11月16日・自分で再計算）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top"></th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">直す前の版</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">今の版</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">文の途中に定型句が入った組</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">140通り</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10通り</td></tr>
+</tbody></table></div>
+<p>表2の420通りのうち、3つの出力を並べます。</p>
+<ul>
+<li>北海道弁「久しぶりに会えてうれしい。」：直す前は「久しぶりだべさ！に会えてうれしい。」、今は「久しぶりに会えてうれしい。」</li>
+<li>大阪弁「今日はとても寒いね。」：直す前は「今日はめっちゃ今日さぶいなあ。」、今は「今日はめっちゃ寒いね。」</li>
+<li>土佐弁「今日はとても寒いね。」：直す前は「今日はこじゃんとこじゃんと寒いちや。」、今は「今日はこじゃんと寒いね。」</li>
+</ul>
+<figure class="pic"><svg viewBox="0 0 340 96" role="img" aria-label="文の途中に定型句が入った組の数。直す前の版は420通り中140通り、今の版は10通り" style="display:block;width:100%;max-width:480px;height:auto"><text x="0" y="17" font-size="15" fill="currentColor">直す前の版</text><rect x="0" y="24" width="87" height="14" rx="3" fill="currentColor" opacity="0.85"/><text x="95" y="36" font-size="15" fill="currentColor">140</text><text x="0" y="63" font-size="15" fill="currentColor">今の版</text><rect x="0" y="70" width="6" height="14" rx="3" fill="currentColor" opacity="0.35"/><text x="14" y="82" font-size="15" fill="currentColor">10</text></svg><figcaption>図2：別の12文×35方言＝420通りでの、文の途中に定型句が入った組の数（2026年11月16日・自分で再計算）</figcaption></figure>
+    <p>表2の12文は、11月15日に使った12文とは別の文です。そのため、140通りと417通りは同じ母数の比べ方ではありません。一方で、壊れ方（強調語の二重化、文途中の語尾・感嘆符）は同じ型でした。なお、方言の一覧のデータは標準語を含む36要素で、方言だけなら35です。11月15日の「36」が標準語を含む数え方だったかどうかは、当時の集計スクリプトが残っておらず確かめていません。</p>
+
+    <h2 id="nokori">6. まだ残っていること</h2>
+    <ul>
+      <li>辞典の複合語（1,638語）×36方言のうち、語句の一部だけが置き換わる組が1,755件あります。「具合が悪い→あんべが悪い」のように意味が通るものが大半と見ていますが、全部は分類していません。</li>
+      <li>方言から標準語への向き（逆方向）の同じ種類の不具合は、まだ調べていません。</li>
+      <li>文の中での置き換わり方が減ったため、変換が変わらない文が増えました（<a href="https://hogen.mainichi-lab.com/blog/hogen-henkan-kawaranai?utm_source=mainichi-lab&amp;utm_medium=read&amp;utm_campaign=dialect-converter-417-of-432-broken">方言変換で文が変わらないのはなぜか</a>に実測を書きました）。読める文を返すほうを選びました。</li>
+    </ul>
+
+    <h2 id="faq">よくある質問</h2>
+    <h3>方言変換ツールで文が壊れるのは、AIが作ったからですか？</h3>
+    <p>この件については、作り方より「組み合わせの出力を見ていなかった」ことが原因でした。診断用のひとことを変換の語彙にも使い、文の途中にも当てる作りで、部品の1つ1つは正しく動いていました。人が書いても起きうる種類の不具合です。</p>
+    <h3>全部の組み合わせを数えるのは、いつでもできますか？</h3>
+    <p>入力と出力の組み合わせが数百〜数千通りなら、できます。今回は12文×36方言の432通りで、数秒で終わりました。組み合わせが数百万通りになる場合は、ランダムに選ぶ方法（別の記事で見たUbieの例）が現実的です。</p>
+    <h3>直したあとは、もう壊れませんか？</h3>
+    <p>ひとこと丸ごとの当て方に起きていた壊れ方は、検査した範囲では0件になりました。ただし、辞典の複合語の一部だけが置き換わる組が1,755件残っていて、まだ分類していません。壊れていないとは言い切れません。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <p><strong>部品の検査が全部通っても、組み合わせた出力は壊れていることがあります。</strong>今回は、432通り中417通りでした。直したあとは、同じ種類の組で140通りから10通りに減りました。</p>
+    <p>次の1アクションは、自分のツールの「入力×設定」の全部の組み合わせを、1度だけ全部出力して、並べて読むことです。数百通りなら、数秒で終わります。</p>
+
+    <h2 id="shuten">出典</h2>
+    <ul>
+      <li>方言ラボ変換ツールの実行結果（2026年11月15日・16日、自社実測）。コミットの記録：hogen-app 382c555（2026年11月15日）</li>
+      <li>Zenn「AIにテストを書かせてカバレッジ100%、それでもバグが出るのはなぜか」（https://zenn.dev/okamyuji/articles/ai-tests-coverage-blindspot ／2026年11月16日に確認）</li>
+      <li>Zenn（Ubie）「組み合わせ爆発に立ち向かうために、AIと“ぶんまわしくん”を作った話」（https://zenn.dev/ubie_dev/articles/032144e69f19a7 ／2026年11月16日に確認）</li>
+      <li>「直す前の版」は、Gitの履歴（コミット ad7140a の lib/translate_dict.ts）を取り出して実行しました</li>
+    </ul>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/audit-own-33-articles-measured"><span class="t">自分の33記事を機械検査にかけた結果（実測）</span></a></li>
+      <li><a class="rl" href="/read/claude-code-secret-scan-measured"><span class="t">Claude Codeに秘密を読ませない設定と、自分の8リポジトリで鍵を探した結果</span></a></li>
+      <li><a class="rl" href="/read/ai-ops-failure-ledger-215"><span class="t">AIに任せた運用で起きた失敗の記録</span></a></li>
+    </ul>
+    </nav>
+
+    <p class="updated">2026年11月16日公開</p>
+    <a class="back" href="/read/">← 読みもの一覧へ</a>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-16">2026年11月16日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>

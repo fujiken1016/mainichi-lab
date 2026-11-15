@@ -6,6 +6,7 @@
 
 ## 実測・検証の記録（サイト運営・計測・SEO）
 
+- [自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた](https://mainichi-lab.com/read/dialect-converter-417-of-432-broken)
 - [個人サイトのGA4、表示回数の17〜42%は本番以外のホストだった（実測）](https://mainichi-lab.com/read/ga4-self-traffic-measured)
 - [個人で9サイトを運営して、検索クリックの84%は1サイトだった（28日間の実測）](https://mainichi-lab.com/read/nine-sites-search-traffic-share)
 - [503を出したあとの実測：登録済みが41から111ページに増えた](https://mainichi-lab.com/read/search-503-recovery-measured)
