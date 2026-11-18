@@ -262,7 +262,12 @@
   </url>
   <url>
     <loc>https://mainichi-lab.com/zeikin-calendar/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mainichi-lab.com/iryohi-selfmed/</loc>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>

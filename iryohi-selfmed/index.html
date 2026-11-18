@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医療費控除とセルフメディケーション税制、どちらが得か計算 | 毎日ラボ</title>
+<meta name="description" content="1年に払った医療費と市販薬の額を入れると、医療費控除とセルフメディケーション税制のどちらが大きいかを比べます。入力は端末の外に送りません。">
+<link rel="canonical" href="https://mainichi-lab.com/iryohi-selfmed/">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="医療費控除とセルフメディケーション税制、どちらが得か計算">
+<meta property="og:description" content="医療費控除とセルフメディケーション税制の控除額を並べて比べる">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mainichi-lab.com/iryohi-selfmed/">
+<meta property="og:image" content="https://mainichi-lab.com/img/home/hero_aigen.webp">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="576">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style>.calc label{display:block;font-weight:700;margin:14px 0 4px}.calc input{width:100%;max-width:320px;min-height:48px;font-size:18px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;box-sizing:border-box}.calc small{display:block;color:var(--sub,#53536b);line-height:1.7;margin-top:4px}.res{margin:20px 0;padding:16px;border:1px solid var(--line);border-radius:10px;line-height:1.9}.res strong{font-size:20px}.cal td,.cal th{padding:12px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);line-height:1.7}.cal{width:100%;border-collapse:collapse}.cal th{white-space:nowrap;font-weight:700}</style>
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)mainichi-lab\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+
+<script src="/oc.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"医療費控除とセルフメディケーション税制、どちらが得か計算 | 毎日ラボ","url":"https://mainichi-lab.com/iryohi-selfmed/","inLanguage":"ja","datePublished":"2026-11-19","dateModified":"2026-11-19"}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span>医療費控除とセルフメディケーション税制</p>
+    <h1>医療費控除とセルフメディケーション税制、どちらが得か</h1>
+    <p class="meta">入力は端末内だけで計算・送信なし・所得控除額を比べます</p>
+    <p>この2つは<strong>どちらか一方しか選べません</strong>（国税庁 No.1129）。1年の医療費と、対象の市販薬の購入額を入れると、それぞれの控除額を並べます。</p>
+    <div class="calc">
+      <label for="med">1年間に払った医療費（円・保険で戻る分は引いた額）</label>
+      <input id="med" type="number" inputmode="numeric" min="0" step="1000" placeholder="例 150000">
+      <small>診察・薬代・通院の交通費など。出産育児一時金や高額療養費などで補てんされた分は引きます（No.1120）。</small>
+      <label for="otc">うち、対象の市販薬（スイッチOTC）の購入額（円）</label>
+      <input id="otc" type="number" inputmode="numeric" min="0" step="1000" placeholder="例 30000">
+      <small>パッケージの識別マークがある薬が対象です。この額は上の医療費にも含めて入れてください。</small>
+      <label for="inc">合計所得金額（円・給与なら給与所得控除後の額）</label>
+      <input id="inc" type="number" inputmode="numeric" min="0" step="10000" placeholder="例 4000000">
+      <small>200万円未満だと医療費控除の引く額が「10万円」でなく「所得の5%」になります。</small>
+    </div>
+    <div class="res" id="res" aria-live="polite">金額を入れると結果が出ます。</div>
+    <h2>計算のしくみ</h2>
+    <table class="cal"><tbody>
+      <tr><th scope="row">医療費控除</th><td>（払った医療費 − 保険等の補てん）− 10万円（所得200万円未満は所得の5%）。上限200万円。</td></tr>
+      <tr><th scope="row">セルフメディケーション</th><td>対象の市販薬の購入額 − 1万2千円。上限8万8千円。</td></tr>
+      <tr><th scope="row">使える条件</th><td>後者は本人が、その年に健康診断・予防接種・特定健診などの「一定の取組」をしていることが条件です。</td></tr>
+      <tr><th scope="row">選び直し</th><td>いったん選ぶと、更正の請求や修正申告でも変えられません。</td></tr>
+    </tbody></table>
+    <p>ここで出るのは<strong>所得から引ける額</strong>です。戻るお金は、この額に自分の税率（所得税5〜45%＋住民税10%）をかけた目安になります。ふるさと納税のワンストップ特例を使っている人は、確定申告をすると特例が効かなくなる点にも注意してください。</p>
+    <h2>関連するツール</h2>
+    <p><a href="/zeikin-calendar/">税カレンダー（12月〜3月）を.icsで入れる</a></p>
+    <p><a href="/nencho-shorui/">年末調整で出す書類はどれ？</a></p>
+    <h2 id="src">出典</h2>
+    <ul class="srcs" style="list-style:none;padding-left:0">
+      <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm">国税庁 タックスアンサー No.1120 医療費を支払ったとき（医療費控除）</a></li>
+      <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1129.htm">国税庁 タックスアンサー No.1129 特定一般用医薬品等購入費を支払ったとき（医療費控除の特例）</a></li>
+    </ul>
+    <p class="disc">2026年11月19日に国税庁の2ページを読んで作った目安です。適用できる年分や対象の薬は、申告する年の国税庁の案内で確かめてください。個別の税務判断は税務署か税理士へ。運営：フジケン（個人事業主）。</p>
+  </div>
+</main>
+<script>
+(function(){
+  var f=function(n){return n.toLocaleString('ja-JP')+'円'};
+  var el=function(i){return document.getElementById(i)};
+  function run(){
+    var med=Math.max(0,+el('med').value||0), otc=Math.max(0,+el('otc').value||0), inc=Math.max(0,+el('inc').value||0);
+    var out=el('res');
+    if(!med&&!otc){out.textContent='金額を入れると結果が出ます。';return;}
+    if(otc>med){med=otc;}
+    var th=inc>0&&inc<2000000?inc*0.05:100000;
+    var a=Math.min(2000000,Math.max(0,med-th));
+    var b=Math.min(88000,Math.max(0,otc-12000));
+    var win=a>b?'医療費控除':(b>a?'セルフメディケーション税制':'同じ');
+    var h='医療費控除：<strong>'+f(Math.floor(a))+'</strong>（引く額 '+f(Math.floor(th))+'）<br>セルフメディケーション：<strong>'+f(b)+'</strong>（引く額 1万2千円）<br>';
+    if(a===0&&b===0){h+='どちらも控除額は0円です。';}
+    else if(win==='同じ'){h+='控除額は同じです。取組要件が要らない医療費控除のほうが手間は少ない目安です。';}
+    else{h+='大きいのは<strong>'+win+'</strong>です。';if(win==='セルフメディケーション税制')h+='健康診断や予防接種などの取組をその年にしていることが前提です。';}
+    h+='<br>所得税10%の人なら、戻る額の目安は上の額の約2割（所得税10%＋住民税10%）です。';
+    out.innerHTML=h;
+  }
+  ['med','otc','inc'].forEach(function(i){el(i).addEventListener('input',run)});
+})();
+</script>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-19">2026年11月19日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
