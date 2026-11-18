@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ローカルSDXLで塗り絵の線画を234枚作り、使えたのは48枚だった（実測） | 毎日ラボ</title>
+<meta name="description" content="ローカルのStable Diffusion XLで塗り絵の線画を作り、1冊ぶん合計234枚を生成して、本に使えたのは48枚（約2割）でした。回ごとの採用率、落ちた理由、プロンプトを短くしたら採用が1枚から12枚に増えた比較を載せました。">
+<link rel="canonical" href="https://mainichi-lab.com/read/sdxl-nurie-budomari">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="ローカルSDXLで塗り絵の線画を234枚作り、使えたのは48枚だった（実測）">
+<meta property="og:description" content="234枚生成して採用48枚。プロンプトを短くしたら、45枚中の採用が1枚から12枚に増えました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/sdxl-nurie-budomari">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/sdxl-nurie-budomari/hero_own.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/sdxl-nurie-budomari/hero_own.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+.tscroll::before{content:"表は横にスクロールできます →";display:block;font-size:.875rem;line-height:1.8;color:var(--sub)}
+@media(min-width:640px){.tscroll::before{display:none}}
+.prose .tscroll td,.prose .tscroll th[scope=col]{white-space:nowrap}
+.prose .tscroll th[scope=row]{min-width:12em}
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/sdxl-nurie-budomari/hero_own.webp", "headline": "ローカルSDXLで塗り絵の線画を234枚作り、使えたのは48枚だった（実測）", "description": "ローカルのStable Diffusion XLで塗り絵の線画を作り、1冊ぶん合計234枚を生成して、本に使えたのは48枚（約2割）でした。回ごとの採用率、落ちた理由、プロンプトを短くしたら採用が1枚から12枚に増えた比較を載せました。", "inLanguage": "ja", "datePublished": "2026-11-18T10:00:00+09:00", "dateModified": "2026-11-18T10:00:00+09:00", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about"}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/sdxl-nurie-budomari"}, "url": "https://mainichi-lab.com/read/sdxl-nurie-budomari"}</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "ローカルSDXLで塗り絵の線画を234枚作り、使えたのは48枚だった（実測）", "item": "https://mainichi-lab.com/read/sdxl-nurie-budomari"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>SDXLの塗り絵の歩留まり</p>
+
+    <h1>ローカルSDXLで塗り絵の線画を234枚作り、使えたのは48枚だった（実測）</h1>
+    <p class="meta">2026年11月18日 ／ フジケン</p>
+
+    <figure class="pic top">
+      <img src="/read/img/sdxl-nurie-budomari/hero_own.webp" width="1280" height="720" alt="回ごとの採用率の横棒グラフ。1回目は97枚中33枚、2回目は6枚中0枚、3回目は90枚中13枚、4回目は8枚中2枚、5回目は33枚中2枚" fetchpriority="high">
+      <figcaption>図1：猫の塗り絵1冊ぶんの線画を作った5回の、生成枚数と採用枚数（※筆者の実測）</figcaption>
+    </figure>
+    <p>画像生成AIで塗り絵を作る記事は、プロンプトの例はたくさん載っていますが、「何枚作って、何枚使えたか」はほとんど書かれていません。僕は自分のパソコンでStable Diffusion XL（SDXL）を動かして、Amazonで出す塗り絵の本1冊ぶん、48点の線画を作りました。</p>
+    <p>この記事では、生成した234枚を1枚ずつ数えて、回ごとの採用率、落ちた理由、プロンプトの書き方で採用率がどれだけ変わったかを表にしました。同じ機材で作った前の2冊で、AIの絵を1点も使えなかった経緯も書いています。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#ketsuron">1. 先に結論：234枚作って、本に残ったのは48枚</a></li>
+        <li><a href="#hoka">2. ほかの記事は何を書いているか</a></li>
+        <li><a href="#joken">3. 使った機材と設定</a></li>
+        <li><a href="#kaigoto">4. 回ごとの採用率</a></li>
+        <li><a href="#prompt">5. プロンプトを短くしたら、採用が1枚から12枚に増えた</a></li>
+        <li><a href="#fusaiyo">6. 不採用にした絵の型</a></li>
+        <li><a href="#mae">7. 前の2冊では、AIの絵を1点も使えなかった</a></li>
+        <li><a href="#jikan">8. 時間はどれくらいかかったか</a></li>
+        <li><a href="#kdp">9. KDPで出すときのAIの申告</a></li>
+        <li><a href="#matome">まとめ</a></li>
+        <li><a href="#shuten">出典</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="ketsuron">1. 先に結論：234枚作って、本に残ったのは48枚</h2>
+    <p><strong>ローカルのSDXLで塗り絵の線画を234枚作り、本に使ったのは48枚、約2割でした（2026年11月13日時点・筆者の実測）。</strong>採用率は回ごとに大きく違い、作りやすい題材から先に埋まるので、後の回ほど下がりました。</p>
+    <ul>
+      <li>1回目は97枚中33枚（34%）、残った難しい題材を作った3回目は90枚中13枚（14%）</li>
+      <li>場面を細かく書いたプロンプトは45枚中1枚、猫1匹と物1つに短くしたプロンプトは45枚中12枚が採用</li>
+      <li>柏餅は21枚作っても1枚も形にならず、題のほうを絵に合わせて変えた</li>
+      <li>ほかの処理と重ならなければ1枚約32秒、234枚で約2時間の計算</li>
+    </ul>
+
+    <h2 id="hoka">2. ほかの記事は何を書いているか</h2>
+    <p><strong>僕が開いた範囲では、塗り絵の線画を何枚作って何枚使えたかという数字を載せた記事は見つかりませんでした。</strong>開いたのは次の3つです（いずれも2026年11月14日に確認）。</p>
+    <ul>
+      <li>DEV Communityの体験記は、線が薄すぎる・描き込みが多すぎる・黒い部分が出る・線の太さがそろわない、という失敗の型を挙げていますが、件数や割合は書かれていません</li>
+      <li>toolnavsのツール紹介は、SDXLを使った塗り絵生成サービスを、基本情報・機能・料金・FAQの順で説明しています。表と生成結果の数字はありません</li>
+      <li>OpenArtのブログは、塗り絵用のプロンプト例をまとめた記事ですが、取得できた本文には採用率の数字はありませんでした</li>
+    </ul>
+    <p>そこで僕は、失敗の型を挙げるだけでなく、その型が何枚中何枚だったかを、手元に残っている画像ファイルを数えて出しました。プロンプトの原文も載せています。</p>
+
+    <h2 id="joken">3. 使った機材と設定</h2>
+    <p><strong>自分のパソコン（Apple M系のMac・メモリ24GB）で、ComfyUIというソフトからSDXLを動かしました。</strong>ネットの有料サービスは使っていないので、生成の費用は電気代だけです。</p>
+    <ul>
+      <li>モデル：Juggernaut-XL v9 に、SDXL Lightning（8ステップ版）を組み合わせ</li>
+      <li>設定：8ステップ、CFG 2.3、サンプラー euler、画像の大きさは横896×縦1,088ピクセル</li>
+      <li>後処理：自作のスクリプトで白黒の2値にして、線を太くし、小さな点を消す</li>
+      <li>選び方：2値にした絵を1枚ずつ目で見て、題ごとに1枚を選ぶ</li>
+    </ul>
+    <p>全部の絵に共通で付けたプロンプトは、次の2つです。上が描いてほしいこと（positive）、下が描いてほしくないこと（negative）です。</p>
+    <ul>
+      <li>positive：simple black and white coloring page for toddlers, cute cartoon cat, very bold thick black outlines, flat white fill, no shading, no gray, no fur texture, few large shapes, clean vector line drawing, plain white background, centered, wide margin</li>
+      <li>negative：color, shading, gray, texture, fur detail, realistic, photo, 3d, text, people, hands, background scenery, black cat, solid black, silhouette, deformed, extra legs, extra tails, two cats, multiple cats（抜粋）</li>
+    </ul>
+
+    <h2 id="kaigoto">4. 回ごとの採用率</h2>
+    <p><strong>48点そろえるまでに5回に分けて作り、採用率は34%から0%まで動きました。</strong>枚数は、手元の各フォルダに残っている画像ファイルを数えた値です。</p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表1：回ごとの生成枚数と採用枚数（※筆者の実測・2026年11月3日〜13日時点・枚数は手元に残っている画像ファイルの数）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">回</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">日付</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">生成</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">採用</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">採用率</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1回目：48題材を各2〜3種</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11月3日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">97枚</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">33枚</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">34%</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">2回目：足りない題材を追加</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11月6日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">6枚</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0枚</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">0%</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">3回目：残り15題材を各6種</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11月13日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">90枚</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">13枚</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">14%</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">4回目：2題材を作り直し</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11月13日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">8枚</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2枚</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">25%</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">5回目：2枚の差し替え</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">11月13日</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">33枚</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2枚</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">6%</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">合計</th><td style="padding:8px 8px 8px 0;vertical-align:top">—</td><td style="padding:8px 8px 8px 0;vertical-align:top">234枚</td><td style="padding:8px 8px 8px 0;vertical-align:top">50枚（本に残ったのは48枚）</td><td style="padding:8px 0 8px 8px;vertical-align:top">21%</td></tr></tbody></table></div>
+    <p>1回目で48題材のうち33題材が埋まりました。2回目は、ほかの画像生成と同時に動かしてしまい、1枚2〜3分かかったので6枚で止めています。3回目は残りの15題材を各6種作り、4回目と5回目は、見直しで弱かった絵の作り直しです。</p>
+    <p>合計の採用は50枚ですが、5回目の2枚は前の絵と入れ替えたので、本に残ったのは48枚です。234枚に対して、本に残った割合は20.5%になります。</p>
+    <p>後の回ほど採用率が下がったのは、作りやすい題材が1回目で先に埋まり、残ったのが「何度作っても形にならない題材」だったからだと僕は見ています。最初の回の採用率で、全体の時間を見積もると足りなくなります。</p>
+
+    <h2 id="prompt">5. プロンプトを短くしたら、採用が1枚から12枚に増えた</h2>
+    <p><strong>3回目の90枚は、同じ15題材を2通りのプロンプトで半分ずつ作りました。場面を細かく書いた方は45枚中1枚、猫1匹と物1つだけにした方は45枚中12枚が採用でした。</strong></p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表2：3回目の90枚を、プロンプトの書き方で分けた結果（※筆者の実測・2026年11月13日時点）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">プロンプト</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">例（「傘と猫」の題材）</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">生成</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">採用</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">採用率</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">A：元の題（場面を細かく書く）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">one cat under a big umbrella, a small frog sitting on a lily pad leaf nearby</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">45枚</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1枚</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">2%</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">B：短くした題（猫1匹＋物1つ）</th><td style="padding:8px 8px 8px 0;vertical-align:top">one cat sitting under a big umbrella</td><td style="padding:8px 8px 8px 0;vertical-align:top">45枚</td><td style="padding:8px 8px 8px 0;vertical-align:top">12枚</td><td style="padding:8px 0 8px 8px;vertical-align:top">27%</td></tr></tbody></table></div>
+    <p>種（seed）と枚数はそろえていて、違うのは題の書き方だけです。ただし、題材15個は、1回目と2回目で採用できなかった難しいものばかりなので、この差がほかの題材でも同じになるかは測っていません。</p>
+    <p>カエルや桜の花びらのように、小さな物を足すほど、SDXLは物を増やしたり、猫を隅に寄せたりしました。塗り絵では、線で囲まれた大きな面がいくつかあれば十分なので、題は「猫が1匹、何かの横に座っている」まで削ったほうが通りました。</p>
+
+    <h2 id="fusaiyo">6. 不採用にした絵の型</h2>
+    <p><strong>落とした絵は、ほぼ次の5つの型に分かれました。</strong>型ごとの件数は記録していないので、割合は出していません。</p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表5：不採用にした絵の型と、プロンプトで打った手（※筆者の記録・件数は数えていない）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">不採用の型</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">見た目</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">打った手</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">猫の顔や足が崩れる</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">前足が人の腕のようになる</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">negativeに deformed, extra legs, extra tails を入れる</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">黒く塗りつぶされる</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">黒猫、影が黒い塊になる</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">black cat, solid black, silhouette をnegativeへ</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">色・毛並み・写真の質感が残る</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">彩色、毛の描き込み、3D調</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">flat white fill, no fur texture を書き、2値化で灰色を落とす</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">猫が多い・隅にいる</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">猫が2〜3匹、題材だけが真ん中</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">two cats, multiple cats をnegativeへ、centered を書く</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">題材が出てこない</th><td style="padding:8px 8px 8px 0;vertical-align:top">柏餅が葉っぱだけ、猫が餅に化ける</td><td style="padding:8px 0 8px 8px;vertical-align:top">21枚試して出ず、題のほうを絵に合わせて変えた</td></tr></tbody></table></div>
+    <figure class="pic">
+      <img src="/read/img/sdxl-nurie-budomari/body_samples.webp" width="1280" height="396" alt="SDXLで作った塗り絵の下絵4枚。左から、採用した猫とかぼちゃ、かぼちゃが2つで小さい絵、毛並みが描き込まれて色が残った絵、柏餅のつもりが大きな葉と皿の写真調になった絵" loading="lazy">
+      <figcaption>図2：5回目に作った候補の一部。左端だけ採用し、残り3枚は不採用（※2値にする前の画像。筆者の生成）</figcaption>
+    </figure>
+    <p>図2の右端は、柏餅を描かせたつもりの1枚です。葉で包んだ餅は、言い方を変えて21枚作っても1枚も出ず、最後は「お盆に丸いお餅3つと葉」の絵を選び、題を「柏餅と猫」から「お餅と猫」に変えました。ほかにも5題材で、題のほうを絵に合わせて直しています。</p>
+    <p>出ない題材にこだわって枚数を重ねるより、題を絵に寄せたほうが早い、というのが今回いちばん時間を取られたところの結論です。</p>
+
+    <h2 id="mae">7. 前の2冊では、AIの絵を1点も使えなかった</h2>
+    <p><strong>同じ機材で、先に塗り絵の本を2冊作っていますが、どちらの本にもAIの絵は1点も入っていません。</strong></p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表3：同じ機材で作った塗り絵の本3冊の、絵の作り方（※筆者の記録・2026年11月14日時点）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">本</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">絵の点数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">作り方</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">AIの絵の採用</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1冊目：昭和の暮らし</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">36点</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">SDXLで73枚を作り24点を選んだが、品質不足で差し戻し。作り直しの約30枚も不採用。最後は全点をプログラムで描いた図形に置き換えた</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">0点</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">2冊目：季節の花</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">36点</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">最初からプログラムで描いた図形</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">0点（使っていない）</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">3冊目：猫と季節</th><td style="padding:8px 8px 8px 0;vertical-align:top">48点</td><td style="padding:8px 8px 8px 0;vertical-align:top">SDXLで234枚を作り、2値化して目視で選んだ</td><td style="padding:8px 0 8px 8px;vertical-align:top">48点</td></tr></tbody></table></div>
+    <p>1冊目では、SDXLに線画を直接描かせると細かすぎて線が太くならず、黒い塊や写真のような絵になりました。カラーの絵を作らせて、色の境目を太い線にする方法で73枚から24点を選びましたが、線の途切れや荒れが絵ごとに出て、見直しで差し戻しになりました。</p>
+    <p>最後は、図形をプログラムで描く方法に切り替えています。この方法だと線が途切れず、塗る面が必ず閉じます。3冊目で猫を題材にしたのは、売れている塗り絵に動物ものが多いからで、動物の自然な形はプログラムの図形では出しにくいため、もう一度SDXLに戻しました。</p>
+
+    <h2 id="jikan">8. 時間はどれくらいかかったか</h2>
+    <p><strong>ほかの処理と重ならなければ、1枚は約32秒でした。234枚なら約2時間の計算です。</strong></p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表4：生成にかかった時間（※筆者の実測・2026年10月〜11月時点）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">条件</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">1枚あたり</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">234枚にすると（計算）</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ほかの処理と重ならないとき（2枚目以降）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">約32秒</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">約2時間</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1冊目の線画を作ったときの記録</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">約72〜100秒</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">約4.7〜6.5時間</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;vertical-align:top;font-weight:700">画像生成を2つ同時に動かしてメモリが足りないとき</th><td style="padding:8px 8px 8px 0;vertical-align:top">約2〜3分</td><td style="padding:8px 0 8px 8px;vertical-align:top">約7.8〜11.7時間</td></tr></tbody></table></div>
+    <p>時間の差がいちばん大きかったのは、画像生成を2つ同時に動かしたときです。メモリが足りなくなり、1枚が2〜3分まで遅くなりました。生成は1つずつ順番に回したほうが、合計では早く終わります。</p>
+    <p>生成の時間とは別に、234枚を目で見て選ぶ時間がかかります。この時間は計っていませんが、題ごとに候補を1枚の一覧にまとめて並べると、見比べるのが楽になりました。</p>
+
+    <h2 id="kdp">9. KDPで出すときのAIの申告</h2>
+    <p><strong>AmazonのKDPでは、AIで作った画像を本文に使うと、出版するときに申告が必要です。</strong>KDPのコンテンツガイドラインでは、表紙・本文の画像・アートワークをAIツールで作った場合は「AI生成」で、あとで大きく手直ししても申告の対象のままです（2026年11月14日に確認）。</p>
+    <p>一方で、自分で作った物をAIで直しただけの「AIアシスト」は、申告は要りません。この記事の3冊目は、絵をSDXLが作っているので「AI生成」にあたります。2値にする後処理や、目で選ぶ作業をしても、扱いは変わりません。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <p>ローカルのSDXLで塗り絵の線画を作った結果を、数字でまとめます。</p>
+    <ul>
+      <li>生成した234枚のうち、本に残ったのは48枚（20.5%）</li>
+      <li>採用率は1回目の34%から、残った難しい題材では14%以下に下がった</li>
+      <li>プロンプトを「猫1匹と物1つ」に短くすると、45枚中の採用が1枚から12枚に増えた</li>
+      <li>形にならない題材は、枚数を重ねるより題を絵に合わせたほうが早かった</li>
+      <li>1枚約32秒。生成を2つ同時に動かすと2〜3分に遅くなった</li>
+    </ul>
+    <p>次の1アクションは、作りたい題材を書き出したら、まず各2枚ずつだけ作ってみて、1枚も通らない題材を早めに見つけることです。そこで題を短くするか、別の題材に替えるかを決めると、後の回で時間を取られません。</p>
+
+    <h2 id="shuten">出典</h2>
+    <ul>
+      <li>Amazon KDP「コンテンツ ガイドライン」（https://kdp.amazon.co.jp/ja_JP/help/topic/G200672390 ／2026年11月14日に確認）：AI生成コンテンツとAIアシストコンテンツの区別と、申告が必要な範囲</li>
+      <li>DEV Community「How AI is Transforming Coloring Page Generation」（https://dev.to/wolve_kansu_15b695ed036a8/how-ai-is-transforming-coloring-page-generation-from-stable-diffusion-to-personalized-art-30j4 ／2026年11月14日に確認）：塗り絵生成で出やすい失敗の型</li>
+      <li>toolnavs「AIColoringPages.net」の紹介記事（toolnavs.com 内の記事 ／2026年11月14日に確認）：SDXLを使った塗り絵生成サービスの説明</li>
+      <li>OpenArt「塗り絵のためのStable Diffusionプロンプト」（https://openart.ai/ja/burogu/kiji/tu-rihui-notamenostable-diffusionpuronputo ／2026年11月14日に確認）</li>
+      <li>生成枚数・採用枚数・時間・プロンプトはすべて筆者の実測と記録（2026年10月〜11月13日）。枚数は手元に残っている画像ファイルを数えた値で、途中で消した試し描きは含まない</li>
+    </ul>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/free-ai-image-tools-same-prompt"><img class="rt" src="/read/img/free-ai-image-tools-same-prompt/thumb_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ブログの挿絵を無料で作れるAI画像生成、10手段を同じお題で試した（実測）</span></a></li>
+      <li><a class="rl" href="/read/kdp-paperback-specs-measured"><img class="rt" src="/read/img/kdp-paperback-specs-measured/body_aigen.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">KDPのペーパーバックを自作の組版で入稿した実測：余白・背幅・表紙の数字</span></a></li>
+    </ul>
+    </nav>
+
+    <p class="updated">2026年11月18日公開</p>
+    <a class="back" href="/read/">← 読みもの一覧へ</a>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-18">2026年11月18日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
