@@ -21,7 +21,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
 <script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/lessons-building-apps/hero_aigen.webp","headline":"学習アプリを個人で5つ作って分かった、UIの失敗5つ","description":"正しい手が「不正解」になるバグ、0.8秒で消える大事な表示、指で押せないボタン。個人開発でWebツールを5つ公開する過程で実際に出したUIの失敗と、そこから決めた自分用のルールを具体的に書きました。","inLanguage":"ja","datePublished":"2026-08-13T15:45:35+09:00","dateModified":"2026-11-16","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/lessons-building-apps"},"url":"https://mainichi-lab.com/read/lessons-building-apps"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/lessons-building-apps/hero_aigen.webp","headline":"学習アプリを個人で5つ作って分かった、UIの失敗5つ","description":"正しい手が「不正解」になるバグ、0.8秒で消える大事な表示、指で押せないボタン。個人開発でWebツールを5つ公開する過程で実際に出したUIの失敗と、そこから決めた自分用のルールを具体的に書きました。","inLanguage":"ja","datePublished":"2026-08-13T15:45:35+09:00","dateModified":"2026-11-23","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about","sameAs":["https://note.com/fujiken818","https://qiita.com/fujiken818","https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/lessons-building-apps"},"url":"https://mainichi-lab.com/read/lessons-building-apps"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"UIの失敗5つ","item":"https://mainichi-lab.com/read/lessons-building-apps"}]}
 </script>
@@ -91,6 +91,7 @@
     <h2>失敗5：ハッピーパスしかテストしていなかった</h2>
     <p>自分でテストするとき、無意識に「正しい順番で、最後まで、素直に」操作します。実際のユーザーはそうしません。アニメーションの途中で別の画面に移動するし、設定を途中で変えるし、答えを2回タップするし、そもそも途中でブラウザを閉じます。</p>
     <p>失敗1のバグも、突き詰めれば「アニメーションの途中で画面を切り替える」という中断パスを試していなかったから見つからなかったものです。今は新しい機能を足したら、わざと次の操作を試すようにしています。途中で離脱する、連続でタップする、途中で設定を変える、戻るボタンを押す。</p>
+    <p>見逃すのは画面の操作だけではありません。自作の方言変換ツールを全部の組み合わせで数えたら、432通り中417通りで文が壊れていた、という記録は<a href="/read/dialect-converter-417-of-432-broken">こちらの読みもの</a>に書きました。</p>
     <p>あわせて、<strong>「画面に表示されている内容と、内部で持っている状態は常に一致している」</strong>という条件だけはテストとして書き残すようにしました。細かいテストをたくさん書くより、この1本があるほうが効きます。</p>
 
     <h2>ひとりで作ることについて</h2>
@@ -113,7 +114,7 @@
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-11-16">2026年11月16日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-11-23">2026年11月23日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>

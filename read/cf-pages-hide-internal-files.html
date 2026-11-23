@@ -26,7 +26,7 @@
   gtag('js', new Date());
   gtag('config', 'G-XRJ40EFR6C');
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp", "headline": "Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）", "description": "個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。", "inLanguage": "ja", "datePublished": "2026-11-10T10:00:00+09:00", "dateModified": "2026-11-16", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}, "url": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/cf-pages-hide-internal-files/hero_aigen.webp","headline":"Cloudflare Pagesで内部ファイルを404にする方法、6通り試して効いたのは1つ（実測）","description":"個人で運営する9サイトを点検したら、READMEや運用メモが20ファイル、URLを打てば読める状態でした。Cloudflare Pagesで_redirects・ドット付きフォルダ・無視リストなど6通りを本番で試し、404にできたのはPages Functionsのミドルウェアだけだった記録を、観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-10T10:00:00+09:00","dateModified":"2026-11-23","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about","sameAs":["https://note.com/fujiken818","https://qiita.com/fujiken818","https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/cf-pages-hide-internal-files"},"url":"https://mainichi-lab.com/read/cf-pages-hide-internal-files"}</script>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "Cloudflare Pagesで内部ファイルを404にする", "item": "https://mainichi-lab.com/read/cf-pages-hide-internal-files"}]}
 </script>
@@ -182,6 +182,7 @@ export async function onRequest(context) {
       <li><code>vercel.json</code>、<code>.gitignore</code>、<code>package.json</code>（設定ファイルの確認）</li>
     </ul>
     <p>結果は9サイト×9パス＝81件がすべて404で、各サイトのトップページは9件とも200でした。2026年9月17日の点検（9サイト×8パス＝72件がすべて404）から、後戻りはありませんでした。</p>
+    <p>ここで測ったのは「中身が見えるか」で、ファイルの中に鍵そのものが入っていないかは別の点検です。自分の8つのリポジトリで鍵を探した結果は、<a href="/read/claude-code-secret-scan-measured">Claude Codeに秘密を読ませない設定と、自分の8リポジトリで鍵を探した結果</a>に書きました。</p>
 
     <h2 id="limit">8. この記録の限界</h2>
     <ul>
@@ -213,7 +214,7 @@ export async function onRequest(context) {
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-10">2026年11月10日</time>　最終更新：<time datetime="2026-11-16">2026年11月16日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-10">2026年11月10日</time>　最終更新：<time datetime="2026-11-23">2026年11月23日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
