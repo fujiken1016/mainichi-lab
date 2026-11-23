@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10kmの記録からフルマラソンの予想タイム：Riegel式の表と、フルで外れやすい理由 | 毎日ラボ</title>
+<meta name="description" content="10kmの記録からハーフとフルの予想タイムを出すRiegel式の換算表です。10km 50分ならフルは3時間50分、距離比だけだと19分速くなります。市民ランナー2,303人の研究で分かった、フルで外れやすい点も紹介します。">
+<link rel="canonical" href="https://mainichi-lab.com/read/10km-to-marathon-predicted-time">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="10kmの記録からフルマラソンの予想タイム：Riegel式の表と、フルで外れやすい理由">
+<meta property="og:description" content="10km 50:00のフルはRiegel式で3:50:01。距離比の掛け算だと3:30:59で、約19分速くなります。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mainichi-lab.com/read/10km-to-marathon-predicted-time">
+<meta property="og:image" content="https://mainichi-lab.com/read/img/10km-to-marathon-predicted-time/hero_own.webp">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mainichi-lab.com/read/img/10km-to-marathon-predicted-time/hero_own.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style id="read-visual">
+.tscroll::before{content:"表は横にスクロールできます →";display:block;font-size:.875rem;line-height:1.8;color:var(--sub)}
+@media(min-width:640px){.tscroll::before{display:none}}
+.prose .tscroll td,.prose .tscroll th[scope=col]{white-space:nowrap}
+.prose .tscroll th[scope=row]{min-width:12em}
+:root{--shadow-sm:0 1px 2px rgba(23,23,34,.06),0 1px 3px rgba(23,23,34,.10)}
+.prose h1{font-size:1.875rem;line-height:1.4;margin:22px 0 12px}
+.prose>h2{font-size:1.375rem;line-height:1.4;margin:52px 0 12px;padding-top:0}
+.prose>h2::before{content:"";display:block;width:32px;height:4px;border-radius:4px;background:var(--accent);margin-bottom:12px}
+.prose>p{margin-top:1.25rem}
+.prose>h3{font-size:1.1875rem;line-height:1.4;margin:32px 0 8px}
+.prose figure.pic{margin:20px 0 24px}
+.prose figure.pic.top{margin:16px 0 24px}
+.prose figure.pic img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow-sm);background:var(--accent-soft)}
+.prose figure.pic figcaption{font-size:.9375rem;line-height:1.85;color:var(--sub);margin-top:8px}
+.prose nav[aria-label="目次"]{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 20px 10px;margin:28px 0 8px}
+.prose nav[aria-label="目次"] h2{font-size:1.375rem;line-height:1.4;margin:12px 0 0}
+.prose nav.related-posts ul.post-list{padding-left:0}
+.prose nav.related-posts li a.rl{position:relative;min-height:79px;padding:15px 0 15px 128px}
+.prose nav.related-posts .rt{position:absolute;left:0;top:15px;width:112px;height:63px;border-radius:8px;object-fit:cover}
+@media(prefers-color-scheme:dark){.prose figure.pic img,.prose nav.related-posts .rt{filter:brightness(.88)}}
+.prose h1,.prose h2,.prose h3,.prose p,.prose li,.prose a,.prose figcaption{word-break:auto-phrase}
+.prose h1,.prose h2,.prose h3{text-wrap:balance}
+.prose p,.prose li,.prose td,.prose th,.prose figcaption{text-wrap:pretty}
+.prose th,.prose nav li a{text-wrap:balance}
+@media(min-width:1024px){.prose td{text-wrap:balance}}
+.prose td{overflow-wrap:anywhere;word-break:auto-phrase}
+.prose th{overflow-wrap:anywhere;word-break:auto-phrase}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "image": "https://mainichi-lab.com/read/img/10km-to-marathon-predicted-time/hero_own.webp", "headline": "10kmの記録からフルマラソンの予想タイム：Riegel式の表と、フルで外れやすい理由", "description": "10kmの記録からハーフとフルの予想タイムを出すRiegel式の換算表です。10km 50分ならフルは3時間50分、距離比だけだと19分速くなります。市民ランナー2,303人の研究で分かった、フルで外れやすい点も紹介します。", "inLanguage": "ja", "datePublished": "2026-11-23T10:00:00+09:00", "dateModified": "2026-11-23", "author": {"@type": "Person", "name": "フジケン", "url": "https://mainichi-lab.com/about"}, "publisher": {"@type": "Organization", "name": "毎日ラボ", "url": "https://mainichi-lab.com/"}, "isAccessibleForFree": true, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mainichi-lab.com/read/10km-to-marathon-predicted-time"}, "url": "https://mainichi-lab.com/read/10km-to-marathon-predicted-time"}</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "毎日ラボ", "item": "https://mainichi-lab.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://mainichi-lab.com/read/"}, {"@type": "ListItem", "position": 3, "name": "10kmの記録からフルマラソンの予想タイム：Riegel式の表と、フルで外れやすい理由", "item": "https://mainichi-lab.com/read/10km-to-marathon-predicted-time"}]}
+</script>
+<script src="/oc.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/" aria-current="page">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span><a href="/read/">読みもの</a><span>›</span>10kmからフルの予想タイム</p>
+
+    <h1>10kmの記録からフルマラソンの予想タイム：Riegel式の表と、フルで外れやすい理由</h1>
+    <p class="meta">2026年11月23日 ／ フジケン</p>
+
+<figure class="pic top">
+      <img src="/read/img/10km-to-marathon-predicted-time/hero_own.webp" width="1280" height="720" alt="10kmを50分で走る人のフルの予想タイムの3通りの計算。距離比で単純に掛けると3時間30分58秒、Riegel式の指数1.06では3時間50分01秒、指数1.07では3時間53分21秒" fetchpriority="high">
+      <figcaption>図1：10kmが50:00の人のフルの予想タイム（※筆者の計算）</figcaption>
+    </figure>
+    <p>10kmの記録から、フルマラソンのタイムを予想する計算式があります。10kmのタイムを4.2倍すれば済みそうに見えますが、それでは速すぎる数字が出ます。</p>
+    <p>この記事では、よく使われるRiegel（リーゲル）式の計算表を載せました。あわせて、この式がフルで外れやすいことを調べた研究の結果も、表と数字で紹介します。</p>
+
+    <nav class="related-posts" aria-label="目次">
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#ketsuron">1. 先に結論：10km 50分のフルは、距離比で3:31、Riegel式で3:50</a></li>
+        <li><a href="#hoka">2. ほかの予想ページは何を載せているか</a></li>
+        <li><a href="#shiki">3. Riegel式の中身</a></li>
+        <li><a href="#hyo1">4. 10kmの記録から、ハーフとフルの予想</a></li>
+        <li><a href="#hyo2">5. ハーフの記録から、フルの予想</a></li>
+        <li><a href="#hazure">6. フルで外れやすい理由を調べた研究</a></li>
+        <li><a href="#tsukau">7. 予想タイムの使い方</a></li>
+        <li><a href="#matome">まとめ</a></li>
+        <li><a href="#shuten">出典</a></li>
+      </ul>
+    </nav>
+
+
+    <h2 id="ketsuron">1. 先に結論：10km 50分のフルは、距離比で3:31、Riegel式で3:50</h2>
+    <p><strong>10kmの記録からフルを出すとき、距離比（4.2195倍）だけで掛けると、Riegel式より約19分速い数字になります。</strong>10kmが50:00なら、距離比は3:30:59、Riegel式（指数1.06）は3:50:01です（表1の値）。</p>
+    <ul>
+      <li>Riegel式は、T2＝T1×（D2÷D1）の1.06乗で、1981年の論文が出典です</li>
+      <li>Vickers らは、2,303人の市民ランナーの調査で、フルは式の予想より10分以上遅い人が約半数だったと報告しています</li>
+      <li>指数を1.06から1.07に変えても、フルの予想は3分前後しか動きません（表3の値）</li>
+    </ul>
+
+    <h2 id="hoka">2. ほかの予想ページは何を載せているか</h2>
+    <p><strong>僕が開いた範囲では、予想ページは式と換算表を載せ、初マラソンは10〜15%の余裕を見るよう勧めていました。</strong>ランニング用計算サイト「rundida」のレースタイム予測ページは、指数1.06の式と、10Kからハーフ・フルへの換算例を載せています。10K→フルの信頼性は「中程度」とも書いています（2026年11月23日に確認）。</p>
+    <p>そのページの換算例は、10Kが45:00ならフルは約3:27:00、50:00なら3:50:00、55:00なら4:13:00です。僕の計算でも、3:27:01、3:50:01、4:13:01で一致しました。</p>
+    <p>そこでこの記事は、式を載せたうえで、「余裕を10〜15%見る」の根拠にあたる研究を、数字で確かめることにしました。</p>
+
+    <h2 id="shiki">3. Riegel式の中身</h2>
+    <p><strong>Riegel式は、距離が伸びたときに平均速度がどれだけ落ちるかを、1つの指数で表した式です。</strong>ある記録のタイムをT1、距離をD1とし、予想したい距離をD2とすると、T2はT1×（D2÷D1）の1.06乗になります。</p>
+    <p>出典は、Peter S. Riegelの論文「Athletic Records and Human Endurance」です。American Scientist 69巻3号の285〜290ページに、1981年に載りました。指数1.06は、世界記録のデータから出されたと説明されています（二次的な説明による）。</p>
+    <figure class="pic">
+      <img src="/read/img/10km-to-marathon-predicted-time/body_own.webp" width="1200" height="620" alt="10kmの記録から出したフルの予想タイム。10kmが40分なら3時間04分00秒、45分なら3時間27分01秒、50分なら3時間50分01秒、55分なら4時間13分01秒、60分なら4時間36分01秒" loading="lazy">
+      <figcaption>図2：10kmの記録別、フルのRiegel式の予想タイム（指数1.06。※筆者の計算）</figcaption>
+    </figure>
+
+    <h2 id="hyo1">4. 10kmの記録から、ハーフとフルの予想</h2>
+    <p><strong>10kmが50:00の人のRiegel式の予想は、ハーフが1:50:19、フルが3:50:01です。</strong>表1は、10kmが40:00から1時間10分までの11の記録を並べました（※筆者の計算）。</p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表1：10kmの記録から、ハーフとフルのRiegel式の予想タイム（指数1.06。※筆者の計算。ペースは秒未満を切り捨て）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">10kmの記録</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ハーフ</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">フル</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">フルの1kmのペース</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">40:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1:28:15</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:04:00</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">4:21</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">42:30</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1:33:46</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:15:31</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">4:38</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">45:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1:39:17</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:27:01</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">4:54</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">47:30</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1:44:48</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:38:31</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">5:10</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">50:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1:50:19</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:50:01</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">5:27</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">52:30</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1:55:50</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:01:31</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">5:43</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">55:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2:01:21</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:13:01</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">5:59</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">57:30</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2:06:52</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:24:31</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">6:16</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1:00:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2:12:23</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:36:01</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">6:32</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1:05:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2:23:25</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:59:01</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">7:05</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;;vertical-align:top;font-weight:700">1:10:00</th><td style="padding:8px 8px 8px 0;;vertical-align:top">2:34:27</td><td style="padding:8px 8px 8px 0;;vertical-align:top">5:22:01</td><td style="padding:8px 0 8px 8px;;vertical-align:top">7:37</td></tr></tbody></table></div>
+    <p>ハーフは21.0975km、フルは42.195kmで計算しています。サイトによっては、ハーフを21.1kmで計算していて、ハーフの値が数秒ずれることがあります。</p>
+    <p>10kmが60:00なら、フルは4:36:01で、1kmのペースは6分32秒です（表1の値）。10kmのペース6分00秒から、32秒落ちる計算です。</p>
+
+    <h2 id="hyo2">5. ハーフの記録から、フルの予想</h2>
+    <p><strong>ハーフが2:00:00の人のフルは、2倍した4:00:00ではなく、Riegel式で4:10:12です。</strong>表2は、ハーフが1:30:00から2:30:00までの5つの記録です（※筆者の計算）。</p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表2：ハーフの記録から、フルのRiegel式の予想タイムと、単純に2倍した値の差（※筆者の計算）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">ハーフの記録</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">2倍した値</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">Riegel式（1.06）</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">2倍との差</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1:30:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:00:00</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:07:39</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋8分</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">1:45:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:30:00</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:38:55</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋9分</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">2:00:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:00:00</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:10:12</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋10分</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">2:15:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:30:00</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:41:28</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋11分</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;;vertical-align:top;font-weight:700">2:30:00</th><td style="padding:8px 8px 8px 0;;vertical-align:top">5:00:00</td><td style="padding:8px 8px 8px 0;;vertical-align:top">5:12:44</td><td style="padding:8px 0 8px 8px;;vertical-align:top">＋13分</td></tr></tbody></table></div>
+    <p>2倍との差は、ハーフが遅いほど大きく、2:30:00で13分です。距離が2倍になると、平均の速さが落ちることを、式が織り込んでいます。</p>
+
+    <h2 id="hazure">6. フルで外れやすい理由を調べた研究</h2>
+    <p><strong>Vickers &amp; Vertosick（2016年）は、Riegel式はハーフまでは当たるが、フルは予想が速すぎる、と報告しています。</strong>研究は、2,303人の市民ランナーのインターネット調査をもとにしています。論文は『BMC Sports Science, Medicine and Rehabilitation』8巻26号に載っています。</p>
+    <p>要旨によると、Riegel式（指数1.07で検証）は、ハーフまでの距離では当たりが良く、フルは「半数のランナーで10分以上速すぎる」予想でした。論文は、週間の走行距離などを加えた新しいモデルも作り、フルで10分以上速すぎる人の割合を約半数から約4分の1に減らしたと報告しています。</p>
+    <div class="tscroll" style="overflow-x:auto;margin:18px 0"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;text-align:left"><caption style="text-align:left;font-size:.9375rem;color:var(--sub);margin-bottom:8px">表3：10kmの記録からのフルの予想タイム。指数1.06と1.07の差（※筆者の計算）</caption><thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">10kmの記録</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">指数1.06</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">指数1.07</th><th scope="col" style="padding:8px 0 8px 8px;border-bottom:2px solid var(--line);vertical-align:top">差</th></tr></thead><tbody><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">40:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:04:00</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:06:41</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋2分40秒</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">45:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:27:01</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:30:01</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋3分00秒</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">50:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:50:01</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3:53:21</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋3分20秒</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">55:00</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:13:01</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">4:16:41</td><td style="padding:8px 0 8px 8px;border-bottom:1px solid var(--line);vertical-align:top">＋3分40秒</td></tr><tr><th scope="row" style="padding:8px 8px 8px 0;;vertical-align:top;font-weight:700">1:00:00</th><td style="padding:8px 8px 8px 0;;vertical-align:top">4:36:01</td><td style="padding:8px 8px 8px 0;;vertical-align:top">4:40:01</td><td style="padding:8px 0 8px 8px;;vertical-align:top">＋4分00秒</td></tr></tbody></table></div>
+    <p>1.06を1.07に変えても、10kmが50分の人でフルは3分20秒しか動きません（表3の値）。論文が示した10分以上のずれは、この3分の3倍以上で、指数を少し変える程度では埋まりません。</p>
+    <p>ここは、僕は原論文の本文を読んでいません（要旨とPubMed Centralの記述まで）。ずれの原因は、僕は確かめられませんでした。</p>
+
+    <h2 id="tsukau">7. 予想タイムの使い方</h2>
+    <p>式の値は、フルの目標を決める下限として使うと安全です。次の3つで、目標の幅を作れます。</p>
+    <ol>
+      <li>表1の値を「最も速い場合」とする——体調も天候も良く、練習が足りている前提です</li>
+      <li>表3の1.07の値を、もう1つの目安にする——2〜4分遅くなります</li>
+      <li>初マラソンは10〜15%の余裕を足す——rundidaの注意書きに従います（根拠の研究は確かめていません）</li>
+    </ol>
+    <p>10kmのタイムを縮める計算は、<a href="/read/10km-pace-goal-gap-table">10kmのタイムを縮めるには1kmを何秒速くする？</a>に書きました。ペースと時速の一覧は<a href="/read/running-pace-conversion-table">ランニングのペース換算表</a>、ハーフの通過タイムは<a href="/read/half-marathon-pace-table">ハーフマラソンのペース表</a>にあります。</p>
+
+    <h2 id="matome">まとめ</h2>
+    <p>10kmの記録からフルを出すなら、距離比の掛け算ではなくRiegel式を使い、さらに余裕を見ます。この記事の要点は次の4つです。</p>
+    <ul>
+      <li>10km 50:00のフルは、距離比で3:30:59、Riegel式で3:50:01、指数1.07で3:53:21（※筆者の計算）</li>
+      <li>ハーフ2:00:00のフルは、2倍の4:00:00ではなく4:10:12</li>
+      <li>Vickersらの研究では、フルは式の予想より10分以上遅い人が約半数</li>
+      <li>指数を1.07にしても3分前後しか動かず、研究のずれの大きさは説明できない</li>
+    </ul>
+    <p>次の1アクションは、表1で自分の10kmの記録の行を探し、フルの予想に表3の1.07の値を並べ、その値に10分足した時刻も書き出すことです。10分足した時刻は、論文で半数のランナーが超えた水準で、上限ではありません。</p>
+
+    <h2 id="shuten">出典</h2>
+    <ul>
+      <li>Riegel PS. Athletic Records and Human Endurance. American Scientist 1981;69(3):285-290（巻号・ページは検索結果で確認。2026年11月23日。原論文は未確認）</li>
+      <li>Vickers AJ, Vertosick EA. An empirical study of race times in recreational endurance runners. BMC Sports Science, Medicine and Rehabilitation 2016;8:26（https://pmc.ncbi.nlm.nih.gov/articles/PMC5000509/ ／2026年11月23日に確認。2,303人・Riegel式k＝1.07・フルは半数で10分以上速すぎ）</li>
+      <li>rundida「マラソン予想タイム計算ツール」（https://rundida.com/ja/tools/race-time-predictor/ ／2026年11月23日に確認）：指数1.06、換算例、初マラソンの余裕10〜15%</li>
+      <li>本文のタイムはすべて筆者の計算（Riegel式。ハーフ21.0975km・フル42.195km。秒未満は四捨五入）</li>
+    </ul>
+
+    <nav class="related-posts" aria-label="関連記事">
+      <h2>ほかの読みもの</h2>
+    <ul class="post-list">
+      <li><a class="rl" href="/read/running-pace-conversion-table"><img class="rt" src="/read/img/running-pace-conversion-table/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">ランニングのペース換算表：1kmのペースから5km・10km・ハーフ・フルのタイムと時速</span></a></li>
+      <li><a class="rl" href="/read/10km-pace-goal-gap-table"><img class="rt" src="/read/img/10km-pace-goal-gap-table/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">10kmのタイムを縮めるには、1kmを何秒速くする？50分・45分を切る逆算と400mのラップ</span></a></li>
+      <li><a class="rl" href="/read/marathon-pace-table-sub4"><img class="rt" src="/read/img/marathon-pace-table-sub4/thumb_own.webp" width="112" height="63" alt="" data-aidecor="1" loading="lazy"><span class="t">サブ4・サブ4.5・サブ5のペース表：5kmごとの通過タイムと時速</span></a></li>
+    </ul>
+    </nav>
+
+    
+
+    <p class="updated">2026年11月23日公開</p>
+    <a class="back" href="/read/">← 読みもの一覧へ</a>
+  </div>
+</main>
+
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-23">2026年11月23日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
