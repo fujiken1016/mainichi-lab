@@ -21,7 +21,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
 <script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/nine-sites-search-traffic-share/hero_aigen.webp","headline":"個人で9サイトを運営して、検索クリックの84%は1サイトだった（28日間の実測）","description":"個人で運営している9つの小さなサイトの検索流入を、Search Consoleで1枚の表に並べました。28日間のクリック130回のうち109回が1サイトに集中し、残り7サイトは合わせて4回でした。数え方の注意と、計測漏れを全数で確かめた記録を観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-02T10:00:00+09:00","dateModified":"2026-11-02T10:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/nine-sites-search-traffic-share"},"url":"https://mainichi-lab.com/read/nine-sites-search-traffic-share"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","image":"https://mainichi-lab.com/read/img/nine-sites-search-traffic-share/hero_aigen.webp","headline":"個人で9サイトを運営して、検索クリックの84%は1サイトだった（28日間の実測）","description":"個人で運営している9つの小さなサイトの検索流入を、Search Consoleで1枚の表に並べました。28日間のクリック130回のうち109回が1サイトに集中し、残り7サイトは合わせて4回でした。数え方の注意と、計測漏れを全数で確かめた記録を観測日つきで書きます。","inLanguage":"ja","datePublished":"2026-11-02T10:00:00+09:00","dateModified":"2026-11-24T18:00:00+09:00","author":{"@type":"Person","name":"フジケン","url":"https://mainichi-lab.com/about"},"publisher":{"@type":"Organization","name":"毎日ラボ","url":"https://mainichi-lab.com/"},"isAccessibleForFree":true,"mainEntityOfPage":{"@type":"WebPage","@id":"https://mainichi-lab.com/read/nine-sites-search-traffic-share"},"url":"https://mainichi-lab.com/read/nine-sites-search-traffic-share"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mainichi-lab.com/"},{"@type":"ListItem","position":2,"name":"読みもの","item":"https://mainichi-lab.com/read/"},{"@type":"ListItem","position":3,"name":"9サイトの検索流入を1枚に並べた実測","item":"https://mainichi-lab.com/read/nine-sites-search-traffic-share"}]}
 </script>
@@ -55,6 +55,7 @@
 
     <p>僕は個人で、方言クイズ、資格の練習問題、麻雀の練習ツール、食事記録など、小さなWebサイトを9つ運営しています。どれも立ち上げて間もない、小さなサイトです。サイトが増えてくると、「どこに人が来ていて、どこに来ていないのか」が感覚では分からなくなります。そこで2026年9月5日に、9サイトの検索流入を1枚の表に並べてみました。</p>
     <p>先に結論です。2026年8月の28日間（Search Consoleで9月3日に取得）、9サイト合計の検索クリックは<strong>130回</strong>でした。そのうち<strong>109回（83.8%）が方言クイズのサイト1つ</strong>、17回（13.1%）が資格の練習サイトで、残りの7サイトは合わせて4回でした。「どこかに埋もれた流入があるのでは」と思って調べましたが、そういう面は見つかりませんでした。</p>
+    <p><strong>追記（2026年11月24日）：</strong>2か月後の10月9日〜11月5日で同じ集計をやり直しました。方言クイズの割合は、8月の83.8%から、10月9日〜11月5日は90.4%に上がっています。くわしくは<a href="#after">7章</a>に書きました。この記事の冒頭と1〜6章の数字は、そのまま8月の実測です。</p>
 
     <nav class="related-posts" aria-label="目次">
       <h2>目次</h2>
@@ -65,6 +66,7 @@
         <li><a href="#daily">4. 84%の1サイトも、日別ではかなり揺れていた</a></li>
         <li><a href="#audit">5. 「計測漏れでは？」を全数で確かめた</a></li>
         <li><a href="#lesson">6. 複数サイトを運営する人に伝えたいこと</a></li>
+        <li><a href="#after">7. 2か月後に同じ集計をやり直した</a></li>
         <li><a href="#matome">まとめ</a></li>
       </ul>
     </nav>
@@ -165,11 +167,37 @@
     </ol>
     <p>サイトを増やすこと自体は、新しいテーマを試す打席として悪くないと思っています。ただ、数を増やすことと、流入を分散させることは別の話でした。</p>
 
+    <h2 id="after">7. 2か月後に同じ集計をやり直した（10月9日〜11月5日）</h2>
+    <p>8月の表のあと、同じ9サイトを同じ並べ方で数え直しました。11月8日にSearch Consoleで読み取った、2026年10月9日〜11月5日の28日間です。8月の表と同じく、ページ別の数字を足した値として読んでください。ただし今回の合計は、11月8日にサイト別にまとめた表の見出しの値を使っています。8月と足し方が完全に揃っているかは、確認できていません。</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;text-align:left">
+<caption style="text-align:left;font-size:.9rem;color:var(--sub);margin-bottom:8px">表3：9サイトの検索流入を数え直した結果（Search Console・2026年10月9日〜11月5日の28日間・11月8日取得）</caption>
+<thead><tr><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">サイト</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">クリック</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">表示回数</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">クリックの割合</th><th scope="col" style="padding:8px 8px 8px 0;border-bottom:2px solid var(--line);vertical-align:top">8月の割合</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">方言クイズ</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,523</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">73,333</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">90.4%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">83.8%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">資格の練習</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">254</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">3,933</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">9.1%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">13.1%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">麻雀の練習</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">10</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">111</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.4%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2.3%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">別ドメインのゲーム系3サイト（ページ別の足し算）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">533</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.8%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">ポータル</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">5</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">70</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0.2%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">食事記録</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">ほぼ0</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">1</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">チップ計算</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">取得失敗</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">取得失敗</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">—</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">0%（9/3取得・実測）</td></tr>
+<tr><th scope="row" style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:700">合計（チップ計算を除く）</th><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">2,792</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">77,981</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">100%（11/8取得・実測）</td><td style="padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top">130クリック</td></tr>
+</tbody>
+</table>
+    <p>変わったことは3つあります。</p>
+    <ul>
+      <li><strong>全体が増えた：</strong>クリックは、8月の130回（9月3日取得）から、10月9日〜11月5日の2,792回（11月8日取得）になりました（約21.5倍）。ただし、8月は方言クイズを公開した直後の月でした。表の対象ページも、8月は「表示があった40ページ」、今回の元の表は「全106ページ」と書き方が違い、数え方がそろっていない可能性があります。何が増やしたのかは、切り分けていません。</li>
+      <li><strong>柱は分散せず、むしろ太くなった：</strong>方言クイズの割合は、8月の83.8%（9月3日取得）から、10月9日〜11月5日は90.4%（11月8日取得）になりました。表示回数で見ると94.0%（同じ期間）です。9サイトを運営していても、流入の9割は1サイトという形は、2か月たっても変わりませんでした。</li>
+      <li><strong>2本目の柱は試験に引っ張られている：</strong>資格の練習の254クリック（10月9日〜11月5日・11月8日取得）のうち、87クリックは解答速報・自己採点の1ページでした。10月18日の本試験を含む期間なので、試験が終わった後も同じ数字が続くかは、次の28日で確かめます。</li>
+    </ul>
+    <p>表に入れられなかったのは、チップ計算です。11月8日の時点でドメインの名前解決ができず、Search Consoleにも行が無かったため、0とは書かずに「取得失敗」としました。</p>
+    <p>方言クイズの中身は、<a href="/read/hogen-ctr-by-position">同じ検索順位でもクリック率が3倍違った記事</a>で、ページ別に分けて書いています。流入が少ないページが「登録されていない」のか「登録されているが順位が低い」のかは、<a href="/read/unindexed-80-to-zero">インデックス未登録の80件を0件にした記録</a>と、<a href="/read/tracking-audit-235-urls">計測タグを235ページ全数で確かめた記録</a>で、確認した順番を書いています。</p>
+
     <h2 id="matome">まとめ</h2>
     <ul>
       <li>2026年8月の28日間、9サイト合計の検索クリックは<strong>130回</strong>。<strong>うち109回（83.8%）が1サイト</strong>で、残り7サイトは合わせて4回でした</li>
       <li>ページ別の数字を足した合計なので、サイト全体の合計とは一致しないことがあります。期間も一部1日ずれています</li>
       <li>計測タグは<strong>224ページ中224ページ</strong>に入っていて、計測漏れではありませんでした。流入の少なさは、流入そのものが無いことが原因でした</li>
+      <li>2026年10月9日〜11月5日の28日間で数え直すと、クリックは<strong>2,792回</strong>（8月の約21.5倍）で、うち<strong>2,523回（90.4%）が方言クイズ</strong>。柱は太くなっただけで、分散はしていませんでした</li>
     </ul>
     <p>次の1アクションとして、自分の運営しているサイトを全部、クリック数だけの表に並べてみてください。1か所に何%集まっているかが分かるだけで、次にどこへ手を入れるかが決めやすくなります。</p>
     <p>ほかにも、自分で運営して測った記録を書いています。<a href="/read/gsc-anonymous-queries-exam-day">Search Consoleのクエリ表が見えなかった日</a>や、<a href="/read/qiita-19-articles-measured">Qiita記事を19本書いた実測</a>もどうぞ。</p>
@@ -186,7 +214,7 @@
   </div>
 </main>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-02">2026年11月2日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-02">2026年11月2日</time>　最終更新：<time datetime="2026-11-24">2026年11月24日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
