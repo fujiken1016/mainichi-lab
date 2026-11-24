@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini TTSの費用計算機｜字数から音声の長さと料金を出す | 毎日ラボ</title>
+<meta name="description" content="読み上げたい文章の字数から、Gemini の音声合成（TTS）の音声の長さと料金を計算します。2027年1月1日の値上げ前後を並べます。入力は端末の外に送りません。">
+<link rel="canonical" href="https://mainichi-lab.com/gemini-tts-cost/">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="Gemini TTSの費用計算機">
+<meta property="og:description" content="字数から音声の長さと料金を計算。2027年1月の値上げ前後を並べる">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mainichi-lab.com/gemini-tts-cost/">
+<meta property="og:image" content="https://mainichi-lab.com/img/home/hero_aigen.webp">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="576">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style>.calc label{display:block;font-weight:700;margin:14px 0 4px}.calc input{width:100%;max-width:320px;min-height:48px;font-size:18px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;box-sizing:border-box}.calc small{display:block;color:var(--sub,#53536b);line-height:1.7;margin-top:4px}.res{margin:20px 0;padding:16px;border:1px solid var(--line);border-radius:12px;line-height:1.9}.res strong{font-size:20px}.cal td,.cal th{padding:12px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);line-height:1.7}.cal{width:100%;border-collapse:collapse}.cal th{white-space:nowrap;font-weight:700}</style>
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)mainichi-lab\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+
+<script src="/oc.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gemini TTSの費用計算機｜字数から音声の長さと料金を出す | 毎日ラボ","url":"https://mainichi-lab.com/gemini-tts-cost/","inLanguage":"ja","datePublished":"2026-11-25","dateModified":"2026-11-25"}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span>Gemini TTSの費用計算機</p>
+    <h1>Gemini TTSの費用計算機</h1>
+    <p class="meta">入力は端末内だけで計算・送信なし・2027年1月の値上げ前後を並べます</p>
+    <p>日本語の文章を Gemini の音声合成（TTS）で読み上げると、音声は何分になり、いくらかかるかを字数から出します。出力の音声は<strong>1秒あたり25トークン</strong>で数えられます（公式の料金ページ）。</p>
+    <div class="calc">
+      <label for="ch">読み上げる文章の字数</label>
+      <input id="ch" type="number" inputmode="numeric" min="0" step="1000" placeholder="例 56000">
+      <small>文字数カウントで出た数字をそのまま入れてください。</small>
+      <label for="sp">読み上げの速さ（1分あたりの字数）</label>
+      <input id="sp" type="number" inputmode="numeric" min="100" max="900" step="10" value="470">
+      <small>自分で測った日本語の朗読は1分あたり約470字でした（間を入れた場合）。速く読ませるほど音声は短くなり、料金も下がります。</small>
+      <label for="model">モデル</label>
+      <select id="model" style="min-height:48px;font-size:18px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;max-width:100%">
+        <option value="flash">Gemini 3.8 Flash TTS</option>
+        <option value="lite">Gemini 3.8 Flash-Lite TTS</option>
+      </select>
+    </div>
+    <div class="res" id="res" aria-live="polite">字数を入れると結果が出ます。</div>
+    <h2>計算のしくみ</h2>
+    <table class="cal"><tbody>
+      <tr><th scope="row">音声の長さ</th><td>字数 ÷ 1分あたりの字数 × 60秒</td></tr>
+      <tr><th scope="row">出力の料金</th><td>音声の秒数 × 25トークン ÷ 100万 × 単価（2026年中は Flash が$9、Flash-Lite が$6。2027年1月1日からは倍の$18と$12）</td></tr>
+      <tr><th scope="row">入力の料金</th><td>文章のトークン数 ÷ 100万 × 単価（2026年中は$0.50、2027年から$1.00）。日本語は1字を約1トークンとして数えた目安です</td></tr>
+      <tr><th scope="row">無料枠</th><td>無料枠の範囲では料金は0円です。ここで出るのは有料枠の目安です</td></tr>
+    </tbody></table>
+    <p>為替は1ドル150円で換算した目安です。実際の請求額は為替・トークン数の端数で変わります。</p>
+    <h2>関連するツール</h2>
+    <p><a href="/zeikin-calendar/">税カレンダー（12月〜3月）を.icsで入れる</a></p>
+    <h2 id="src">出典</h2>
+    <ul class="srcs" style="list-style:none;padding-left:0">
+      <li><a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API の料金（Google AI for Developers）</a></li>
+    </ul>
+    <p class="disc">2026年11月25日に料金ページを読んで作った目安です。単価は変わることがあるので、使う前に公式の料金ページで確かめてください。運営：フジケン（個人事業主）。</p>
+  </div>
+</main>
+<script>
+(function(){
+  var P={flash:{o:[9,18],i:[0.5,1]},lite:{o:[6,12],i:[0.5,1]}};
+  var el=function(i){return document.getElementById(i)};
+  var yen=function(d){return '約'+Math.round(d*150).toLocaleString('ja-JP')+'円（$'+d.toFixed(2)+'）'};
+  function run(){
+    var ch=Math.max(0,+el('ch').value||0), sp=Math.min(900,Math.max(100,+el('sp').value||470)), m=P[el('model').value];
+    var out=el('res');
+    if(!ch){out.textContent='字数を入れると結果が出ます。';return;}
+    var sec=ch/sp*60, tok=sec*25;
+    var c=function(k){return tok/1e6*m.o[k]+ch/1e6*m.i[k]};
+    var mm=Math.floor(sec/60), ss=Math.round(sec%60);
+    out.innerHTML='音声の長さ：<strong>'+mm+'分'+ss+'秒</strong>（出力 '+Math.round(tok).toLocaleString('ja-JP')+'トークン）<br>2026年中の料金：<strong>'+yen(c(0))+'</strong><br>2027年1月1日から：<strong>'+yen(c(1))+'</strong>（約2倍）';
+  }
+  ['ch','sp','model'].forEach(function(i){el(i).addEventListener('input',run)});
+})();
+</script>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-25">2026年11月25日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
