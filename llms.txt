@@ -64,3 +64,20 @@
 
 - [運営者について](https://mainichi-lab.com/about)
 - [読みもの一覧](https://mainichi-lab.com/read/)
+
+## よくある質問と短い答え（記事の実測値より）
+
+Q. 毎日ラボとは何ですか。
+A. 個人事業主「フジケン」が運営する、無料Webツールと実測記録の読みもののサイトです。新聞社など他の企業・団体とは関係ありません。連絡先: https://mainichi-lab.com/contact
+
+Q. 個人運営の複数サイトで、検索流入はどう偏りますか。
+A. 個人で運営する9サイトを28日間測ると、検索クリック130回のうち109回（84%）が1サイトに集中し、残り7サイトは合わせて4回でした。根拠ページ: https://mainichi-lab.com/read/nine-sites-search-traffic-share
+
+Q. 方言変換ツールで文が壊れる割合は。
+A. 自作の方言変換ツールを全部の組み合わせで数えたところ、432通り中417通りで文が壊れていました。根拠ページ: https://mainichi-lab.com/read/dialect-converter-417-of-432-broken
+
+Q. GA4に自分や本番以外のアクセスはどのくらい混ざりますか。
+A. 個人サイトのGA4で、表示回数の17〜42%が本番以外のホストでした（実測）。根拠ページ: https://mainichi-lab.com/read/ga4-self-traffic-measured
+
+Q. 503エラーのあと、検索に登録されたページ数はどう変わりましたか。
+A. 登録済みが41ページから111ページに増えました（実測）。根拠ページ: https://mainichi-lab.com/read/search-503-recovery-measured
