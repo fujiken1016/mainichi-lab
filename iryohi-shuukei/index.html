@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医療費控除の集計フォーム用に、領収書をまとめる | 毎日ラボ</title>
+<meta name="description" content="領収書の一覧を貼ると、国税庁の医療費集計フォームに貼れる形（人・病院ごとの合計）に直します。入力は端末の外に送りません。">
+<link rel="canonical" href="https://mainichi-lab.com/iryohi-shuukei/">
+<meta property="og:site_name" content="毎日ラボ">
+<meta property="og:title" content="医療費控除とセルフメディケーション税制、どちらが得か計算">
+<meta property="og:description" content="領収書を、集計フォームに貼れる行にまとめる">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mainichi-lab.com/iryohi-shuukei/">
+<meta property="og:image" content="https://mainichi-lab.com/img/home/hero_aigen.webp">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="576">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+<style>.calc label{display:block;font-weight:700;margin:14px 0 4px}.calc input{width:100%;max-width:320px;min-height:48px;font-size:18px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;box-sizing:border-box}.calc small{display:block;color:var(--sub,#53536b);line-height:1.7;margin-top:4px}.res{margin:20px 0;padding:16px;border:1px solid var(--line);border-radius:12px;line-height:1.9}.res strong{font-size:20px}.cal td,.cal th{padding:12px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);line-height:1.7}textarea{width:100%;min-height:200px;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;box-sizing:border-box;line-height:1.6}.btn{min-height:48px;padding:8px 20px;font-size:16px;font-weight:700;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;margin:8px 8px 8px 0}.cal{width:100%;border-collapse:collapse}.cal th{white-space:nowrap;font-weight:700}</style>
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)mainichi-lab\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+
+<script src="/oc.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"医療費控除の集計フォーム用に、領収書をまとめる","url":"https://mainichi-lab.com/iryohi-shuukei/","inLanguage":"ja"}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><a href="/">🧪 毎日ラボ</a></div>
+    <nav class="gnav">
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap prose">
+    <p class="crumb"><a href="/">ホーム</a><span>›</span>医療費の集計フォーム下ごしらえ</p>
+    <h1>医療費控除の集計フォーム用に、領収書をまとめる</h1>
+    <p class="meta">入力は端末内だけで処理・送信なし</p>
+    <p>国税庁の「医療費集計フォーム」（Excel）は、<strong>医療を受けた人×病院・薬局ごとに1行</strong>で合計を入れる形です。領収書を1枚1行で貼ると、同じ人・同じ病院の分を足して、フォームにそのまま貼れる行に直します。</p>
+    <div class="calc">
+      <label for="in">領収書の一覧（1行に1枚・カンマかタブ区切り）</label>
+      <textarea id="in" placeholder="田中太郎,山田内科,診療,3300,0&#10;田中太郎,山田内科,診療,2200,0&#10;田中太郎,さくら薬局,医薬品,1480,0&#10;田中花子,中央病院,診療,52000,30000"></textarea>
+      <small>並び順は <strong>医療を受けた人, 病院・薬局の名称, 区分, 支払った金額, 補填される金額</strong>。区分は「診療」「医薬品」「介護」「その他」のどれか（複数なら「診療+医薬品」）。補填が無ければ0か空でかまいません。</small>
+      <button class="btn" id="go" type="button">まとめる</button>
+      <button class="btn" id="cp" type="button">結果をコピー</button>
+    </div>
+    <div class="res" id="msg" aria-live="polite">一覧を貼って「まとめる」を押してください。</div>
+    <label for="out" style="display:block;font-weight:700;margin:14px 0 4px">結果（フォームの B9 に貼る）</label>
+    <textarea id="out" readonly></textarea>
+    <h2>フォームへの貼り方</h2>
+    <table class="cal"><tbody>
+      <tr><th scope="row">貼る場所</th><td>フォームの <strong>B9</strong> のセルに貼ります。列は B 医療を受けた人／C 病院・薬局などの名称／D〜G 医療費の区分（診療・治療、医薬品購入、介護保険サービス、その他の医療費）／H 支払った医療費の金額／I 左のうち補填される金額、の順です。</td></tr>
+      <tr><th scope="row">区分の欄</th><td>該当する区分には「該当する」が入ります。この列はリストから選ぶ決まりなので、別の文字だと入力エラーになります。</td></tr>
+      <tr><th scope="row">文字数と行数</th><td>医療を受けた人は全角10文字、病院・薬局の名称は全角20文字以内、行は9行目から1003行目まで（995行）です。超えると、このページが知らせます。</td></tr>
+      <tr><th scope="row">補填される金額</th><td>保険金などは、その給付の目的になった医療費を限度に引きます。他の医療費からは引きません。</td></tr>
+    </tbody></table>
+    <p>貼ったあとは、フォームの合計と、手元の領収書の合計が合うかを必ず確かめてください。</p>
+    <h2>関連するツール</h2>
+    <p><a href="/iryohi-selfmed/">医療費控除とセルフメディケーション税制、どちらが得か</a></p>
+    <p><a href="/zeikin-calendar/">税カレンダー（12月〜3月）を.icsで入れる</a></p>
+    <h2 id="src">出典</h2>
+    <ul class="srcs" style="list-style:none;padding-left:0">
+      <li><a href="https://www.nta.go.jp/taxes/shiraberu/shinkoku/tokushu/keisubetsu/iryou-shuukei.htm">国税庁 医療費集計フォーム（Ver.3.1 のExcelの列・文字数・行数を読みました）</a></li>
+      <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm">国税庁 タックスアンサー No.1120 医療費を支払ったとき（医療費控除）</a></li>
+    </ul>
+    <p class="disc">2026年11月26日に国税庁の集計フォーム（Ver.3.1）を読んで作りました。フォームの版が変わると列が変わることがあります。個別の税務判断は税務署か税理士へ。</p>
+  </div>
+</main>
+<script>
+(function(){
+  var el=function(i){return document.getElementById(i)};
+  function cats(s){var c={d:0,m:0,k:0,o:0};s.split(/[+＋・\/]/).forEach(function(x){x=x.trim();if(/^診療|治療/.test(x))c.d=1;else if(/^医薬|薬/.test(x))c.m=1;else if(/^介護/.test(x))c.k=1;else if(x)c.o=1;});return c;}
+  function run(){
+    var lines=el('in').value.split(/\r?\n/).filter(function(l){return l.trim()});
+    var map={},order=[],warn=[],total=0,hoten=0;
+    lines.forEach(function(l,i){
+      var p=l.split(/\t|,|，/).map(function(x){return x.trim()});
+      var amt=parseInt((p[3]||'').replace(/[^0-9]/g,''),10),ht=parseInt((p[4]||'0').replace(/[^0-9]/g,''),10)||0;
+      if(p.length<4||isNaN(amt)){warn.push((i+1)+'行目：金額が読めません');return;}
+      var c=cats(p[2]||''),k=p[0]+'|'+p[1];
+      if(!map[k]){map[k]={a:p[0],b:p[1],c:{d:0,m:0,k:0,o:0},h:0,t:0};order.push(k);}
+      var m=map[k];['d','m','k','o'].forEach(function(x){if(c[x])m.c[x]=1});m.h+=amt;m.t+=ht;total+=amt;hoten+=ht;
+    });
+    var rows=order.map(function(k){var m=map[k];
+      if(m.a.length>10)warn.push('「'+m.a+'」は10文字を超えています（フォームは全角10文字まで）');
+      if(m.b.length>20)warn.push('「'+m.b+'」は20文字を超えています（フォームは全角20文字まで）');
+      var g=function(x){return x?'該当する':''};
+      return [m.a,m.b,g(m.c.d),g(m.c.m),g(m.c.k),g(m.c.o),m.h,m.t||''].join('\t');});
+    if(rows.length>995)warn.push('行が995を超えています（フォームは9〜1003行目）');
+    el('out').value=rows.join('\n');
+    el('msg').innerHTML='領収書 <strong>'+lines.length+'</strong> 枚 → フォームの <strong>'+rows.length+'</strong> 行。支払った合計 <strong>'+total.toLocaleString('ja-JP')+'円</strong>、補填 '+hoten.toLocaleString('ja-JP')+'円。'+(warn.length?'<br>⚠️ '+warn.join('<br>⚠️ '):'');
+  }
+  el('go').addEventListener('click',run);
+  el('cp').addEventListener('click',function(){var o=el('out');o.select();try{document.execCommand('copy');el('cp').textContent='コピーしました'}catch(e){}});
+})();
+</script>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-26">2026年11月26日</time></p>
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="/">ホーム</a>
+      <a href="/story">毎日ラボとは</a>
+      <a href="/read/">読みもの</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/disclaimer">免責事項</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© 2026 毎日ラボ / mainichi-lab.com</p>
+  </div>
+</footer>
+</body>
+</html>
