@@ -21,7 +21,7 @@
 <script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)mainichi-lab\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
 
 <script src="/oc.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gemini TTSの費用計算機｜字数から音声の長さと料金を出す | 毎日ラボ","url":"https://mainichi-lab.com/gemini-tts-cost/","inLanguage":"ja","datePublished":"2026-11-25","dateModified":"2026-11-25"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Gemini TTSの費用計算機｜字数から音声の長さと料金を出す | 毎日ラボ","url":"https://mainichi-lab.com/gemini-tts-cost/","inLanguage":"ja","datePublished":"2026-11-25","dateModified":"2026-11-26"}</script>
 </head>
 <body>
 <header class="site">
@@ -65,6 +65,14 @@
       <tr><th scope="row">無料枠</th><td>無料枠の範囲では料金は0円です。ここで出るのは有料枠の目安です</td></tr>
     </tbody></table>
     <p>為替は1ドル150円で換算した目安です。実際の請求額は為替・トークン数の端数で変わります。</p>
+    <h2>使い方と計算例</h2>
+    <p>読み上げたい文章の字数（文字数カウントの結果）を入れ、読み上げの速さとモデルを選ぶと、音声の長さと、2026年中と2027年1月以降の料金が並んで出ます。速さは100〜900字/分の範囲で計算し、範囲外の値はその端の値に丸め、空欄は470字/分（初期値）にして計算します。</p>
+    <p>たとえば、Flash TTS で1,000字を1分470字の速さで読ませると、音声は約2分8秒（3,191トークン）になり、料金は2026年中が約4円、2027年1月1日からが約9円です。1万字なら約21分17秒（31,915トークン）で、2026年中が約44円、2027年1月1日からが約88円です。これは、この計算機に同じ値を入れたときの表示と同じです。</p>
+    <h2>結果の読み方と、含まれないもの</h2>
+    <p>出るのは、文章を音声にするときの料金の目安だけです。無料枠で収まる範囲の分、Gemini の他の機能の料金、請求アカウント側の税や手数料、通信や保存の費用は含みません。入力側は、日本語1字を約1トークンとして数えた目安で、実際のトークン数は文章によって前後します。</p>
+    <p>読み上げの速さは、実際に作られる音声の長さと料金に直接効きます。初期値の1分約470字は、自分で測った日本語の朗読（間を入れた場合）の値です。この計算機は速さを1つの数字で置いているので、実際に作られる音声の長さとは差が出ることがあります。</p>
+    <h2>料金が変わったとき・結果の誤りに気づいたとき</h2>
+    <p>単価は、2026年11月25日に Google の料金ページを読んで入れた値です。単価が公式ページで変わったときや、この計算機の結果が公式の料金表から出した値と合わないときは、<a href="/contact">お問い合わせ</a>から、どの条件（字数・速さ・モデル）で、どの数字が違うかを添えてご連絡ください。確認して誤りが確かめられた場合は、計算式と本文を直し、ページ下の「最終更新」の日付も更新します。</p>
     <h2>関連するツール</h2>
     <p><a href="/zeikin-calendar/">税カレンダー（12月〜3月）を.icsで入れる</a></p>
     <h2 id="src">出典</h2>
@@ -91,7 +99,7 @@
   ['ch','sp','model'].forEach(function(i){el(i).addEventListener('input',run)});
 })();
 </script>
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-25">2026年11月25日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#53536b);text-align:center">公開：<time datetime="2026-11-25">2026年11月25日</time>　最終更新：<time datetime="2026-11-26">2026年11月26日</time></p>
 <footer class="site">
   <div class="wrap">
     <nav>
